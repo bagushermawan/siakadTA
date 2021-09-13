@@ -19,9 +19,16 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
-        'email',
+        'username',
         'password',
+        'alamat',
+        'tgl_lahir',
     ];
+
+    public function role()
+    {
+        return $this->hasMany('Role', 'role_id');
+    }
 
     /**
      * The attributes that should be hidden for serialization.
