@@ -18,7 +18,7 @@ class CreateProductsTable extends Migration
             $table->string('nama');
             $table->integer('stock');
             $table->integer('price');
-            $table->unsignedInteger('category');
+            $table->unsignedInteger('category_id');
             $table->timestamps();
         });
     }
