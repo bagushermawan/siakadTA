@@ -21,11 +21,11 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->string('alamat');
             $table->date('tgl_lahir');
-            $table->unsignedInteger('role_id');
+            // $table->unsignedBigInteger('role_id');
             $table->rememberToken();
             $table->timestamps();
 
-            $table->foreign('role_id')->references('id')->on('role')->onDelete('cascade');
+            $table->foreignId('role_id')->constrained('roles');
         });
     }
 

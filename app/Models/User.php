@@ -23,6 +23,7 @@ class User extends Authenticatable
         'password',
         'alamat',
         'tgl_lahir',
+        'role_id',
     ];
 
     public function role()
