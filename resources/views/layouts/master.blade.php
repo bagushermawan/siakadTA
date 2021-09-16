@@ -8,6 +8,8 @@
   <!-- General CSS Files -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://demo.getstisla.com/assets/modules/select2/dist/css/select2.min.css">
+
 
   <!-- CSS Libraries -->
   <link rel="stylesheet" href="https://demo.getstisla.com/assets/modules/datatables/datatables.min.css">
@@ -67,9 +69,10 @@
   <script src="https://demo.getstisla.com/assets/modules/datatables/DataTables-1.10.16/js/dataTables.bootstrap4.min.js"></script>
   <script src="https://demo.getstisla.com/assets/modules/datatables/Select-1.2.4/js/dataTables.select.min.js"></script>
   <script src="https://demo.getstisla.com/assets/modules/jquery-ui/jquery-ui.min.js"></script>
+  <script src="https://demo.getstisla.com/assets/modules/select2/dist/js/select2.full.min.js"></script>
+
 
   <!-- Page Specific JS File -->
-  {{-- <script src="https://demo.getstisla.com/assets/js/page/modules-datatables.js"></script> --}}
 
   <!-- Template JS File -->
   <script src="/assets/js/scripts.js"></script>

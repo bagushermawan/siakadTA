@@ -74,5 +74,11 @@ class RoleController extends Controller
             Session::flash('delete','Role berhasil dihapus!');
             return redirect()->route('role');
     }
+    public function ajaxSearch(Request $request)
+    {
+        $keyword = $request->get('q');
+        $roles = Role::where("nama", "LIKE", "%$keyword%")->get();
+        return $roles;
+    }
 
 }

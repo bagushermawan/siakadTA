@@ -7,48 +7,82 @@
   </div> --}}
 @endsection
 @section('content')
-    <div class="section-body">
-        <h2 class="section-title">User</h2>
-            <p class="section-lead">
-              You can manage all users, such as editing, deleting and more.
-            </p>
-            <div class="row">
-                <div class="col-12 col-md-12">
-                    <div class="card">
-                        <div class="card-header">
-                          <h4>HTML5 Form Basic</h4>
-                        </div>
-                        <div class="card-body">
-                          <div class="alert alert-info">
+<div class="section-body">
+    <div class="row">
+        <div class="col-12 col-md-12">
+            <div class="card">
+                {{-- <div class="card-header">
+                          <h4>Role Form</h4>
+                        </div> --}}
+                <div class="card-body">
+                    {{-- <div class="alert alert-info">
                             <b>Note!</b> Not all browsers support HTML5 type input.
-                          </div>
-                          <div class="form-group">
-                            <label>Text</label>
-                            <input type="text" class="form-control">
-                          </div>
-                          <div class="form-group">
-                            <label>Select</label>
-                            <select class="form-control">
-                              <option>Option 1</option>
-                              <option>Option 2</option>
-                              <option>Option 3</option>
-                            </select>
-                          </div>
-                          <div class="form-group">
-                            <label>Select Multiple</label>
-                            <select class="form-control" multiple="" data-height="100%" style="height: 100%;">
-                              <option>Option 1</option>
-                              <option>Option 2</option>
-                              <option>Option 3</option>
-                              <option>Option 3</option>
-                            </select>
-                          </div>
-                          <div class="card-footer text-right">
+                          </div> --}}
+                    <form action="{{route('user')}}" method="POST">
+                        @csrf
+                        <div class="form-group">
+                            <label>Nama:</label>
+                            <input type="text" name="nama" class="form-control">
+                        </div>
+                        <div class="form-group">
+                          <label>Username:</label>
+                          <input type="text" name="username" class="form-control">
+                      </div>
+                      <div class="form-group">
+                        <label>Password:</label>
+                        <input type="password" name="password" class="form-control">
+                    </div>
+                    <div class="form-group">
+                      <label>Alamat:</label>
+                      <input type="text" name="alamat" class="form-control">
+                  </div>
+                  <div class="form-group">
+                    <label>Tanggal Lahir:</label>
+                    <input type="date" name="tgl_lahir" class="form-control">
+                  </div>
+                  <div class="form-group">
+                    <label>Role:</label>
+                    {{-- <div class="selectgroup selectgroup-pills">
+                      @foreach($role as $k)
+                      <label class="selectgroup-item">
+                          <input type="checkbox" name="role_id" value="{{$k->id}}" class="selectgroup-input">
+                          <span class="selectgroup-button">{{$k->nama}}</span>
+                      </label>
+                      @endforeach
+                  </div> --}}
+                    <select name="role_id" class="roles" class="form-control">
+                    </select>
+                </div>
+                        <div class="card-footer text-right">
                             <button class="btn btn-primary mr-1" type="submit">Submit</button>
                             <button class="btn btn-secondary" type="reset">Reset</button>
-                          </div>
-                      </div>
+                        </div>
+                    </form>
                 </div>
             </div>
+        </div>
     </div>
-@endsection
+    @endsection
+
+    @push('page-script')
+    <script type="text/javascript">
+      $('.roles').select2({
+        placeholder: 'Select Role',
+        ajax: {
+          url: "{{route('role.ajaxsearch')}}",
+          dataType: 'json',
+          processResults: function (data) {
+            return {
+              results:  $.map(data, function (item) {
+                return {
+                  text: item.nama,
+                  id: item.id
+                }
+              })
+            };
+          },
+          cache: true
+        }
+      });
+    </script>
+    @endpush

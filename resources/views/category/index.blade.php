@@ -32,18 +32,6 @@
                                                 <th style="width: 15%;">
                                                     <center>Created at</center>
                                                 </th>
-                                                {{-- <th class="sorting_disabled" rowspan="1" colspan="1"
-                                                    aria-label="Members" style="width: 229.562px;">Members</th>
-                                                <th class="sorting_desc" tabindex="0" aria-controls="table-1"
-                                                    rowspan="1" colspan="1"
-                                                    aria-label="Due Date: activate to sort column ascending"
-                                                    aria-sort="descending" style="width: 101.156px;">Due Date</th>
-                                                <th class="sorting" tabindex="0" aria-controls="table-1" rowspan="1"
-                                                    colspan="1" aria-label="Status: activate to sort column ascending"
-                                                    style="width: 122.094px;">Status</th>
-                                                <th class="sorting" tabindex="0" aria-controls="table-1" rowspan="1"
-                                                    colspan="1" aria-label="Action: activate to sort column ascending"
-                                                    style="width: 83.7969px;">Action</th> --}}
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -65,16 +53,6 @@
                                                         {{$category->created_at->format('d M Y, H:i')}}
                                                     </center>
                                                 </td>
-                                                {{-- <td>
-                                                    <img alt="image" src="assets/img/avatar/avatar-2.png"
-                                                        class="rounded-circle" width="35" data-toggle="tooltip" title=""
-                                                        data-original-title="Rizal Fakhri">
-                                                </td>
-                                                <td class="sorting_1">2018-01-16</td>
-                                                <td>
-                                                    <div class="badge badge-success">Completed</div>
-                                                </td>
-                                                <td><a href="#" class="btn btn-secondary">Detail</a></td> --}}
                                             </tr>
                                             @endforeach
                                         </tbody>

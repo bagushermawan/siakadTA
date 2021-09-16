@@ -35,6 +35,8 @@ Route::post("/role/store", "RoleController@store")->name('role.store');
 Route::get('/role/edit/{id}', 'RoleController@edit')->name('role.edit');
 Route::put('/role/update/{id}', 'RoleController@update')->name('role.update');
 Route::get('/role/destroy/{id}', 'RoleController@destroy')->name('role.destroy');
+Route::get('/role/search','RoleController@ajaxSearch')->name('role.ajaxsearch');
+
 
 
 //Category
