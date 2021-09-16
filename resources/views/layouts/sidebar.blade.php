@@ -15,16 +15,17 @@
                   <li><a class="nav-link" href="index.html">Ecommerce Dashboard</a></li>
                 </ul>
               </li>
-              <li class="menu-header">Starter</li>
-              <li class="nav-item dropdown">
-                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i> <span>Layout</span></a>
+              <li class="menu-header">Pages</li>
+              <li class="nav-item dropdown active">
+                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i> <span>Menu</span></a>
                 <ul class="dropdown-menu">
-                  <li><a class="nav-link" href="layout-default.html">Default Layout</a></li>
-                  <li><a class="nav-link" href="layout-transparent.html">Transparent Sidebar</a></li>
+                  <li class="{{ request()->is('user*') ? 'active' : '' }}"><a class="nav-link" href="{{route('user')}}">User</a></li>
+                  <li class="{{ request()->is('role*') ? 'active' : '' }}"><a class="nav-link" href="{{route('role')}}">Role</a></li>
+                  <li class="{{ request()->is('category*') ? 'active' : '' }}"><a class="nav-link" href="{{route('category')}}">Category</a></li>
                   <li><a class="nav-link" href="layout-top-navigation.html">Top Navigation</a></li>
                 </ul>
               </li>
-              <li class="active"><a class="nav-link" href="/crud"><i class="far fa-square"></i> <span>C R U D</span></a></li>
+              <li><a class="nav-link" href="/crud"><i class="far fa-square"></i> <span>C R U D</span></a></li>
               {{-- <li class="nav-item dropdown">
                 <a href="#" class="nav-link has-dropdown"><i class="fas fa-th"></i> <span>Bootstrap</span></a>
                 <ul class="dropdown-menu">
