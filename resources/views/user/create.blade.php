@@ -18,7 +18,7 @@
                     {{-- <div class="alert alert-info">
                             <b>Note!</b> Not all browsers support HTML5 type input.
                           </div> --}}
-                    <form action="{{route('user')}}" method="POST">
+                    <form action="{{route('user.store')}}" method="POST">
                         @csrf
                         <div class="form-group">
                             <label>Nama:</label>
@@ -42,16 +42,15 @@
                   </div>
                   <div class="form-group">
                     <label>Role:</label>
-                    {{-- <div class="selectgroup selectgroup-pills">
-                      @foreach($role as $k)
-                      <label class="selectgroup-item">
-                          <input type="checkbox" name="role_id" value="{{$k->id}}" class="selectgroup-input">
-                          <span class="selectgroup-button">{{$k->nama}}</span>
-                      </label>
-                      @endforeach
-                  </div> --}}
                     <select name="role_id" class="roles" class="form-control">
+                      <select class="form-control roles">
                     </select>
+                    {{-- select2 mannual no ajax --}}
+                    {{-- <select class="form-control select2">
+                      @foreach ($role as $r)
+                          <option value="{{$r->id}}">{{$r->nama}}</option>
+                      @endforeach
+                    </select> --}}
                 </div>
                         <div class="card-footer text-right">
                             <button class="btn btn-primary mr-1" type="submit">Submit</button>
@@ -66,6 +65,7 @@
 
     @push('page-script')
     <script type="text/javascript">
+      $(function(){
       $('.roles').select2({
         placeholder: 'Select Role',
         ajax: {
@@ -84,5 +84,6 @@
           cache: true
         }
       });
+    })
     </script>
     @endpush

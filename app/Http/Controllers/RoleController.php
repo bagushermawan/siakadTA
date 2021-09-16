@@ -76,15 +76,9 @@ class RoleController extends Controller
     }
     public function ajaxSearch(Request $request)
     {
-        $data = [];
-
-        if($request->has('q')){
-            $search = $request->q;
-            $data =Role::select("id","nama")
-            		->where('nama','LIKE',"%$search%")
-            		->get();
-        }
-        return response()->json($data);
-    }
+        $keyword = $request->get('q');
+        $roles = Role::where("nama", "LIKE", "%$keyword%")->get();
+        return $roles;
+       }
 
 }

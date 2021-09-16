@@ -25,6 +25,9 @@ Route::get('crud', function () {
 //User
 Route::get("/user", "UserController@index")->name('user');
 Route::get("/user/create", "UserController@create")->name('user.create');
+Route::post("/user/store", "UserController@store")->name('user.store');
+Route::post("/user/edit", "UserController@edit")->name('user.edit');
+Route::post("/user/destroy", "UserController@destroy")->name('user.destroy');
 
 
 

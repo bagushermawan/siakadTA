@@ -56,7 +56,7 @@
                                                 <td>{{$user->password}}</td>
                                                 <td>{{$user->alamat}}</td>
                                                 <td>{{$user->tgl_lahir}}</td>
-                                                <td>{{$user->role}}</td>
+                                                <td>{{$user->role->nama}}</td>
 
                                                 <td class="text-right">
                                                     <center>
