@@ -42,8 +42,7 @@
                       </div>
                         <div class="form-group">
                             <label>Edit Category:</label>
-                            <select name="category_id" class="category" class="form-control">
-                                <option selected value="{{$product->category_id}}">{{$product->category->nama}}</option>
+                            <select name="category_id[]" multiple class="category" class="form-control">
                               {{-- <select class="form-control roles"> --}}
                             </select>
                         </div>
@@ -79,6 +78,11 @@
           cache: true
         }
       });
-    })
+    });
+    var category = {!! $product->category !!}
+ category.forEach(function(category){
+ var option = new Option(category.nama, category.id, true, true);
+ $('.category').append(option).trigger('change');
+ });
     </script>
     @endpush

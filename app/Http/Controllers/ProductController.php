@@ -45,15 +45,16 @@ class ProductController extends Controller
         $product->nama = $request->nama;
         $product->stock = $request->stock;
         $product->price = $request->price;
-        $product->category_id = $request->category_id;
+        // $product->category_id = $request->category_id;
 
         if(!$product->save()){
             Session::flash('gagal','Yamaap, Product gagal disimpan!!');
             return redirect()->route('product.create');
         }
 
-        // $category = Category::findorFail($product->id);
-        // $product->category()->save($request->get('category_id'));
+        $product = Product::findorFail($product->id);
+        $product->category()->attach($request->get('category_id'));
+        $product->category()->attach($request->get('product_id'));
 
         Session::flash('sukses','Yeahh, Product berhasil disimpan!');
         return redirect()->route('product');
