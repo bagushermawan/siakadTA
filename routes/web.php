@@ -50,4 +50,23 @@ Route::post("/category/store", "CategoryController@store")->name('category.store
 Route::get('/category/edit/{id}', 'CategoryController@edit')->name('category.edit');
 Route::put('/category/update/{id}', 'CategoryController@update')->name('category.update');
 Route::get('/category/destroy/{id}', 'CategoryController@destroy')->name('category.destroy');
+Route::get('/category/search','CategoryController@ajaxSearch')->name('category.ajaxsearch');
 
+
+//Product
+Route::get("/product", "ProductController@index")->name('product');
+Route::get("/product/create", "ProductController@create")->name('product.create');
+Route::post("/product/store", "ProductController@store")->name('product.store');
+Route::get('/product/edit/{id}', 'ProductController@edit')->name('product.edit');
+Route::put('/product/update/{id}', 'ProductController@update')->name('product.update');
+Route::get('/product/destroy/{id}', 'ProductController@destroy')->name('product.destroy');
+
+
+//Role
+Route::get("/complaint", "ComplaintController@index")->name('complaint');
+Route::get("/complaint/create", "ComplaintController@create")->name('complaint.create');
+Route::post("/complaint/store", "ComplaintController@store")->name('complaint.store');
+Route::get('/complaint/edit/{id}', 'ComplaintController@edit')->name('complaint.edit');
+Route::put('/complaint/update/{id}', 'ComplaintController@update')->name('complaint.update');
+Route::get('/complaint/destroy/{id}', 'ComplaintController@destroy')->name('complaint.destroy');
+Route::get('/complaint/search','ComplaintController@ajaxSearch')->name('complaint.ajaxsearch');

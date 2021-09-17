@@ -75,4 +75,11 @@ class CategoryController extends Controller
             Session::flash('delete','Category berhasil dihapus!');
             return redirect()->route('category');
     }
+
+    public function ajaxSearch(Request $request)
+    {
+        $keyword = $request->get('q');
+        $category = Category::where("nama", "LIKE", "%$keyword%")->get();
+        return $category;
+    }
 }

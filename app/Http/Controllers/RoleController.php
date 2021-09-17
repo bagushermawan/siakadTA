@@ -79,6 +79,6 @@ class RoleController extends Controller
         $keyword = $request->get('q');
         $roles = Role::where("nama", "LIKE", "%$keyword%")->get();
         return $roles;
-       }
+    }
 
 }

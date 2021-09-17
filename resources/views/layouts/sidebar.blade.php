@@ -22,7 +22,8 @@
                   <li class="{{ request()->is('user*') ? 'active' : '' }}"><a class="nav-link" href="{{route('user')}}">User</a></li>
                   <li class="{{ request()->is('role*') ? 'active' : '' }}"><a class="nav-link" href="{{route('role')}}">Role</a></li>
                   <li class="{{ request()->is('category*') ? 'active' : '' }}"><a class="nav-link" href="{{route('category')}}">Category</a></li>
-                  <li><a class="nav-link" href="layout-top-navigation.html">Top Navigation</a></li>
+                  <li class="{{ request()->is('product*') ? 'active' : '' }}"><a class="nav-link" href="{{route('product')}}">Product</a></li>
+                  <li class="{{ request()->is('complaint*') ? 'active' : '' }}"><a class="nav-link" href="{{route('complaint')}}">Complaint</a></li>
                 </ul>
               </li>
               <li><a class="nav-link" href="/crud"><i class="far fa-square"></i> <span>C R U D</span></a></li>
