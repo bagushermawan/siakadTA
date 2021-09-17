@@ -15,6 +15,7 @@ class RoleController extends Controller
         $daftar_role = Role::paginate();
         return view("role.index", ["daftar_role" => $daftar_role]);
         // return view('role.index');
+        
     }
 
     public function create()

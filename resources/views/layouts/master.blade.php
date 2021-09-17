@@ -15,6 +15,8 @@
   <link rel="stylesheet" href="https://demo.getstisla.com/assets/modules/datatables/datatables.min.css">
   <link rel="stylesheet" href="https://demo.getstisla.com/assets/modules/datatables/DataTables-1.10.16/css/dataTables.bootstrap4.min.css">
   <link rel="stylesheet" href="https://demo.getstisla.com/assets/modules/datatables/Select-1.2.4/css/select.bootstrap4.min.css">
+  <link rel="stylesheet" href="https://demo.getstisla.com/assets/modules/izitoast/css/iziToast.min.css">
+
 
   <!-- Template CSS -->
   <link rel="stylesheet" href="/assets/css/style.css">
@@ -70,9 +72,13 @@
   <script src="https://demo.getstisla.com/assets/modules/datatables/Select-1.2.4/js/dataTables.select.min.js"></script>
   <script src="https://demo.getstisla.com/assets/modules/jquery-ui/jquery-ui.min.js"></script>
   <script src="https://demo.getstisla.com/assets/modules/select2/dist/js/select2.full.min.js"></script>
+  <script src="https://demo.getstisla.com/assets/modules/izitoast/js/iziToast.min.js"></script>
+
 
 
   <!-- Page Specific JS File -->
+  <script src="https://demo.getstisla.com/assets/js/page/modules-toastr.js"></script>
+
 
   <!-- Template JS File -->
   <script src="/assets/js/scripts.js"></script>

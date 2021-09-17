@@ -52,7 +52,7 @@
                                                 <td>Rp {{$product->price}}</td>
                                                 <td>
                                                     @foreach($product->category as $c)
-                                                       <li>{{ $c->nama }}</li>
+                                                    <div class="badge badge-primary">{{ $c->nama }}</div>
                                                     @endforeach
                                                 </td>
                                                 <td class="text-right"><center>{{$product->created_at->format('d M Y, H:i')}}</center></td>
