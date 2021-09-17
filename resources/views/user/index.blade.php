@@ -27,11 +27,11 @@
                                             <tr role="row">
                                                 <th style="width: 5%;"><center>No</center></th>
                                                 <th class="sorting"style="width: 20%;">Name</th>
-                                                <th class="sorting"style="width: 20%;">Username</th>
-                                                <th class="sorting"style="width: 20%;">Password</th>
+                                                <th class="sorting"style="width: 10%;">Username</th>
+                                                {{-- <th class="sorting"style="width: 20%;">Password</th> --}}
                                                 <th class="sorting"style="width: 20%;">Alamat</th>
-                                                <th class="sorting"style="width: 75%;">Tanggal Lahir</th>
-                                                <th class="sorting"style="width: 75%;">Role</th>
+                                                <th class="sorting"style="width: 13%;">Tanggal Lahir</th>
+                                                <th class="sorting"style="width: 10%;">Role</th>
                                                 <th style="width: 15%;">
                                                     <center>Created at</center>
                                                 </th>
@@ -53,7 +53,7 @@
                                                   </div>
                                                 </td>
                                                 <td>{{$user->username}}</td>
-                                                <td>{{$user->password}}</td>
+                                                {{-- <td>{{$user->password}}</td> --}}
                                                 <td>{{$user->alamat}}</td>
                                                 <td>{{$user->tgl_lahir}}</td>
                                                 <td>{{$user->role->nama}}</td>

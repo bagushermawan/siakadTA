@@ -26,8 +26,9 @@ Route::get('crud', function () {
 Route::get("/user", "UserController@index")->name('user');
 Route::get("/user/create", "UserController@create")->name('user.create');
 Route::post("/user/store", "UserController@store")->name('user.store');
-Route::post("/user/edit", "UserController@edit")->name('user.edit');
-Route::post("/user/destroy", "UserController@destroy")->name('user.destroy');
+Route::get("/user/edit/{id}", "UserController@edit")->name('user.edit');
+Route::put('/user/update/{id}', 'UserController@update')->name('user.update');
+Route::get("/user/destroy/{id}", "UserController@destroy")->name('user.destroy');
 
 
 

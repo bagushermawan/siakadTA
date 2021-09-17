@@ -43,7 +43,7 @@
                   <div class="form-group">
                     <label>Role:</label>
                     <select name="role_id" class="roles" class="form-control">
-                      <select class="form-control roles">
+                      {{-- <select class="form-control roles"> --}}
                     </select>
                     {{-- select2 mannual no ajax --}}
                     {{-- <select class="form-control select2">

@@ -16,9 +16,11 @@ class UserController extends Controller
         $role=Role::all();
         $daftar_user = User::paginate();
         $count = User::count();
-        // dd($daftar_product->categories->name);
+        // dd($daftar_user->role->nama);
 
-        return view("user.index", ["daftar_user" => $daftar_user], compact('count'));
+        // return view("user.index", ["daftar_user" => $daftar_user], compact('count'));
+        return view('user.index', compact('role', 'daftar_user',));
+
     }
 
     public function create()
@@ -51,15 +53,51 @@ class UserController extends Controller
         $user->role_id = $request->role_id;
 
         if(!$user->save()){
-            Session::flash('gagal','Yamaap, Product gagal disimpan!!');
+            Session::flash('gagal','Yamaap, User gagal disimpan!!');
             return redirect()->route('user.create');
         }
 
-        $user = User::findorFail($user->id);
-        $user->role()->attach($request->get('role_id'));
+        // $role = Role::findorFail($user->id);
+        // $user->role()->save($request->get('role_id'));
 
-        Session::flash('sukses','Yeahh, Product berhasil disimpan!');
+        Session::flash('sukses','Yeahh, User berhasil disimpan!');
         return redirect()->route('user');
+    }
+
+    public function edit($id)
+    {
+        $user = User::find($id);
+        if(!$user){
+            return abort(404);
+        }
+        return view('user.edit')->with('user', $user)->with('user', $user);
+    }
+
+
+    public function update(Request $request, $id)
+    {
+        $user = User::find($id);
+        $user->nama = $request->get('nama');
+        $user->username = $request->get('username');
+        $user->password = $request->get('password');
+        $user->alamat = $request->get('alamat');
+        $user->tgl_lahir = $request->get('tgl_lahir');
+        $user->role_id = $request->get('role_id');
+
+        $user->save();
+        // $user->categories()->sync($request->get('category_id'));
+        Session::flash('sukses','User berhasil di update!');
+        return redirect()->route('user');
+
+
+    }
+
+    public function destroy($id)
+    {
+        $user = User::find($id);
+            $user->delete();
+            Session::flash('delete','Category berhasil dihapus!');
+            return redirect()->route('user');
     }
 
     
