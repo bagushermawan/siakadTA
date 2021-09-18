@@ -15,27 +15,27 @@ class ComplaintTableSeeder extends Seeder
     public function run()
     {
         $c1=new Complaint;
-        $c1->name="Ganti Oli";
+        $c1->nama="Ganti Oli";
         $c1->save();
 
         $c2=new Complaint;
-        $c2->name="Ganti Ban";
+        $c2->nama="Ganti Ban";
         $c2->save();
 
         $c3=new Complaint;
-        $c3->name="Ganti Oli";
+        $c3->nama="Ganti Oli";
         $c3->save();
 
         $c4=new Complaint;
-        $c4->name="Tune Up";
+        $c4->nama="Tune Up";
         $c4->save();
 
         $c5=new Complaint;
-        $c5->name="Kampas Rem";
+        $c5->nama="Kampas Rem";
         $c5->save();
 
         $c6=new Complaint;
-        $c6->name="Ganti Spare part";
+        $c6->nama="Ganti Spare part";
         $c6->save();
     }
 }

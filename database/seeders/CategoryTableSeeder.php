@@ -15,23 +15,20 @@ class CategoryTableSeeder extends Seeder
     public function run()
     {
         $c1=new Category;
-        $c1->name="Honda";
+        $c1->nama="Honda";
         $c1->save();
 
         $c2=new Category;
-        $c2->name="Yamaha";
+        $c2->nama="Yamaha";
         $c2->save();
 
         $c3=new Category;
-        $c3->name="Suzuki";
+        $c3->nama="Suzuki";
         $c3->save();
 
         $c4=new Category;
-        $c4->name="Kawasaki";
+        $c4->nama="Kawasaki";
         $c4->save();
 
-        $c5=new Category;
-        $c5->name="Kawasaki";
-        $c5->save();
     }
 }
