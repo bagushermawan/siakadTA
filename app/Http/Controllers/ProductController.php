@@ -81,7 +81,7 @@ class ProductController extends Controller
         $product->save();
         // $product->categories()->sync($request->get('category_id'));
         $product->category()->sync($request->get('category_id'));
-        Session::flash('sukses','Product berhasil di update!');
+        Session::flash('update','Product berhasil di update!');
         return redirect()->route('product');
 
 

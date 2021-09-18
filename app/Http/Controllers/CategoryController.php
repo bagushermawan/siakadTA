@@ -64,7 +64,7 @@ class CategoryController extends Controller
         $category = Category::find($id);
         $category->nama = $request->nama;
         $category->save();
-        Session::flash('sukses','Category berhasil di update!');
+        Session::flash('update','Category berhasil di update!');
         return redirect()->route('category');
     }
 

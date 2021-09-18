@@ -86,7 +86,7 @@ class UserController extends Controller
 
         $user->save();
         // $user->categories()->sync($request->get('category_id'));
-        Session::flash('sukses','User berhasil di update!');
+        Session::flash('update','User berhasil di update!');
         return redirect()->route('user');
 
 

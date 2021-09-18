@@ -29,7 +29,7 @@
                                                 <th class="sorting"style="width: 20%;">Nama</th>
                                                 <th class="sorting"style="width: 10%;">Stock</th>
                                                 <th class="sorting"style="width: 20%;">Price</th>
-                                                <th class="sorting"style="width: 13%;">Category</th>
+                                                <th class="sorting"style="width: 20%;">Category</th>
                                                 <th style="width: 15%;"><center>Created at</center></th>
                                             </tr>
                                         </thead>

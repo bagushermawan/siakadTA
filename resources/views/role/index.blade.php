@@ -13,18 +13,6 @@
             You can manage all roles, such as editing, deleting and more.
         </p>
     </p>
-    @if ($message = Session::get('sukses'))
-        <div class="alert alert-success alert-block">
-            <button type="button" class="close" data-dismiss="alert">×</button> 
-            <strong>{{ $message }}</strong>
-        </div>
-    @endif
-    @if ($message=Session::get('sukses'))
-    <script type="text/javascript">
-                  iziToast.info("{{ @session('message') }}", 5000);  
-
-        </script>
-    @endif
     <button class="btn btn-primary" id="toastr-2">Launch</button>
     <div class="row">
         <div class="col-12">

@@ -77,7 +77,7 @@
 
 
   <!-- Page Specific JS File -->
-  <script src="https://demo.getstisla.com/assets/js/page/modules-toastr.js"></script>
+  @include('layouts.izitoast')
 
 
   <!-- Template JS File -->

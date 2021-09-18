@@ -64,7 +64,7 @@ class RoleController extends Controller
         $role = Role::find($id);
         $role->nama = $request->nama;
         $role->save();
-        Session::flash('sukses','Role berhasil di update!');
+        Session::flash('update','Role berhasil di update!');
         return redirect()->route('role');
     }
 
