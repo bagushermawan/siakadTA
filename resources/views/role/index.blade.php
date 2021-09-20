@@ -13,7 +13,6 @@
             You can manage all roles, such as editing, deleting and more.
         </p>
     </p>
-    <button class="btn btn-primary" id="toastr-2">Launch</button>
     <div class="row">
         <div class="col-12">
             <div class="card">
@@ -91,3 +90,4 @@
     </div>
 </div>
 @endsection
+

@@ -4,7 +4,7 @@
             <a href="{{route('/')}}">BengkelQ</a>
           </div>
           <div class="sidebar-brand sidebar-brand-sm">
-            <a href="{{route('/')}}">St</a>
+            <a href="{{route('/')}}">Bengs</a>
           </div>
           <ul class="sidebar-menu">
               <li class="menu-header">Dashboard</li>
