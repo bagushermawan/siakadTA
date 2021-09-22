@@ -15,13 +15,17 @@ class CreateTransactionsTable extends Migration
     {
         Schema::create('transactions', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('kode');
             $table->string('nama');
-            $table->unsignedInteger('product_id');
-            $table->unsignedInteger('category_id');
+            $table->string('merek');
+            $table->string('platnomer');
+            $table->string('status');
+            // $table->unsignedInteger('product_id');
+            // $table->unsignedInteger('category_id');
             $table->timestamps();
 
-            $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
-            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
+            // $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
+            // $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
         });
     }
 

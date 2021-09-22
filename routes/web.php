@@ -70,3 +70,12 @@ Route::get('/complaint/edit/{id}', 'ComplaintController@edit')->name('complaint.
 Route::put('/complaint/update/{id}', 'ComplaintController@update')->name('complaint.update');
 Route::get('/complaint/destroy/{id}', 'ComplaintController@destroy')->name('complaint.destroy');
 Route::get('/complaint/search','ComplaintController@ajaxSearch')->name('complaint.ajaxsearch');
+
+//Transaction
+Route::get("/transaction", "TransactionController@index")->name('transaction');
+Route::get("/transaction/create", "TransactionController@create")->name('transaction.create');
+Route::post("/transaction/store", "TransactionController@store")->name('transaction.store');
+Route::get('/transaction/edit/{id}', 'TransactionController@edit')->name('transaction.edit');
+Route::put('/transaction/update/{id}', 'TransactionController@update')->name('transaction.update');
+Route::get('/transaction/destroy/{id}', 'TransactionController@destroy')->name('transaction.destroy');
+Route::get('/transaction/search','TransactionController@ajaxSearch')->name('transaction.ajaxsearch');

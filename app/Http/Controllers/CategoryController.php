@@ -13,7 +13,7 @@ class CategoryController extends Controller
     {
         $daftar_category = Category::paginate();
         return view("category.index", ["daftar_category" => $daftar_category]);
-        // return view('category.index');
+        
     }
 
 
