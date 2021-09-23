@@ -19,12 +19,12 @@
               <li class="nav-item dropdown active">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i> <span>Menu</span></a>
                 <ul class="dropdown-menu">
-                  <li class="{{ request()->is('user*') ? 'active' : '' }}"><a class="nav-link" href="{{route('user')}}">User</a></li>
-                  <li class="{{ request()->is('role*') ? 'active' : '' }}"><a class="nav-link" href="{{route('role')}}">Role</a></li>
-                  <li class="{{ request()->is('category*') ? 'active' : '' }}"><a class="nav-link" href="{{route('category')}}">Category</a></li>
-                  <li class="{{ request()->is('product*') ? 'active' : '' }}"><a class="nav-link" href="{{route('product')}}">Product</a></li>
-                  <li class="{{ request()->is('complaint*') ? 'active' : '' }}"><a class="nav-link" href="{{route('complaint')}}">Complaint</a></li>
-                  <li class="{{ request()->is('transaction*') ? 'active' : '' }}"><a class="nav-link" href="{{route('transaction')}}">Transactions</a></li>
+                  <li class="{{ request()->is('user*') ? 'active' : '' }}"><a class="nav-link{{ request()->is('user*') ? ' beep beep-sidebar' : '' }}" href="{{route('user')}}">User</a></li>
+                  <li class="{{ request()->is('role*') ? 'active' : '' }}"><a class="nav-link{{ request()->is('role*') ? ' beep beep-sidebar' : '' }}" href="{{route('role')}}">Role</a></li>
+                  <li class="{{ request()->is('category*') ? 'active' : '' }}"><a class="nav-link{{ request()->is('category*') ? ' beep beep-sidebar' : '' }}" href="{{route('category')}}">Category</a></li>
+                  <li class="{{ request()->is('product*') ? 'active' : '' }}"><a class="nav-link{{ request()->is('product*') ? ' beep beep-sidebar' : '' }}" href="{{route('product')}}">Product</a></li>
+                  <li class="{{ request()->is('complaint*') ? 'active' : '' }}"><a class="nav-link{{ request()->is('complaint*') ? ' beep beep-sidebar' : '' }}" href="{{route('complaint')}}">Complaint</a></li>
+                  <li class="{{ request()->is('transaction*') ? 'active' : '' }}"><a class="nav-link{{ request()->is('transaction*') ? ' beep beep-sidebar' : '' }}" href="{{route('transaction')}}">Transactions</a></li>
                 </ul>
               </li>
               <li><a class="nav-link" href="/crud"><i class="far fa-square"></i> <span>C R U D</span></a></li>
