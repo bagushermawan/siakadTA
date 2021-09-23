@@ -1,6 +1,6 @@
 @extends('layouts.master')
-@section('title', 'User')
-@section('header', 'User')
+@section('title', 'Product')
+@section('header', 'Product')
 @section('button-header')
 {{-- <div class="section-header-button">
     <a href="features-post-create.html" class="btn btn-primary">Add New</a>
@@ -56,6 +56,8 @@
     @endsection
 
     @push('page-script')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cleave.js/1.6.0/cleave.min.js"></script>
+
     <script type="text/javascript">
         $(function () {
             $('.roles').select2({

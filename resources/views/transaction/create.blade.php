@@ -34,7 +34,7 @@
                         </div>
                         <div class="form-group">
                             <label>Plat Nomor:</label>
-                            <input type="text" name="platnomer" class="form-control">
+                            <input type="text" name="platnomer" class="form-control plat-no">
                         </div><div class="form-group">
                             <label>Status:</label>
                             <label class="selectgroup-item">
@@ -42,7 +42,7 @@
                                 <span class="selectgroup-button selectgroup-button-icon"><i class="fas fa-sync"> Proses</i></span>
                             </label>
                             <label class="selectgroup-item">
-                                <input type="radio" name="status" value="selesai" class="selectgroup-input" checked="">
+                                <input type="radio" name="status" value="selesai" class="selectgroup-input">
                                 <span class="selectgroup-button selectgroup-button-icon"><i class="fas fa-check"> Selesai</i></span>
                             </label>
                         </div>
@@ -56,3 +56,13 @@
         </div>
     </div>
     @endsection
+    @push('page-script')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cleave.js/1.6.0/cleave.min.js"></script>
+        <script type="text/javascript">
+            var cleavePC = new Cleave('.plat-no', {
+  delimiter: '-',
+  blocks: [1, 4, 2],
+  uppercase: true
+});
+        </script>
+    @endpush
