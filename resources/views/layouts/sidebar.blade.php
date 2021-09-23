@@ -1,7 +1,7 @@
 <div class="main-sidebar">
         <aside id="sidebar-wrapper">
           <div class="sidebar-brand">
-            <a href="{{route('/')}}">BengkelQ</a>
+            <a href="{{route('/')}}">Bengkelin</a>
           </div>
           <div class="sidebar-brand sidebar-brand-sm">
             <a href="{{route('/')}}">Bengs</a>
@@ -154,7 +154,7 @@
             </ul>
 
             <div class="mt-4 mb-4 p-3 hide-sidebar-mini">
-              <a href="https://getstisla.com/docs" class="btn btn-primary btn-lg btn-block btn-icon-split">
+              <a href="https://demo.getstisla.com/" target="_blank" class="btn btn-primary btn-lg btn-block btn-icon-split">
                 <i class="fas fa-rocket"></i> Documentation
               </a>
             </div>
