@@ -37,9 +37,24 @@
             <h1>@yield('header')</h1>
             @yield('button-header')
              <div class="section-header-breadcrumb">
-              <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
-              <div class="breadcrumb-item"><a href="#">Forms</a></div>
-              <div class="breadcrumb-item">Editor</div>
+               {{-- <div class="breadcrumb-item">a</div>
+               <div class="breadcrumb-item">b</div>
+               <div class="breadcrumb-item">c</div> --}}
+              {{-- <?php $link = "" ?>
+              @for($i = 1; $i <= count(Request::segments()); $i++)
+                  @if($i < count(Request::segments()) & $i > 0)
+                  <?php $link .= "/" . Request::segment($i); ?>
+                  <div class="breadcrumb-item"> <a href="<?= $link ?>">{{ ucwords(str_replace('/',' ',Request::segment($i)))}}</a></div>
+                  @else {{ucwords(str_replace('-',' ',Request::segment($i)))}}
+                  @endif
+              @endfor --}}
+              <?php $segments = ''; ?>
+    @foreach(Request::segments() as $segment)
+        <?php $segments .= '/'.$segment; ?>
+        <div class="breadcrumb-item">
+            <a href="{{ ucwords($segments) }}">{{ucwords($segment)}}</a>
+        </div>
+    @endforeach
             </div>
           </div>
 
