@@ -79,3 +79,12 @@ Route::get('/transaction/edit/{id}', 'TransactionController@edit')->name('transa
 Route::put('/transaction/update/{id}', 'TransactionController@update')->name('transaction.update');
 Route::get('/transaction/destroy/{id}', 'TransactionController@destroy')->name('transaction.destroy');
 Route::get('/transaction/search','TransactionController@ajaxSearch')->name('transaction.ajaxsearch');
+
+//Front
+Route::get("/front", "FrontController@index")->name('front');
+Route::get("/front/create", "FrontController@create")->name('front.create');
+Route::post("/front/store", "FrontController@store")->name('front.store');
+Route::get('/front/edit/{id}', 'FrontController@edit')->name('front.edit');
+Route::put('/front/update/{id}', 'FrontController@update')->name('front.update');
+Route::get('/front/destroy/{id}', 'FrontController@destroy')->name('front.destroy');
+Route::get('/front/search','FrontController@ajaxSearch')->name('front.ajaxsearch');
