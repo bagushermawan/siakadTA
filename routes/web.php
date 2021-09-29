@@ -14,9 +14,9 @@ use App\Http\Controllers\UserController;
 |
 */
 
-Route::get('/', function () {
+Route::get('/a', function () {
     return view('index');
-})->name('/');
+})->name('a');
 
 Route::get('crud', function () {
     return view('crud');
@@ -81,7 +81,7 @@ Route::get('/transaction/destroy/{id}', 'TransactionController@destroy')->name('
 Route::get('/transaction/search','TransactionController@ajaxSearch')->name('transaction.ajaxsearch');
 
 //Front
-Route::get("/front", "FrontController@index")->name('front');
+Route::get("/", "FrontController@index")->name('/');
 Route::get("/front/create", "FrontController@create")->name('front.create');
 Route::post("/front/store", "FrontController@store")->name('front.store');
 Route::get('/front/edit/{id}', 'FrontController@edit')->name('front.edit');
