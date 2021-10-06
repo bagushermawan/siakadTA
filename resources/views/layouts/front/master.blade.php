@@ -10,7 +10,7 @@
     <meta name="author" content="">
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,300,400,500,700,900" rel="stylesheet">
 
-    <title>Softy Pinko - Bootstrap 4.0 Theme</title>
+    <title>Bengkelq</title>
 <!--
 SOFTY PINKO
 https://templatemo.com/tm-535-softy-pinko
@@ -19,7 +19,6 @@ https://templatemo.com/tm-535-softy-pinko
     <!-- Additional CSS Files -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-
     <link rel="stylesheet" href="assets/css/templatemo-softy-pinko.css">
 
     </head>
@@ -36,38 +35,9 @@ https://templatemo.com/tm-535-softy-pinko
     </div>  
     <!-- ***** Preloader End ***** -->
     
+      @include('layouts.front.header')
     
-    <!-- ***** Header Area Start ***** -->
-    <header class="header-area header-sticky">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <nav class="main-nav">
-                        <!-- ***** Logo Start ***** -->
-                        <a href="#" class="logo">
-                            <img src="assets/images/logo.png" alt="Softy Pinko"/>
-                        </a>
-                        <!-- ***** Logo End ***** -->
-                        <!-- ***** Menu Start ***** -->
-                        <ul class="nav">
-                            <li><a href="#welcome" class="active">Home</a></li>
-                            <li><a href="#features">About</a></li>
-                            <li><a href="#work-process">Work Process</a></li>
-                            <li><a href="#testimonials">Testimonials</a></li>
-                            <li><a href="#pricing-plans">Pricing Tables</a></li>
-                            <li><a href="#blog">Blog Entries</a></li>
-                            <li><a href="#contact-us">Contact Us</a></li>
-                        </ul>
-                        <a class='menu-trigger'>
-                            <span>Menu</span>
-                        </a>
-                        <!-- ***** Menu End ***** -->
-                    </nav>
-                </div>
-            </div>
-        </div>
-    </header>
-    <!-- ***** Header Area End ***** -->
+    
 
     <!-- ***** Welcome Area Start ***** -->
     <div class="welcome-area" id="welcome">
@@ -77,10 +47,9 @@ https://templatemo.com/tm-535-softy-pinko
             <div class="container">
                 <div class="row">
                     <div class="offset-xl-3 col-xl-6 offset-lg-2 col-lg-8 col-md-12 col-sm-12">
-                        <h1>We provide the best <strong>strategy</strong><br>to grow up your <strong>business</strong></h1>
-                        <p>Softy Pinko is a professional Bootstrap 4.0 theme designed by Template Mo 
-                        for your company at absolutely free of charge</p>
-                        <a href="#features" class="main-button-slider">Discover More</a>
+                        <h2>Kami mengedepankan <strong>pelayanan</strong> dan <strong>kepuasan</strong> anda</h2>
+                        <p><strong>Bengkelq</strong> - sebuah aplikasi yang digunakan untuk nganu</p>
+                        <a href="#features" class="main-button-slider">Lebih lanjut</a>
                     </div>
                 </div>
             </div>
@@ -99,10 +68,10 @@ https://templatemo.com/tm-535-softy-pinko
                         <div class="col-lg-4 col-md-6 col-sm-6 col-12" data-scroll-reveal="enter bottom move 50px over 0.6s after 0.2s">
                             <div class="features-small-item">
                                 <div class="icon">
-                                    <i><img src="assets/images/featured-item-01.png" alt=""></i>
+                                    <i><img src="https://templatemo.com/templates/templatemo_535_softy_pinko/assets/images/featured-item-01.png" alt=""></i>
                                 </div>
-                                <h5 class="features-title">Modern Strategy</h5>
-                                <p>Customize anything in this template to fit your website needs</p>
+                                <h5 class="features-title">Mekanik Profesional</h5>
+                                <p>Kita memperkerjakan para mekanik handal yang telah mempunyai pengalaman kerja lebih dari 10 tahun di bidangnya.</p>
                             </div>
                         </div>
                         <!-- ***** Features Small Item End ***** -->
@@ -111,10 +80,10 @@ https://templatemo.com/tm-535-softy-pinko
                         <div class="col-lg-4 col-md-6 col-sm-6 col-12" data-scroll-reveal="enter bottom move 50px over 0.6s after 0.4s">
                             <div class="features-small-item">
                                 <div class="icon">
-                                    <i><img src="assets/images/featured-item-01.png" alt=""></i>
+                                    <i><img src="https://templatemo.com/templates/templatemo_535_softy_pinko/assets/images/featured-item-01.png" alt=""></i>
                                 </div>
-                                <h5 class="features-title">Best Relationship</h5>
-                                <p>Contact us immediately if you have a question in mind</p>
+                                <h5 class="features-title">Best Spare Parts</h5>
+                                <p>Kita menyediakan onderdil asli, kualitas terbaik langsung dari pabriknya, dan juga memberikan penawaran terbaik untuk anda.</p>
                             </div>
                         </div>
                         <!-- ***** Features Small Item End ***** -->
@@ -123,10 +92,10 @@ https://templatemo.com/tm-535-softy-pinko
                         <div class="col-lg-4 col-md-6 col-sm-6 col-12" data-scroll-reveal="enter bottom move 50px over 0.6s after 0.6s">
                             <div class="features-small-item">
                                 <div class="icon">
-                                    <i><img src="assets/images/featured-item-01.png" alt=""></i>
+                                    <i><img src="https://templatemo.com/templates/templatemo_535_softy_pinko/assets/images/featured-item-01.png" alt=""></i>
                                 </div>
-                                <h5 class="features-title">Ultimate Marketing</h5>
-                                <p>You just need to tell your friends about our free templates</p>
+                                <h5 class="features-title">Pelayanan Terbaik</h5>
+                                <p>Kami memprioritaskan pelayanan dan kepuasan pelanggan.</p>
                             </div>
                         </div>
                         <!-- ***** Features Small Item End ***** -->
@@ -142,12 +111,12 @@ https://templatemo.com/tm-535-softy-pinko
         <div class="container">
             <div class="row">
                 <div class="col-lg-5 col-md-12 col-sm-12 align-self-center" data-scroll-reveal="enter left move 30px over 0.6s after 0.4s">
-                    <img src="assets/images/left-image.png" class="rounded img-fluid d-block mx-auto" alt="App">
+                    <img src="https://templatemo.com/templates/templatemo_535_softy_pinko/assets/images/left-image.png" class="rounded img-fluid d-block mx-auto" alt="App">
                 </div>
                 <div class="col-lg-1"></div>
                 <div class="col-lg-6 col-md-12 col-sm-12 align-self-center mobile-top-fix">
                     <div class="left-heading">
-                        <h2 class="section-title">Let’s discuss about you project</h2>
+                        <h2 class="section-title">Konsultasi tentang keluhan motor anda </h2>
                     </div>
                     <div class="left-text">
                         <p>Nullam sit amet purus libero. Etiam ullamcorper nisl ut augue blandit, at finibus leo efficitur. Nam gravida purus non sapien auctor, ut aliquam magna ullamcorper.</p>
@@ -169,7 +138,7 @@ https://templatemo.com/tm-535-softy-pinko
             <div class="row">
                 <div class="col-lg-6 col-md-12 col-sm-12 align-self-center mobile-bottom-fix">
                     <div class="left-heading">
-                        <h2 class="section-title">We can help you to grow your business</h2>
+                        <h2 class="section-title">Kita akan melayani anda dengan sepenuh hati</h2>
                     </div>
                     <div class="left-text">
                         <p>Aenean pretium, ipsum et porttitor auctor, metus ipsum iaculis nisi, a bibendum lectus libero vitae urna. Sed id leo eu dolor luctus congue sed eget ipsum. Nunc nec luctus libero. Etiam quis dolor elit.</p>
@@ -177,7 +146,7 @@ https://templatemo.com/tm-535-softy-pinko
                 </div>
                 <div class="col-lg-1"></div>
                 <div class="col-lg-5 col-md-12 col-sm-12 align-self-center mobile-bottom-fix-big" data-scroll-reveal="enter right move 30px over 0.6s after 0.4s">
-                    <img src="assets/images/right-image.png" class="rounded img-fluid d-block mx-auto" alt="App">
+                    <img src="https://templatemo.com/templates/templatemo_535_softy_pinko/assets/images/right-image.png" class="rounded img-fluid d-block mx-auto" alt="App">
                 </div>
             </div>
         </div>
@@ -191,57 +160,76 @@ https://templatemo.com/tm-535-softy-pinko
                 <div class="row">
                     <div class="offset-lg-3 col-lg-6">
                         <div class="info">
-                            <h1>Work Process</h1>
-                            <p>Aenean nec tempor metus. Maecenas ligula dolor, commodo in imperdiet interdum, vehicula ut ex. Donec ante diam.</p>
+                            <h1>Cek Status</h1>
+                            <p>Cek status kendaraan anda dengan mengisi id yang telah diberikan admin.</p>
                         </div>
                     </div>
                 </div>
-
-                <!-- ***** Mini Box Start ***** -->
                 <div class="row">
+                <div class="col-lg-8 col-md-6 col-sm-12">
+                    <div class="contact-form">
+                        <form id="contact" action="" method="get">
+                          <div class="row">
+                            <div class="col center-block text-center">
+                              <fieldset>
+                                <input name="name" type="text" class="form-control" id="name" placeholder="Masukkan id" required="">
+                              </fieldset>
+                            </div>
+                            {{-- <div class="col-lg-12"> --}}
+                              <fieldset>
+                                <button type="submit" id="form-submit" class="main-button">Cek</button>
+                              </fieldset>
+                            {{-- </div> --}}
+                          </div>
+                        </form>
+                    </div>
+                </div>
+                </div>
+                <!-- ***** Mini Box Start ***** -->
+                {{-- <div class="row">
                     <div class="col-lg-2 col-md-3 col-sm-6 col-6">
                         <a href="#" class="mini-box">
-                            <i><img src="assets/images/work-process-item-01.png" alt=""></i>
+                            <i><img src="https://templatemo.com/templates/templatemo_535_softy_pinko/assets/images/work-process-item-01.png" alt=""></i>
                             <strong>Get Ideas</strong>
                             <span>Godard pabst prism fam cliche.</span>
                         </a>
                     </div>
                     <div class="col-lg-2 col-md-3 col-sm-6 col-6">
                         <a href="#" class="mini-box">
-                            <i><img src="assets/images/work-process-item-01.png" alt=""></i>
+                            <i><img src="https://templatemo.com/templates/templatemo_535_softy_pinko/assets/images/work-process-item-01.png" alt=""></i>
                             <strong>Sketch Up</strong>
                             <span>Godard pabst prism fam cliche.</span>
                         </a>
                     </div>
                     <div class="col-lg-2 col-md-3 col-sm-6 col-6">
                         <a href="#" class="mini-box">
-                            <i><img src="assets/images/work-process-item-01.png" alt=""></i>
+                            <i><img src="https://templatemo.com/templates/templatemo_535_softy_pinko/assets/images/work-process-item-01.png" alt=""></i>
                             <strong>Discuss</strong>
                             <span>Godard pabst prism fam cliche.</span>
                         </a>
                     </div>
                     <div class="col-lg-2 col-md-3 col-sm-6 col-6">
                         <a href="#" class="mini-box">
-                            <i><img src="assets/images/work-process-item-01.png" alt=""></i>
+                            <i><img src="https://templatemo.com/templates/templatemo_535_softy_pinko/assets/images/work-process-item-01.png" alt=""></i>
                             <strong>Revise</strong>
                             <span>Godard pabst prism fam cliche.</span>
                         </a>
                     </div>
                     <div class="col-lg-2 col-md-3 col-sm-6 col-6">
                         <a href="#" class="mini-box">
-                            <i><img src="assets/images/work-process-item-01.png" alt=""></i>
+                            <i><img src="https://templatemo.com/templates/templatemo_535_softy_pinko/assets/images/work-process-item-01.png" alt=""></i>
                             <strong>Approve</strong>
                             <span>Godard pabst prism fam cliche.</span>
                         </a>
                     </div>
                     <div class="col-lg-2 col-md-3 col-sm-6 col-6">
                         <a href="#" class="mini-box">
-                            <i><img src="assets/images/work-process-item-01.png" alt=""></i>
+                            <i><img src="https://templatemo.com/templates/templatemo_535_softy_pinko/assets/images/work-process-item-01.png" alt=""></i>
                             <strong>Launch</strong>
                             <span>Godard pabst prism fam cliche.</span>
                         </a>
                     </div>
-                </div>
+                </div> --}}
                 <!-- ***** Mini Box End ***** -->
             </div>
         </div>
@@ -271,7 +259,7 @@ https://templatemo.com/tm-535-softy-pinko
                 <div class="col-lg-4 col-md-6 col-sm-12">
                     <div class="team-item">
                         <div class="team-content">
-                            <i><img src="assets/images/testimonial-icon.png" alt=""></i>
+                            <i><img src="https://templatemo.com/templates/templatemo_535_softy_pinko/assets/images/testimonial-icon.png" alt=""></i>
                             <p>Proin a neque nisi. Nam ipsum nisi, venenatis ut nulla quis, egestas scelerisque orci. Maecenas a finibus odio.</p>
                             <div class="user-image">
                                 <img src="http://placehold.it/60x60" alt="">
@@ -289,7 +277,7 @@ https://templatemo.com/tm-535-softy-pinko
                 <div class="col-lg-4 col-md-6 col-sm-12">
                     <div class="team-item">
                         <div class="team-content">
-                            <i><img src="assets/images/testimonial-icon.png" alt=""></i>
+                            <i><img src="https://templatemo.com/templates/templatemo_535_softy_pinko/assets/images/testimonial-icon.png" alt=""></i>
                             <p>Integer molestie aliquam gravida. Nullam nec arcu finibus, imperdiet nulla vitae, placerat nibh. Cras maximus venenatis molestie.</p>
                             <div class="user-image">
                                 <img src="http://placehold.it/60x60" alt="">
@@ -307,7 +295,7 @@ https://templatemo.com/tm-535-softy-pinko
                 <div class="col-lg-4 col-md-6 col-sm-12">
                     <div class="team-item">
                         <div class="team-content">
-                            <i><img src="assets/images/testimonial-icon.png" alt=""></i>
+                            <i><img src="https://templatemo.com/templates/templatemo_535_softy_pinko/assets/images/testimonial-icon.png" alt=""></i>
                             <p>Quisque diam odio, maximus ac consectetur eu, auctor non lorem. Cras quis est non ante ultrices molestie. Ut vehicula et diam at aliquam.</p>
                             <div class="user-image">
                                 <img src="http://placehold.it/60x60" alt="">
@@ -348,7 +336,7 @@ https://templatemo.com/tm-535-softy-pinko
                 <div class="col-lg-4 col-md-6 col-sm-12" data-scroll-reveal="enter bottom move 50px over 0.6s after 0.2s">
                     <div class="pricing-item">
                         <div class="pricing-header">
-                            <h3 class="pricing-title">Starter</h3>
+                            <h3 class="pricing-title">Service Ringan</h3>
                         </div>
                         <div class="pricing-body">
                             <div class="price-wrapper">
@@ -376,7 +364,7 @@ https://templatemo.com/tm-535-softy-pinko
                 <div class="col-lg-4 col-md-6 col-sm-12" data-scroll-reveal="enter bottom move 50px over 0.6s after 0.4s">
                     <div class="pricing-item active">
                         <div class="pricing-header">
-                            <h3 class="pricing-title">Premium</h3>
+                            <h3 class="pricing-title">Service Sedang</h3>
                         </div>
                         <div class="pricing-body">
                             <div class="price-wrapper">
@@ -404,7 +392,7 @@ https://templatemo.com/tm-535-softy-pinko
                 <div class="col-lg-4 col-md-6 col-sm-12" data-scroll-reveal="enter bottom move 50px over 0.6s after 0.6s">
                     <div class="pricing-item">
                         <div class="pricing-header">
-                            <h3 class="pricing-title">Advanced</h3>
+                            <h3 class="pricing-title">Full Service</h3>
                         </div>
                         <div class="pricing-body">
                             <div class="price-wrapper">
@@ -468,7 +456,7 @@ https://templatemo.com/tm-535-softy-pinko
     <!-- ***** Counter Parallax End ***** -->   
 
     <!-- ***** Blog Start ***** -->
-    <section class="section" id="blog">
+    {{-- <section class="section" id="blog">
         <div class="container">
             <!-- ***** Section Title Start ***** -->
             <div class="row">
@@ -489,7 +477,7 @@ https://templatemo.com/tm-535-softy-pinko
                 <div class="col-lg-4 col-md-6 col-sm-12">
                     <div class="blog-post-thumb">
                         <div class="img">
-                            <img src="assets/images/blog-item-01.png" alt="">
+                            <img src="https://templatemo.com/templates/templatemo_535_softy_pinko/assets/images/blog-item-01.png" alt="">
                         </div>
                         <div class="blog-content">
                             <h3>
@@ -505,7 +493,7 @@ https://templatemo.com/tm-535-softy-pinko
                 <div class="col-lg-4 col-md-6 col-sm-12">
                     <div class="blog-post-thumb">
                         <div class="img">
-                            <img src="assets/images/blog-item-02.png" alt="">
+                            <img src="https://templatemo.com/templates/templatemo_535_softy_pinko/assets/images/blog-item-02.png" alt="">
                         </div>
                         <div class="blog-content">
                             <h3>
@@ -521,7 +509,7 @@ https://templatemo.com/tm-535-softy-pinko
                 <div class="col-lg-4 col-md-6 col-sm-12">
                     <div class="blog-post-thumb">
                         <div class="img">
-                            <img src="assets/images/blog-item-03.png" alt="">
+                            <img src="https://templatemo.com/templates/templatemo_535_softy_pinko/assets/images/blog-item-03.png" alt="">
                         </div>
                         <div class="blog-content">
                             <h3>
@@ -536,7 +524,7 @@ https://templatemo.com/tm-535-softy-pinko
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
     <!-- ***** Blog End ***** -->
 
     <!-- ***** Contact Us Start ***** -->
@@ -607,7 +595,7 @@ https://templatemo.com/tm-535-softy-pinko
     <!-- ***** Footer Start ***** -->
     <footer>
         <div class="container">
-            <div class="row">
+            {{-- <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12">
                     <ul class="social">
                         <li><a href="#"><i class="fa fa-facebook"></i></a></li>
@@ -617,7 +605,7 @@ https://templatemo.com/tm-535-softy-pinko
                         <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
                     </ul>
                 </div>
-            </div>
+            </div> --}}
             <div class="row">
                 <div class="col-lg-12">
                     <p class="copyright">Copyright &copy; 2020 Softy Pinko Company - Design: TemplateMo</p>
@@ -640,7 +628,7 @@ https://templatemo.com/tm-535-softy-pinko
     <script src="assets/js/imgfix.min.js"></script> 
     
     <!-- Global Init -->
-    <script src="assets/js/custom.js"></script>
+    <script src="assets/js/customm.js"></script>
 
   </body>
 </html>
