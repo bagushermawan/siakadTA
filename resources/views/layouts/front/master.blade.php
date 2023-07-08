@@ -22,9 +22,9 @@ https://templatemo.com/tm-535-softy-pinko
     <link rel="stylesheet" href="assets/css/templatemo-softy-pinko.css">
 
     </head>
-    
+
     <body>
-    
+
     <!-- ***** Preloader Start ***** -->
     <div id="preloader">
         <div class="jumper">
@@ -32,12 +32,12 @@ https://templatemo.com/tm-535-softy-pinko
             <div></div>
             <div></div>
         </div>
-    </div>  
+    </div>
     <!-- ***** Preloader End ***** -->
-    
+
       @include('layouts.front.header')
-    
-    
+
+
 
     <!-- ***** Welcome Area Start ***** -->
     <div class="welcome-area" id="welcome">
@@ -166,7 +166,7 @@ https://templatemo.com/tm-535-softy-pinko
                     </div>
                 </div>
                 <div class="row">
-                <div class="col-lg-8 col-md-6 col-sm-12">
+                <div class="col-lg">
                     <div class="contact-form">
                         <form id="contact" action="" method="get">
                           <div class="row">
@@ -272,7 +272,7 @@ https://templatemo.com/tm-535-softy-pinko
                     </div>
                 </div>
                 <!-- ***** Testimonials Item End ***** -->
-                
+
                 <!-- ***** Testimonials Item Start ***** -->
                 <div class="col-lg-4 col-md-6 col-sm-12">
                     <div class="team-item">
@@ -290,7 +290,7 @@ https://templatemo.com/tm-535-softy-pinko
                     </div>
                 </div>
                 <!-- ***** Testimonials Item End ***** -->
-                
+
                 <!-- ***** Testimonials Item Start ***** -->
                 <div class="col-lg-4 col-md-6 col-sm-12">
                     <div class="team-item">
@@ -453,7 +453,7 @@ https://templatemo.com/tm-535-softy-pinko
             </div>
         </div>
     </section>
-    <!-- ***** Counter Parallax End ***** -->   
+    <!-- ***** Counter Parallax End ***** -->
 
     <!-- ***** Blog Start ***** -->
     {{-- <section class="section" id="blog">
@@ -591,7 +591,7 @@ https://templatemo.com/tm-535-softy-pinko
         </div>
     </section>
     <!-- ***** Contact Us End ***** -->
-    
+
     <!-- ***** Footer Start ***** -->
     <footer>
         <div class="container">
@@ -613,7 +613,7 @@ https://templatemo.com/tm-535-softy-pinko
             </div>
         </div>
     </footer>
-    
+
     <!-- jQuery -->
     <script src="assets/js/jquery-2.1.0.min.js"></script>
 
@@ -625,8 +625,8 @@ https://templatemo.com/tm-535-softy-pinko
     <script src="assets/js/scrollreveal.min.js"></script>
     <script src="assets/js/waypoints.min.js"></script>
     <script src="assets/js/jquery.counterup.min.js"></script>
-    <script src="assets/js/imgfix.min.js"></script> 
-    
+    <script src="assets/js/imgfix.min.js"></script>
+
     <!-- Global Init -->
     <script src="assets/js/customm.js"></script>
 
