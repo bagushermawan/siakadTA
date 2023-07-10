@@ -36,7 +36,7 @@ $("[data-checkboxes]").each(function() {
 });
 
 $("#table-1").dataTable({
-  lengthMenu: [3, 5, 10],
+  lengthMenu: [10, 15, 50],
   "columnDefs": [
     { "sortable": true, "targets": [0,1,2] }
   ]
