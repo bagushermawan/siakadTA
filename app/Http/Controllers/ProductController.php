@@ -8,32 +8,32 @@ use App\Models\Category;
 use Illuminate\Support\Facades\DB;
 use Session;
 
+
 class ProductController extends Controller
 {
     public function index()
     {
-        $category=Category::all();
+        $category = Category::all();
         $daftar_product = Product::paginate();
         $count = Product::count();
         // dd($daftar_product->category->nama);
 
         // return view("product.index", ["daftar_product" => $daftar_product], compact('count'));
         return view('product.index', compact('category', 'daftar_product',));
-
     }
 
     public function create()
     {
-    	$category = Category::all();
+        $category = Category::all();
 
         return view('product.create', [
-        	'category' => $category,
+            'category' => $category,
         ]);
     }
 
-    public function store (Request $request)
+    public function store(Request $request)
     {
-        $this->validate($request,[
+        $this->validate($request, [
             'nama' => 'required',
             'stock' => 'required',
             'price' => 'required',
@@ -45,10 +45,9 @@ class ProductController extends Controller
         $product->nama = $request->nama;
         $product->stock = $request->stock;
         $product->price = $request->price;
-        // $product->category_id = $request->category_id;
 
-        if(!$product->save()){
-            Session::flash('gagal','Yamaap, Product gagal disimpan!!');
+        if (!$product->save()) {
+            Session::flash('gagal', 'Yamaap, Product gagal disimpan!!');
             return redirect()->route('product.create');
         }
 
@@ -56,14 +55,14 @@ class ProductController extends Controller
         $product->category()->attach($request->get('category_id'));
         $product->category()->attach($request->get('product_id'));
 
-        Session::flash('sukses','Yeahh, Product berhasil disimpan!');
+        Session::flash('sukses', 'Yeahh, Product berhasil disimpan!');
         return redirect()->route('product');
     }
 
     public function edit($id)
     {
         $product = Product::find($id);
-        if(!$product){
+        if (!$product) {
             return abort(404);
         }
         return view('product.edit')->with('product', $product)->with('product', $product);
@@ -81,17 +80,15 @@ class ProductController extends Controller
         $product->save();
         // $product->categories()->sync($request->get('category_id'));
         $product->category()->sync($request->get('category_id'));
-        Session::flash('update','Product berhasil di update!');
+        Session::flash('update', 'Product berhasil di update!');
         return redirect()->route('product');
-
-
     }
 
     public function destroy($id)
     {
         $product = Product::find($id);
-            $product->delete();
-            Session::flash('delete','Category berhasil dihapus!');
-            return redirect()->route('product');
+        $product->delete();
+        Session::flash('delete', 'Category berhasil dihapus!');
+        return redirect()->route('product');
     }
 }

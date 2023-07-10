@@ -24,6 +24,14 @@
             position: 'topRight',
             closeOnClick: true,
         });
+        @elseif($message = Session::get('gagal'))
+        iziToast.warning({
+            title: 'Oh no!!',
+            message: '{{$message}}',
+            timeout: 5000,
+            position: 'topRight',
+            closeOnClick: true,
+        });
         @endif
-    }); 
+    });
 </script>
