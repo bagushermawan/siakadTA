@@ -14,7 +14,7 @@ class TransactionController extends Controller
     {
         $daftar_transaction = Transaction::paginate();
         return view("transaction.index", ["daftar_transaction" => $daftar_transaction]);
-        
+
     }
 
 
@@ -34,12 +34,12 @@ class TransactionController extends Controller
             'status'=>'required',
         ]);
 
-        
+
         $transaction = new Transaction();
         $transaction->nama = $request->nama;
         $transaction->merek = $request->merek;
         $transaction->platnomer = $request->platnomer;
-        $a='0123445679abcdefghijklmnopqrstuvwxyzABCDEFGHIFJKLMNOPQRSTUVWXYZ';
+        $a='AUIEOaiueo';
         $transaction->kode=str_replace(" ", "", $request->nama).substr(str_shuffle($a), 0, 5).str_replace(" ", "", $request->merek);
         $transaction->status=$request->status;
 

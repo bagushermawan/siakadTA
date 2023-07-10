@@ -41,7 +41,7 @@
                         </div>
                         <div class="form-group">
                             <label>Category:</label>
-                            <select name="category_id[]" multiple class="roles" class="form-control">
+                            <select name="category_id[]" multiple class="categories" class="form-control">
                             </select>
                         </div>
                         <div class="card-footer text-right">
@@ -60,8 +60,8 @@
 
     <script type="text/javascript">
         $(function () {
-            $('.roles').select2({
-                placeholder: 'Select Role',
+            $('.categories').select2({
+                placeholder: 'Select Category',
                 ajax: {
                     url: "{{route('category.ajaxsearch')}}",
                     dataType: 'json',

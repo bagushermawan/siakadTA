@@ -39,7 +39,7 @@ Route::post("/role/store", "RoleController@store")->name('role.store');
 Route::get('/role/edit/{id}', 'RoleController@edit')->name('role.edit');
 Route::put('/role/update/{id}', 'RoleController@update')->name('role.update');
 Route::get('/role/destroy/{id}', 'RoleController@destroy')->name('role.destroy');
-Route::get('/role/search','RoleController@ajaxSearch')->name('role.ajaxsearch');
+Route::get('/role/search', 'RoleController@ajaxSearch')->name('role.ajaxsearch');
 
 
 
@@ -50,7 +50,7 @@ Route::post("/category/store", "CategoryController@store")->name('category.store
 Route::get('/category/edit/{id}', 'CategoryController@edit')->name('category.edit');
 Route::put('/category/update/{id}', 'CategoryController@update')->name('category.update');
 Route::get('/category/destroy/{id}', 'CategoryController@destroy')->name('category.destroy');
-Route::get('/category/search','CategoryController@ajaxSearch')->name('category.ajaxsearch');
+Route::get('/category/search', 'CategoryController@ajaxSearch')->name('category.ajaxsearch');
 
 
 //Product
@@ -69,7 +69,7 @@ Route::post("/complaint/store", "ComplaintController@store")->name('complaint.st
 Route::get('/complaint/edit/{id}', 'ComplaintController@edit')->name('complaint.edit');
 Route::put('/complaint/update/{id}', 'ComplaintController@update')->name('complaint.update');
 Route::get('/complaint/destroy/{id}', 'ComplaintController@destroy')->name('complaint.destroy');
-Route::get('/complaint/search','ComplaintController@ajaxSearch')->name('complaint.ajaxsearch');
+Route::get('/complaint/search', 'ComplaintController@ajaxSearch')->name('complaint.ajaxsearch');
 
 //Transaction
 Route::get("/transaction", "TransactionController@index")->name('transaction');
@@ -78,7 +78,7 @@ Route::post("/transaction/store", "TransactionController@store")->name('transact
 Route::get('/transaction/edit/{id}', 'TransactionController@edit')->name('transaction.edit');
 Route::put('/transaction/update/{id}', 'TransactionController@update')->name('transaction.update');
 Route::get('/transaction/destroy/{id}', 'TransactionController@destroy')->name('transaction.destroy');
-Route::get('/transaction/search','TransactionController@ajaxSearch')->name('transaction.ajaxsearch');
+Route::get('/transaction/search', 'TransactionController@ajaxSearch')->name('transaction.ajaxsearch');
 
 //Front
 Route::get("/", "FrontController@index")->name('/');
@@ -87,4 +87,7 @@ Route::post("/front/store", "FrontController@store")->name('front.store');
 Route::get('/front/edit/{id}', 'FrontController@edit')->name('front.edit');
 Route::put('/front/update/{id}', 'FrontController@update')->name('front.update');
 Route::get('/front/destroy/{id}', 'FrontController@destroy')->name('front.destroy');
-Route::get('/front/search','FrontController@ajaxSearch')->name('front.ajaxsearch');
+Route::get('/front/search', 'FrontController@ajaxSearch')->name('front.ajaxsearch');
+
+//Tes
+Route::get("/tes", "TesController@index")->name('/');
