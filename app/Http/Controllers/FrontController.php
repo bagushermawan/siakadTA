@@ -8,6 +8,11 @@ class FrontController extends Controller
 {
     public function index()
     {
-        return view ('layouts.front.master');
+        return view ('layouts.front.resi');
+    }
+
+    public function resi()
+    {
+        return view('layouts.front.cekresi');
     }
 }
