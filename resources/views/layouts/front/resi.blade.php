@@ -68,7 +68,7 @@
                 id="resi"
                 name="resi"
                 maxlength="17"
-                placeholder="Masukkan nomor resi/AWB/kode boking"
+                placeholder="Masukkan nomor status/id"
                 pattern="[A-Za-z0-9]+"
               />
             </li>

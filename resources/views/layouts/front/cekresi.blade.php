@@ -69,14 +69,14 @@
                   id="resi"
                   name="resi"
                   maxlength="17"
-                  placeholder="Masukkan nomor resi/AWB/kode boking"
+                  placeholder="Masukkan nomor status/id"
                   pattern="[A-Za-z0-9]+"
                   required
                 />
               </li>
-              <button disabled class="btn btn-more track" type="submit">
+              <button  class="btn btn-more track" type="submit">
                 <i class="fa-regular fa-magnifying-glass"style="font-family: Font Awesome 5 Free; font-weight: 900"></i>
-                Cari Lokasi
+                Cek Status
               </button>
             </ul>
           </form>
