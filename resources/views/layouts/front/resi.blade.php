@@ -43,7 +43,7 @@
     </nav>
     <section class="herosection">
       <div>
-        <h2>PaketIn.com</h2>
+        <h2>Bengkelq.com</h2>
         <p>
           Layanan kami memudahkan pengirim dan penerima paket untuk mengetahui status resi atau keberadaan paket yang
           sedang dikirim. Setiap hari ratusan ribu nomor resi dari berbagai kurir pengiriman dilacak melalui website,
@@ -53,13 +53,13 @@
           Apapun ekspedisi yang kamu gunakan, kamu bisa tracking resi jasa pengiriman barang di satu tempat saja.
           Mengenali otomatis (auto detect) resi dari 60 ekspedisi pengiriman.
         </p>
-        <button class="cta"><a href="{{route('/resi')}}">Cek Resi</a></button>
+        <button class="cta"><a href="{{route('/resi')}}">Cek Status</a></button>
       </div>
       <img src="assets/home-drone.png" alt="" class="image" />
     </section>
     <section class="cekResi">
       <div class="container">
-        <h3>Cek Lokasi <span>Paketmu</span></h3>
+        <h3>Cek Status <span>Motormu</span></h3>
         <form action="resi.html" method="get">
           <ul class="flex">
             <li>
@@ -72,9 +72,9 @@
                 pattern="[A-Za-z0-9]+"
               />
             </li>
-            <li>
+            {{-- <li>
               <select name="expedisi" id="expedisi"></select>
-            </li>
+            </li> --}}
           </ul>
           <button type="submit" class="btn track" disabled>LACAK</button>
         </form>

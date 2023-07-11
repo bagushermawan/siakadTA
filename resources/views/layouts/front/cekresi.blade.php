@@ -56,12 +56,12 @@
         <div class="form-container">
           <form action="" method="get">
             <ul>
-              <li>
+              {{-- <li>
                 <label for="expedisi">Pilih expedisi</label>
                 <select name="expedisi" id="expedisi">
                   <option value="1" hidden>Pilih expedisi</option>
                 </select>
-              </li>
+              </li> --}}
               <li>
                 <label for="resi">Nomor Resi</label>
                 <input
@@ -82,7 +82,7 @@
           </form>
         </div>
         <div class="detail-container">
-          <h3 class="title-section"><span>Lacah</span> Pengiriman</h3>
+          <h3 class="title-section"><span>Cek</span> Status</h3>
           <div class="body-card flex">
             <div id="summary" class="display-false"></div>
             <div class="flex info-card">
