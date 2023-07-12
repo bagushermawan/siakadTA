@@ -4,7 +4,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    {{-- <meta name="csrf-token" content="{{ csrf_token() }} width=device-width, initial-scale=1.0" /> --}}
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
@@ -25,20 +26,6 @@
       <ul class="list-menu flex">
         <li><a href="#blog">Blog</a></li>
         <li><a href="#tentang">Tentang kami</a></li>
-        {{-- <li class="dropdown">
-          Pusat bantuan
-          <div class="dropdown-content">
-            <a href="#" class="link">Solusi Bisnis</a>
-            <a href="#" class="link">Tanya Paket</a>
-            <a href="#" class="link">Kontak Kami</a>
-          </div>
-        </li> --}}
-        {{-- <li><a href="#footer">Download</a></li> --}}
-        {{-- <li class="flex">
-          <button class="id">ID</button>
-          <span></span>
-          <button class="en">EN</button>
-        </li> --}}
       </ul>
     </nav>
     <section id="main" class="flex">
@@ -63,21 +50,21 @@
                 </select>
               </li> --}}
               <li>
-                <label for="resi">Nomor Resi</label>
-                <input
-                  type="text"
-                  id="resi"
-                  name="resi"
-                  maxlength="17"
-                  placeholder="Masukkan nomor status/id"
-                  pattern="[A-Za-z0-9]+"
-                  required
-                />
-              </li>
-              <button  class="btn btn-more track" type="submit">
+                <label for="resi">Nomor Transaksi</label>
+                <input type='text' id='search' name='search' placeholder='Enter userid 1-7'>
+                <a  class="btn btn-more track"  value='Search' id='but_search'>
                 <i class="fa-regular fa-magnifying-glass"style="font-family: Font Awesome 5 Free; font-weight: 900"></i>
                 Cek Status
-              </button>
+                </a>
+                {{-- <input type='button' value='Search' id='but_search'> --}}
+                <input class="btn btn-more track"type='button' value='Fetch all records' id='but_fetchall'>
+
+                {{-- <input style="visibility: hidden;"type="text" id="resi" name="resi" maxlength="17" placeholder="Masukkan nomor status/id" pattern="[A-Za-z0-9]+" required/> --}}
+              </li>
+              {{-- <button  class="btn btn-more track" type="submit">
+                <i class="fa-regular fa-magnifying-glass"style="font-family: Font Awesome 5 Free; font-weight: 900"></i>
+                Cek Status
+              </button> --}}
             </ul>
           </form>
         </div>
@@ -86,7 +73,20 @@
           <div class="body-card flex">
             <div id="summary" class="display-false"></div>
             <div class="flex info-card">
-              <img src="assets/home-motor.png" alt="gambar" />
+              {{-- <img src="assets/home-motor.png" alt="gambar" /> --}}
+                <table border='1' id='empTable' style='border-collapse: collapse;'>
+                <thead>
+                <tr>
+                    <th>S.no</th>
+                    <th>Kode</th>
+                    <th>Nama</th>
+                    <th>Merek</th>
+                    <th>Platnomer</th>
+                    <th>Status</th>
+                </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
               <p>Silahkan isi form untuk lacak pengiriman</p>
             </div>
           </div>
@@ -147,7 +147,89 @@
         <p>Copyrights © 2022 PaketIn by <a target="_blank" href="https://mulyasaputra.github.io">InSketch</a></p>
       </div>
     </footer> -->
-    <script src="assets/js/mainresi.js"></script>
-    <script src="assets/js/resi.js"></script>
+    {{-- <script src="assets/js/mainresi.js"></script>
+    <script src="assets/js/resi.js"></script> --}}
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+     <script type='text/javascript'>
+   var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+   $(document).ready(function(){
+
+      // Fetch all records
+      $('#but_fetchall').click(function(){
+
+         // AJAX GET request
+         $.ajax({
+           url: 'getTransaction',
+           type: 'get',
+           dataType: 'json',
+           success: function(response){
+
+              createRows(response);
+
+           }
+         });
+      });
+
+      // Search by userid
+      $('#but_search').click(function(){
+         var transactionid = Number($('#search').val().trim());
+
+         if(transactionid > 0){
+
+           // AJAX POST request
+           $.ajax({
+              url: 'getTransactionbyid',
+              type: 'post',
+              data: {_token: CSRF_TOKEN, transactionid: transactionid},
+              dataType: 'json',
+              success: function(response){
+
+                 createRows(response);
+
+              }
+           });
+         }
+
+      });
+
+   });
+
+   // Create table rows
+   function createRows(response){
+      var len = 0;
+      $('#empTable tbody').empty(); // Empty <tbody>
+      if(response['data'] != null){
+         len = response['data'].length;
+      }
+
+      if(len > 0){
+        for(var i=0; i<len; i++){
+           var id = response['data'][i].id;
+           var kode = response['data'][i].kode;
+           var nama = response['data'][i].nama;
+           var merek = response['data'][i].merek;
+           var platnomer = response['data'][i].platnomer;
+           var status = response['data'][i].status;
+
+           var tr_str = "<tr>" +
+             "<td align='center'>" + (i+1) + "</td>" +
+             "<td align='center'>" + kode + "</td>" +
+             "<td align='center'>" + nama + "</td>" +
+             "<td align='center'>" + merek + "</td>" +
+             "<td align='center'>" + platnomer + "</td>" +
+             "<td align='center'>" + status + "</td>" +
+           "</tr>";
+
+           $("#empTable tbody").append(tr_str);
+        }
+      }else{
+         var tr_str = "<tr>" +
+           "<td align='center' colspan='4'>No record found.</td>" +
+         "</tr>";
+
+         $("#empTable tbody").append(tr_str);
+      }
+   }
+   </script>
   </body>
 </html>

@@ -14,16 +14,32 @@ class FrontController extends Controller
 
     public function resi()
     {
-        $resi = Transaction::all();
+        // $resi = Transaction::all();
         // $transactions = Transaction::paginate(10);
-        return view('layouts.front.cekresi', compact('resi'));
-        // return view('layouts.front.cekresi');
+        // return view('layouts.front.cekresi', compact('resi'));
+        return view('layouts.front.cekresi');
     }
 
-    public function show($id)
+    public function getTransaction()
     {
-        $resi = Transaction::find($id);
+        $transactions = Transaction::orderby('id', 'asc')->select('*')->get();
 
-        return response()->json($resi);
+        // Fetch all records
+        $response['data'] = $transactions;
+
+        return response()->json($response);
+    }
+
+    public function getTransactionbyid(Request $request)
+    {
+
+        $transactionid = $request->transactionid;
+
+        $transactions = Transaction::select('*')->where('id', $transactionid)->get();
+
+        // Fetch all records
+        $response['data'] = $transactions;
+
+        return response()->json($response);
     }
 }

@@ -83,6 +83,8 @@ Route::get('/transaction/search', 'TransactionController@ajaxSearch')->name('tra
 //Front
 Route::get("/", "FrontController@index")->name('/');
 Route::get("/resi", "FrontController@resi")->name('/resi');
+Route::get("/getTransaction", "FrontController@getTransaction")->name('/getTransaction');
+Route::post("/getTransactionbyid", "FrontController@getTransactionbyid")->name('/getTransactionbyid');
 
 //Tes
 // Route::get("/", "TesController@index")->name('/');

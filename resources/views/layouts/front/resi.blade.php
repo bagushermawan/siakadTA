@@ -293,6 +293,6 @@
       </div>
     </footer>
 
-    <script src="assets/js/mainresi.js"></script>
+    {{-- <script src="assets/js/mainresi.js"></script> --}}
   </body>
 </html>
