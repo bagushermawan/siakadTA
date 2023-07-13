@@ -45,7 +45,7 @@
                 <i class="fa-regular fa-magnifying-glass"style="font-family: Font Awesome 5 Free; font-weight: 900"></i>
                 Cek Status
                 </a>
-                <input class="btn btn-more track"type='button' value='Fetch all records' id='but_fetchall'>
+                <input class="btn btn-more track" type='button' value='Fetch all records' id='but_fetchall'>
               </li>
             </ul>
           </form>
@@ -54,6 +54,7 @@
           <h3 class="title-section"><span>Cek</span> Status</h3>
           <div class="body-card flex">
             <div class="body-card">
+                <div class="loading-overlay"><div class="loading-animation"></div></div>
               <img class="ptes" src="assets/home-motor.png" alt="gambar" />
               <p class="ptes">Silahkan isi form untuk lacak pengiriman</p>
                 <table id='empTable' style='width:100%;margin:5px'>
@@ -84,9 +85,8 @@
            type: 'get',
            dataType: 'json',
            success: function(response){
-
-              createRows(response);
-$('.body-card .ptes').hide();
+            createRows(response);
+            $('.body-card .ptes').hide();
            }
          });
       });
@@ -96,7 +96,7 @@ $('.body-card .ptes').hide();
          var transactionKode = $('#search').val().trim();
 
    if (transactionKode !== '') {
-$('.body-card .ptes').hide();
+    $('.body-card .ptes').hide();
            // AJAX POST request
            $.ajax({
               url: 'getTransactionbyid',
