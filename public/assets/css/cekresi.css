@@ -1,3 +1,11 @@
+.ptes{
+    display: flex;
+    justify-content: center; /* Mengatur konten menjadi di tengah secara horizontal */
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .display-false {
     display: none;
 }
@@ -98,15 +106,15 @@ h3.title-section span {
     background-color: #fff;
 }
 .detail-container .body-card {
-    margin-top: 10px;
+    margin: 10px;
     width: 100%;
-    height: calc(100% - 40px);
+    /* height: calc(100% - 40px); */
     border-radius: 10px;
     border: 3px dashed #f6f6f6;
     justify-content: center;
 }
 .detail-container .body-card > div img {
-    width: 100%;
+    width: 45%;
 }
 .detail-container .body-card > .info-card {
     flex-direction: column;
