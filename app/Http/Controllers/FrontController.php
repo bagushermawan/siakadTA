@@ -35,7 +35,10 @@ class FrontController extends Controller
 
         $transactionKode = $request->transactionKode;
 
-        $transactions = Transaction::select('*')->where('kode', 'like', '%' . $transactionKode. '%')->get();
+        $transactions = Transaction::select('*')
+        ->where('kode', 'like', '%' . $transactionKode. '%')
+        ->orWhere('nama', 'like', '%' . $transactionKode . '%')
+        ->get();
 
         // Fetch all records
         $response['data'] = $transactions;
