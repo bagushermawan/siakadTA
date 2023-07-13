@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -66,54 +65,94 @@
           </div>
         </div>
       </div>
-      <div id="container-fill" class="display-false">
-        <h3 class="title-section"><span>Lihat</span> Lokasi Paket</h3>
-        <div class="progress-history"></div>
+      <div id="container-fill" class="display-true">
+        <h3 class="title-section"><span>Lihat</span> Detail Servis</h3>
+        <div class="progress-history">Coming soon ..</div>
       </div>
     </section>
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
      <script type='text/javascript'>
    var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
-   $(document).ready(function(){
+   $(document).ready(function() {
+  var isLoading = false; // Menyimpan status loading
 
-      // Fetch all records
-      $('#but_fetchall').click(function(){
+  // Tampilkan efek loading-overlay saat permintaan AJAX dimulai
+  $(document).ajaxStart(function() {
+    if (isLoading) {
+      showElem(); // Tampilkan efek loading-overlay
+    }
+  });
 
-         // AJAX GET request
-         $.ajax({
-           url: 'getTransaction',
-           type: 'get',
-           dataType: 'json',
-           success: function(response){
-            createRows(response);
-            $('.body-card .ptes').hide();
-           }
-         });
-      });
+  // Sembunyikan efek loading-overlay saat permintaan AJAX selesai
+  $(document).ajaxStop(function() {
+    hideElem();
+  });
 
-      // Search by userid
-      $('#but_search').click(function(){
-         var transactionKode = $('#search').val().trim();
-
-   if (transactionKode !== '') {
+  // Fetch all records
+  $('#but_fetchall').click(function() {
     $('.body-card .ptes').hide();
-           // AJAX POST request
-           $.ajax({
-              url: 'getTransactionbyid',
-              type: 'post',
-              data: {_token: CSRF_TOKEN, transactionKode: transactionKode},
-              dataType: 'json',
-              success: function(response){
+    isLoading = true; // Set status loading menjadi true
 
-                 createRows(response);
+    // Tampilkan efek loading-overlay
+    showElem();
 
-              }
-           });
-         }
-
+    // Tambahkan jeda 2 detik sebelum permintaan AJAX dimulai
+    setTimeout(function() {
+      // AJAX GET request
+      $.ajax({
+        url: 'getTransaction',
+        type: 'get',
+        dataType: 'json',
+        success: function(response) {
+          createRows(response);
+        }
       });
+    }, 2000); // Timeout 2 detik (2000 ms)
+  });
 
-   });
+  // Search by userid
+  $('#but_search').click(function() {
+    var transactionKode = $('#search').val().trim();
+    isLoading = true; // Set status loading menjadi true
+
+    if (transactionKode !== '') {
+      $('.body-card .ptes').hide();
+
+      // Tampilkan efek loading-overlay
+      showElem();
+
+      // Tambahkan jeda 2 detik sebelum permintaan AJAX dimulai
+      setTimeout(function() {
+        // AJAX POST request
+        $.ajax({
+          url: 'getTransactionbyid',
+          type: 'post',
+          data: { _token: CSRF_TOKEN, transactionKode: transactionKode },
+          dataType: 'json',
+          success: function(response) {
+            createRows(response);
+          }
+        });
+      }, 2000); // Timeout 2 detik (2000 ms)
+    }
+  });
+});
+
+function showElem() {
+  var loadingOverlay = document.getElementsByClassName("loading-overlay")[0];
+  if (loadingOverlay) {
+    loadingOverlay.style.visibility = "visible";
+    $('.body-card .loading-overlay').show();
+  }
+}
+
+function hideElem() {
+  var loadingOverlay = document.getElementsByClassName("loading-overlay")[0];
+  if (loadingOverlay) {
+    loadingOverlay.style.visibility = "hidden";
+    $('.body-card .loading-overlay').hide();
+  }
+}
 
    // Create table rows
    function createRows(response){
@@ -150,7 +189,7 @@
         }
       }else{
          var tr_str = "<tr>" +
-           "<td align='center' colspan='4'><b>No record found.</b></td>" +
+           "<td align='center' colspan='4' class='tede'><b>No record found.</b></td>" +
          "</tr>";
 
          $("#empTable tbody").append(tr_str);
