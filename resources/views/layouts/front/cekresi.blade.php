@@ -135,16 +135,22 @@ $('.body-card .ptes').hide();
            var merek = response['data'][i].merek;
            var platnomer = response['data'][i].platnomer;
            var status = response['data'][i].status;
+           var capitalizedStatus = status.charAt(0).toUpperCase() + status.slice(1); // Merubah status menjadi huruf kapitalized
+
+           var statusClass = getStatusClass(status); //Add kelas CSS berdasarkan kondisi status
 
            var tr_str = "<tr>" +
         "<th>No</th><th></th><td>" + (i + 1) + "</td>" + "</tr>" +
-        "<tr><th>Kode</th><th>:</th><td>" + kode + "</td></tr>" +
-        "<tr><th>Nama</th><th>:</th><td>" + nama + "</td></tr>" +
+        "<tr><th>Kode</th><th>:</th><td style='color:#301A4B;font-weight:bold;'>" + kode + "</td></tr>" +
+        "<tr><th>Nama</th><th>:</th><td style='color:#6DB1BF;font-weight:bold;'>" + nama + "</td></tr>" +
         "<tr><th>Merek</th><th>:</th><td>" + merek + "</td></tr>" +
         "<tr><th>Plat Nomor</th><th>:</th><td>" + platnomer + "</td></tr>" +
-        "<tr><th>Status</th><th>:</th><td >" + status + "</td></tr>";
+        "<tr><th>Status</th><th>:</th><td><a class='baten " + statusClass + "'>" + capitalizedStatus  + "</i></a></td></tr>";
 
-           $("#empTable tbody").append(tr_str);
+        //Nambah tag <br> setiap data
+        tr_str += "<tr><td colspan='3'><br><hr class='haer'></td></tr>";
+
+        $("#empTable tbody").append(tr_str);
         }
       }else{
          var tr_str = "<tr>" +
@@ -154,6 +160,19 @@ $('.body-card .ptes').hide();
          $("#empTable tbody").append(tr_str);
       }
    }
+   // Mendapatkan kelas CSS berdasarkan kondisi status
+function getStatusClass(status) {
+  var statusClass = '';
+
+  //Buat nentuin kelas CSS berdasarkan kondisi status
+  if (status === 'proses') {
+    statusClass = 'baten-proses';
+  } else if (status === 'selesai') {
+    statusClass = 'baten-selesai';
+  }
+
+  return statusClass;
+}
    </script>
   </body>
 </html>
