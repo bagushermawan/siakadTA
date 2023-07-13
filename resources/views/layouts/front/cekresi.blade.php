@@ -67,7 +67,7 @@
       </div>
       <div id="container-fill" class="display-true">
         <h3 class="title-section"><span>Lihat</span> Detail Servis</h3>
-        <div class="progress-history">Coming soon ..</div>
+        <div class="progress-history" style="color:rgb(173, 169, 169);">Coming soon ..</div>
       </div>
     </section>
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
