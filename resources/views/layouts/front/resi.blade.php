@@ -20,7 +20,7 @@
   </head>
   <body>
     <nav class="navbar flex">
-      <div class="logo"><a href="{{route('/')}}"><img src="assets/Logo.svg" alt="logo" /></a></div>
+      <div class="logo"><a href="{{route('/')}}"><img src="assets/logo.png" alt="logo" /></a></div>
       <div class="mobile-menu"><span></span></div>
       <ul class="list-menu flex">
         <li><a href="#blog">Blog</a></li>

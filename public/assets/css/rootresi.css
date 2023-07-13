@@ -138,18 +138,20 @@ h3.title-section::before {
 /* Navbar secion */
 .navbar {
   max-width: 1268px;
-  position: fixed;
-  top: 0;
+  position: sticky;
+  top: 10px;
   justify-content: space-between;
   width: 100%;
   padding: 10px 40px;
   font-size: 12px;
-  background-color: #fafafa;
+  background-color: rgb(249 169 169 / 20%);
+  backdrop-filter: blur(100px);
+  border-radius: 12px;
   color: var(--color-text);
   z-index: 99;
 }
 .navbar .logo img {
-  height: 30px;
+  height: 50px;
 }
 .navbar ul {
   gap: 13px;
@@ -175,6 +177,52 @@ h3.title-section::before {
 .navbar .list-menu .id {
   color: var(--color-red);
 }
+
+/* Navbar CekResi */
+.navbarr {
+  max-width: 1268px;
+  position: fixed;
+  /* top: 10px; */
+  justify-content: space-between;
+  width: 100%;
+  padding: 10px 40px;
+  font-size: 12px;
+  background-color: rgb(249 169 169 / 20%);
+  backdrop-filter: blur(100px);
+  border-radius: 12px;
+  color: var(--color-text);
+  z-index: 99;
+}
+.navbarr .logo img {
+  height: 50px;
+}
+.navbarr ul {
+  gap: 13px;
+}
+.navbarr ul .flex {
+  gap: 4px;
+}
+.navbarr li:hover a {
+  color: var(--color-red);
+  transition: color 0.3s ease-in-out;
+}
+.navbarr ul li button {
+  border: none;
+  background-color: transparent;
+  font-weight: 600;
+}
+.navbarr ul li span {
+  display: block;
+  width: 2px;
+  height: 18px;
+  background-color: rgba(0, 0, 0, 0.185);
+}
+.navbarr .list-menu .id {
+  color: var(--color-red);
+}
+
+
+
 .dropdown {
   position: relative;
   display: inline-block;

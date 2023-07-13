@@ -17,11 +17,11 @@
     <link rel="stylesheet" href="assets/css/rootresi.css">
     <link rel="stylesheet" href="assets/css/cekresi.css">
 
-    <title>Cek Resi</title>
+    <title>Cek Status</title>
   </head>
   <body>
-    <nav class="navbar flex">
-      <div class="logo"><a href="{{route('/')}}"><img src="assets/Logo.svg" alt="logo" /></a></div>
+    <nav class="navbarr flex">
+      <div class="logo"><a href="{{route('/')}}"><img src="assets/logo.png" alt="logo" /></a></div>
       <div class="mobile-menu"><span></span></div>
       <ul class="list-menu flex">
         <li><a href="#blog">Blog</a></li>
@@ -50,8 +50,8 @@
                 </select>
               </li> --}}
               <li>
-                <label for="resi">Nomor Transaksi</label>
-                <input type='text' id='search' name='search' placeholder='Enter userid 1-7'>
+                <label class="teks" for="resi">Kode Transaksi</label>
+                <input class="teks" type='text' id='search' name='search' placeholder='Masukkan kode transaksi ..'>
                 <a  class="btn btn-more track"  value='Search' id='but_search'>
                 <i class="fa-regular fa-magnifying-glass"style="font-family: Font Awesome 5 Free; font-weight: 900"></i>
                 Cek Status
@@ -71,23 +71,21 @@
         <div class="detail-container">
           <h3 class="title-section"><span>Cek</span> Status</h3>
           <div class="body-card flex">
-            <div id="summary" class="display-false"></div>
-            <div class="flex info-card">
+            <div class="body-card">
               {{-- <img src="assets/home-motor.png" alt="gambar" /> --}}
-                <table border='1' id='empTable' style='border-collapse: collapse;'>
+                <table id='empTable' style='border-collapse: collapse;'>
                 <thead>
-                <tr>
-                    <th>S.no</th>
-                    <th>Kode</th>
-                    <th>Nama</th>
-                    <th>Merek</th>
-                    <th>Platnomer</th>
-                    <th>Status</th>
-                </tr>
+                {{-- <tr><th>S.no</th></tr>
+                    <tr><th>Kode</th></tr>
+                    <tr><th>Nama</th></tr>
+                    <tr><th>Merek</th></tr>
+                    <tr><th>Platnomer</th></tr>
+                    <tr><th>Status</th></tr> --}}
                 </thead>
                 <tbody></tbody>
             </table>
-              <p>Silahkan isi form untuk lacak pengiriman</p>
+            {{-- <br> --}}
+              {{-- <p>Silahkan isi form untuk lacak pengiriman</p> --}}
             </div>
           </div>
         </div>
@@ -212,12 +210,12 @@
            var status = response['data'][i].status;
 
            var tr_str = "<tr>" +
-             "<td align='center'>" + (i+1) + "</td>" +
-             "<td align='center'>" + kode + "</td>" +
-             "<td align='center'>" + nama + "</td>" +
-             "<td align='center'>" + merek + "</td>" +
-             "<td align='center'>" + platnomer + "</td>" +
-             "<td align='center'>" + status + "</td>" +
+             "<th>No</th><td>" + (i+1) + "</td>" +"</tr>"+
+             "<th>Kode          :</th><td>" + kode + "</td>" +"</tr>"+
+             "<th>Nama          :</th><td>" + nama + "</td>" +"</tr>"+
+             "<th>Merek         :</th><td>" + merek + "</td>" +"</tr>"+
+             "<th>Plat Nomor    :</th><td>" + platnomer + "</td>" +"</tr>"+
+             "<th>Status        :</th><td>" + status + "</td>" +
            "</tr>";
 
            $("#empTable tbody").append(tr_str);
