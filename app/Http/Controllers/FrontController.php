@@ -30,12 +30,12 @@ class FrontController extends Controller
         return response()->json($response);
     }
 
-    public function getTransactionbyid(Request $request)
+    public function getTransactionbyKode(Request $request)
     {
 
-        $transactionid = $request->transactionid;
+        $transactionKode = $request->transactionKode;
 
-        $transactions = Transaction::select('*')->where('id', $transactionid)->get();
+        $transactions = Transaction::select('*')->where('kode', 'like', '%' . $transactionKode. '%')->get();
 
         // Fetch all records
         $response['data'] = $transactions;

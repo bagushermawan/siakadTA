@@ -97,15 +97,15 @@ $('.body-card .ptes').hide();
 
       // Search by userid
       $('#but_search').click(function(){
-         var transactionid = Number($('#search').val().trim());
+         var transactionKode = $('#search').val().trim();
 
-         if(transactionid > 0){
+   if (transactionKode !== '') {
 $('.body-card .ptes').hide();
            // AJAX POST request
            $.ajax({
               url: 'getTransactionbyid',
               type: 'post',
-              data: {_token: CSRF_TOKEN, transactionid: transactionid},
+              data: {_token: CSRF_TOKEN, transactionKode: transactionKode},
               dataType: 'json',
               success: function(response){
 
@@ -148,7 +148,7 @@ $('.body-card .ptes').hide();
         }
       }else{
          var tr_str = "<tr>" +
-           "<td align='center' colspan='4'>No record found.</td>" +
+           "<td align='center' colspan='4'><b>No record found.</b></td>" +
          "</tr>";
 
          $("#empTable tbody").append(tr_str);
