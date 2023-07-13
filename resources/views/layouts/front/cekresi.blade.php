@@ -23,20 +23,16 @@
       <div class="logo"><a href="{{route('/')}}"><img src="assets/logo.png" alt="logo" /></a></div>
       <div class="mobile-menu"><span></span></div>
       <ul class="list-menu flex">
-        <li><a href="#blog">Blog</a></li>
-        <li><a href="#tentang">Tentang kami</a></li>
+        <li><a href="{{ route('/') }}#blog" target="_blank">Blog</a></li>
+        <li><a href="{{ route('/') }}#tentang" target="_blank">Tentang kami</a></li>
       </ul>
     </nav>
     <section id="main" class="flex">
       <h2>
-        Cek Resi JNE, J&T, SiCepat, AnterAja, POS, TIKI,Wahana, Lion Parcel &
-        Lainya
+        Cek Status Motormu disini
       </h2>
       <p>
-        Kamu bisa lacak/cek resi paket pengirman barang kamu yang dikirim
-        melalui kurir JNE, J&T, SiCepat, AnterAja, POS, TIKI, Wahana, Lion
-        parcel dan masih banya lagi. disini. Hasil Cepat, Status Akurat &
-        Terlengkap
+        Kamu bisa mengecek status motormu disini, mulai dari Nama, Merk, Nopol, Status, dan detail lainnya.
       </p>
       <div id="container-resi" class="resi">
         <div class="form-container">

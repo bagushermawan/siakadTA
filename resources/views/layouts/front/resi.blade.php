@@ -45,13 +45,10 @@
       <div>
         <h2>Bengkelq.com</h2>
         <p>
-          Layanan kami memudahkan pengirim dan penerima paket untuk mengetahui status resi atau keberadaan paket yang
-          sedang dikirim. Setiap hari ratusan ribu nomor resi dari berbagai kurir pengiriman dilacak melalui website,
-          widget, dan aplikasi mobile.
+          adalah contoh teks atau dummy dalam industri percetakan dan penataan huruf atau typesetting. Lorem Ipsum telah menjadi standar contoh teks sejak tahun 1500an, saat seorang tukang cetak yang tidak dikenal mengambil sebuah kumpulan teks dan mengacaknya untuk menjadi sebuah buku contoh huruf.
         </p>
         <p>
-          Apapun ekspedisi yang kamu gunakan, kamu bisa tracking resi jasa pengiriman barang di satu tempat saja.
-          Mengenali otomatis (auto detect) resi dari 60 ekspedisi pengiriman.
+          Ia tidak hanya bertahan selama 5 abad, tapi juga telah beralih ke penataan huruf elektronik, tanpa ada perubahan apapun. Ia mulai dipopulerkan pada tahun 1960 dengan diluncurkannya lembaran-lembaran Letraset yang menggunakan kalimat-kalimat dari Lorem Ipsum, dan seiring munculnya perangkat lunak Desktop Publishing seperti Aldus PageMaker juga memiliki versi Lorem Ipsum.
         </p>
         <button class="cta"><a href="{{route('/resi')}}">Cek Status</a></button>
       </div>
@@ -199,47 +196,39 @@
       <h3 class="title-section">Tentang Kami</h3>
       <div class="text-container">
         <p>
-          <span>Layanan kami</span> memudahkan pengirim dan penerima paket untuk mengetahui status resi atau keberadaan
-          paket yang sedang dikirim. Setiap hari ratusan ribu nomor resi dari berbagai kurir pengiriman dilacak melalui
-          website, widget, dan aplikasi mobile.
+          <span>Tidak seperti</span>  anggapan banyak orang, Lorem Ipsum bukanlah teks-teks yang diacak.
+          Ia berakar dari sebuah naskah sastra latin klasik dari era 45 sebelum masehi,
+          hingga bisa dipastikan usianya telah mencapai lebih dari 2000 tahun.
         </p>
         <p>
-          <span>Situs Tracking/Lacak/Cek Resi Terbaik & Akurat di Indonesia.</span> Kami memberikan suatu kemudahan
-          untuk pengirim dan penerima paket barang untuk melacak status/posisi paket barang kiriman anda. Setiap hari
-          jutaan resi yang tersebar dari berbagai kurir pengiriman yang dicek melalui website dan aplikasi android. Data
-          ongkos kirim diambil langsung dari web masing-masing kurir untuk menjaga akurasi data. Namun, jika Anda
-          menemukan data yang tidak valid, silahkan laporkan ke tim kami.
+          <span>Richard McClintock,</span> seorang professor Bahasa Latin dari Hampden-Sidney College di Virginia,
+          mencoba mencari makna salah satu kata latin yang dianggap paling tidak jelas,
+          yakni consectetur, yang diambil dari salah satu bagian Lorem Ipsum.
         </p>
         <ul>
           <li>
-            <span>Situs Lacak Pengiriman Paket Termudah dan Cepat.</span> Keunggulan yang ditawarkan
-            pluginongkoskirim.com/cek-resi yaitu memberikan status pelacakan resi yang cepat. Cukup inputkan nomor resi
-            anda, lalu pilih kurir yang tertera maka anda bisa langsung mengetahui dimana posisi paket anda . Kami juga
-            bisa melacak setiap resi yang keluar dari marketplace atau toko online seperti Lazada, Tokopedia, Shopee,
-            Dan semua toko online di Indonesia.
+            <span>Ada banyak variasi tulisan Lorem Ipsum</span>  yang tersedia, tapi kebanyakan sudah mengalami perubahan bentuk,
+            entah karena unsur humor atau kalimat yang diacak hingga nampak sangat tidak masuk akal.
           </li>
           <li>
-            <span>Support Banyak Kurir Ekspedisi.</span> Kami menyediakan layanan cek resi pengiriman barang dari situs
-            kami yaitu ada 8 kurir ekspedisi terpercaya dan terbaik yang paling sering digunakan. Kami akan menambah
-            terus ekspedisi-ekspedisi ke depannya.
+            <span>Jika anda ingin menggunakan tulisan Lorem Ipsum,</span> anda harus yakin tidak ada bagian yang memalukan yang tersembunyi di tengah naskah tersebut.
+            Semua generator Lorem Ipsum di internet cenderung untuk mengulang bagian-bagian tertentu.
           </li>
         </ul>
         <p>
-          Segala data informasi mengenai status pengiriman paket barang anda adalah akurat diambil dari web
-          masing-masing ekspedisi. Jadi jangan khawatir jika anda masih ragu-ragu, kami sampaikan bahwa data yang kam
-          berikan adalah akurat dan terpercaya sesuai dengan sumber resmi asli dari ekspedisi langsung.
+          Karena itu inilah generator pertama yang sebenarnya di internet.
+          Ia menggunakan kamus perbendaharaan yang terdiri dari 200 kata Latin,
+          yang digabung dengan banyak contoh struktur kalimat untuk menghasilkan Lorem Ipsun yang nampak masuk akal.
         </p>
         <p>
-          Jika data yang kami berikan terdapat error atau tidak muncul status lacak pengiriman, maka cek juga dari web
-          resmi nya, biasanya terdapat error atau maintenance dari web resmi masing-masing ekspedisi.
+          Karena itu Lorem Ipsun yang dihasilkan akan selalu bebas dari pengulangan,
+          unsur humor yang sengaja dimasukkan, kata yang tidak sesuai dengan karakteristiknya dan lain sebagainya.
         </p>
       </div>
     </section>
     <section class="up">
       <p>
-        Plugin Ongkos Kirim hanya mengumpulkan data dari berbagai jasa ekspedisi, tanpa merubah sedikitpun dan tanpa
-        merubah apapun. Kami tidak bertanggung jawab atas ketidaksesuaian harga antara di web dan dari pihak ekspedisi
-        yang bersangkutan.
+        Terjemahan: Bisakah anda membantu menerjemahkan situs ini dalam bahasa asing? Email kami jika anda bisa membantu.
       </p>
     </section>
     <footer class="main-footer" id="footer">
@@ -275,7 +264,7 @@
           </div>
         </div> --}}
         <div class="footer-logo">
-          <img src="assets/Logo.svg" alt="logo" />
+          <img style="height:50px;" src="assets/logo.png" alt="logo" />
           <p>
             mengalami kesulitan <br />
             Hubungi kami : <br />
