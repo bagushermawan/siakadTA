@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
@@ -56,7 +57,7 @@
                 <div class="loading-overlay"><div class="loading-animation"></div></div>
               <img class="ptes" src="assets/home-motor.png" alt="gambar" />
               <p class="ptes">Silahkan isi form untuk lacak pengiriman</p>
-                <table id='empTable' style='width:100%;margin:5px'>
+                <table id='empTable' style='width:100%;padding:5px;'>
                 <thead>
                 </thead>
                 <tbody></tbody>
@@ -71,6 +72,15 @@
       </div>
     </section>
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+     <script>
+  const mobileMenu = document.querySelector(".mobile-menu"),
+    listMenu = document.querySelector(".list-menu");
+  mobileMenu.addEventListener("click", () => {
+  mobileMenu.classList.toggle("active");
+  listMenu.classList.toggle("active");
+});
+
+</script>
      <script type='text/javascript'>
    var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
    $(document).ready(function() {
