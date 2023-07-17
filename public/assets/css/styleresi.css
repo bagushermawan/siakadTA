@@ -4,7 +4,7 @@
     grid-template-columns: 1.3fr 1fr;
     overflow: hidden;
     height: 80vh;
-    max-height: 33rem;
+    /* max-height: 33rem; */
     align-items: center;
     position: relative;
 }
