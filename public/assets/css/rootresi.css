@@ -194,7 +194,7 @@ h3.title-section::before {
   z-index: 99;
 }
 .navbarr .logo img {
-  height: 50px;
+  height: 3rem;
 }
 .navbarr ul {
   gap: 13px;

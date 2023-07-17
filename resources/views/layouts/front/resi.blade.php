@@ -60,7 +60,7 @@
     <section class="cekResi">
         <div class="container">
             <h3>Cek Status <span>Motormu</span></h3>
-            <form action="resi.html" method="get">
+            <form action="#" method="#">
                 <ul class="flex">
                     <li>
                         <input type="text" id="resi" name="resi" maxlength="17"
