@@ -24,52 +24,7 @@
 </head>
 
 <body>
-  <div id="app">
-    <div class="main-wrapper">
-      <div class="navbar-bg"></div>
-      @include('layouts.header')
-      @include('layouts.sidebar')
-
-      <!-- Main Content -->
-      <div class="main-content">
-        <section class="section">
-          <div class="section-header">
-            <h1>@yield('header')</h1>
-            @yield('button-header')
-             <div class="section-header-breadcrumb">
-              {{-- <?php $link = "" ?>
-              @for($i = 1; $i <= count(Request::segments()); $i++)
-                  @if($i < count(Request::segments()) & $i > 0)
-                  <?php $link .= "/" . Request::segment($i); ?>
-                  <div class="breadcrumb-item"> <a href="<?= $link ?>">{{ ucwords(str_replace('/',' ',Request::segment($i)))}}</a></div>
-                  @else {{ucwords(str_replace('-',' ',Request::segment($i)))}}
-                  @endif
-              @endfor --}}
-              <?php $segments = ''; ?>
-    @foreach(Request::segments() as $segment)
-        <?php $segments .= '/'.$segment; ?>
-        <div class="breadcrumb-item">
-            <a href="{{ ucwords($segments) }}">{{ucwords($segment)}}</a>
-        </div>
-    @endforeach
-            </div>
-          </div>
-
           @yield('content')
-        </section>
-      </div>
-      <div class="darkmode card-b fas fa-moon"></div>
-
-      <footer class="main-footer">
-        <div class="footer-left">
-          Copyright &copy; 2018 <div class="bullet"></div> Design By <a href="https://nauval.in/">Muhamad Nauval Azhar</a>
-        </div>
-        <div class="footer-right">
-          2.3.0
-        </div>
-      </footer>
-    </div>
-  </div>
 
   <!-- General JS Scripts -->
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>

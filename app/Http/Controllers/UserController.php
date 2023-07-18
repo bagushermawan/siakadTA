@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Models\Role;
 use Illuminate\Support\Facades\DB;
 use Session;
+use Illuminate\Support\Facades\Hash;
 
 
 class UserController extends Controller
@@ -36,21 +37,21 @@ class UserController extends Controller
     {
         $this->validate($request,[
             'nama' => 'required',
-            'username' => 'required',
+            'email' => 'required',
             'password' => 'required',
             'alamat' => 'required',
-            'tgl_lahir' => 'required',
-            'role_id' => 'required',
+            // 'tgl_lahir' => 'required',
+            'role' => 'required',
 
         ]);
 
         $user = new User();
         $user->nama = $request->nama;
-        $user->username = $request->username;
-        $user->password = $request->password;
+        $user->email = $request->email;
+        $user->password = Hash::make($request->password);
         $user->alamat = $request->alamat;
-        $user->tgl_lahir = $request->tgl_lahir;
-        $user->role_id = $request->role_id;
+        // $user->tgl_lahir = $request->tgl_lahir;
+        $user->role = $request->role;
 
         if(!$user->save()){
             Session::flash('gagal','Yamaap, User gagal disimpan!!');
@@ -78,11 +79,11 @@ class UserController extends Controller
     {
         $user = User::find($id);
         $user->nama = $request->get('nama');
-        $user->username = $request->get('username');
+        $user->email = $request->get('email');
         $user->password = $request->get('password');
         $user->alamat = $request->get('alamat');
-        $user->tgl_lahir = $request->get('tgl_lahir');
-        $user->role_id = $request->get('role_id');
+        // $user->tgl_lahir = $request->get('tgl_lahir');
+        $user->role = $request->get('role');
 
         $user->save();
         // $user->categories()->sync($request->get('category_id'));
@@ -100,5 +101,5 @@ class UserController extends Controller
             return redirect()->route('user');
     }
 
-    
+
 }

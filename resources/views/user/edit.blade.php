@@ -26,8 +26,8 @@
                             <input type="text" name="nama" class="form-control" value="{{ $user->nama }}">
                         </div>
                         <div class="form-group">
-                            <label>Edit Username:</label>
-                            <input type="text" name="username" class="form-control" value="{{ $user->username }}">
+                            <label>Edit Email:</label>
+                            <input type="text" name="email" class="form-control" value="{{ $user->email }}">
                         </div>
                         <div class="form-group">
                             <label>Edit Password:</label>

@@ -61,7 +61,13 @@
 .form-control:focus {
   box-shadow: none !important;
   outline: none; }
+.fontAwesomeOpacity {
+  opacity: 1 !important;
+}
 
+.iziToast>.iziToast-body .iziToast-icon {
+  top: 30%;
+}
 a {
   color: #6777ef;
   font-weight: 500;

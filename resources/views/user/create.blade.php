@@ -25,8 +25,8 @@
                             <input type="text" name="nama" class="form-control">
                         </div>
                         <div class="form-group">
-                          <label>Username:</label>
-                          <input type="text" name="username" class="form-control">
+                          <label>Email:</label>
+                          <input type="text" name="email" class="form-control">
                       </div>
                       <div class="form-group">
                         <label>Password:</label>
@@ -36,13 +36,13 @@
                       <label>Alamat:</label>
                       <input type="text" name="alamat" class="form-control">
                   </div>
-                  <div class="form-group">
+                  {{-- <div class="form-group">
                     <label>Tanggal Lahir:</label>
                     <input type="date" name="tgl_lahir" class="form-control">
-                  </div>
+                  </div> --}}
                   <div class="form-group">
                     <label>Role:</label>
-                    <select name="role_id" class="roles" class="form-control">
+                    <select name="role" class="roles" class="form-control">
                       {{-- <select class="form-control roles"> --}}
                     </select>
                     {{-- select2 mannual no ajax --}}
@@ -76,7 +76,7 @@
               results:  $.map(data, function (item) {
                 return {
                   text: item.nama,
-                  id: item.id
+                  id: item.nama
                 }
               })
             };

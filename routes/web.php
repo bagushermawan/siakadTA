@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\UserController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\TesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +23,13 @@ Route::get('crud', function () {
     return view('crud');
 });
 
+
+//Login
+Route::get('/login', [LoginController::class, 'login'])->name('login');
+Route::post('/actionlogin', [LoginController::class, 'actionlogin'])->name('actionlogin');
+
+Route::get('/home', [TesController::class, 'index'])->name('home')->middleware('auth');
+Route::get('/logout', [LoginController::class, 'logout'])->name('logout')->middleware('auth');
 //User
 Route::get("/user", "UserController@index")->name('user');
 Route::get("/user/create", "UserController@create")->name('user.create');
