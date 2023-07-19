@@ -6,6 +6,18 @@
     <a href="features-post-create.html" class="btn btn-primary">Add New</a>
   </div> --}}
 @endsection
+@push('page-css')
+<style>
+  .selectgroup-input:checked + .selectgroup-button.selesai {
+    background-color: #28a745;
+    color: white;
+  }
+  .selectgroup-input:checked + .selectgroup-button.selesai {
+  background-color: #28a745;
+  color: #fff;
+  z-index: 1; }
+</style>
+@endpush
 @section('content')
 <div class="section-body">
     <div class="row">
@@ -35,17 +47,17 @@
                         </div>
                         <div class="form-group">
                             <label>Edit Plat Nomer:</label>
-                            <input type="text" name="platnomer" class="form-control" value="{{ $transaction->platnomer }}">
+                            <input type="text" name="platnomer" class="form-control plat-no" value="{{ $transaction->platnomer }}">
                         </div>
                         <div class="form-group">
                             <label>Edit Status:</label>
                             <label class="selectgroup-item">
-                                <input type="radio" name="status" value="proses" class="selectgroup-input" checked="">
+                                <input type="radio" name="status" value="Proses" class="selectgroup-input" {{ $transaction->status == 'Proses' ? 'checked' : '' }}>
                                 <span class="selectgroup-button selectgroup-button-icon"><i class="fas fa-sync"> Proses</i></span>
                             </label>
                             <label class="selectgroup-item">
-                                <input type="radio" name="status" value="selesai" class="selectgroup-input" checked="">
-                                <span class="selectgroup-button selectgroup-button-icon"><i class="fas fa-check"> Selesai</i></span>
+                                <input type="radio" name="status" value="Selesai" class="selectgroup-input" {{ $transaction->status == 'Selesai' ? 'checked' : '' }}>
+                                <span class="selectgroup-button selectgroup-button-icon selesai"><i class="fas fa-check"> Selesai</i></span>
                             </label>
                         </div>
                         <div class="card-footer text-right">
@@ -58,3 +70,13 @@
         </div>
     </div>
     @endsection
+    @push('page-script')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cleave.js/1.6.0/cleave.min.js"></script>
+        <script type="text/javascript">
+            var cleavePC = new Cleave('.plat-no', {
+  delimiter: '-',
+  blocks: [1, 4, 2],
+  uppercase: true
+});
+        </script>
+    @endpush

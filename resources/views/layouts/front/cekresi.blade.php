@@ -37,9 +37,9 @@
                 <form action="" method="get">
                     <ul>
                         <li>
-                            <label class="teks">Kode Transaksi</label>
+                            <label class="teks">Kode Transaksi :</label>
                             <input class="teks" type='text' id='search' name='search'
-                                placeholder='Masukkan kode transaksi ..'>
+                                placeholder='Masukkan kode/nama transaksi ..'>
                             <a class="btn btn-more track" value='Search' id='but_search'>
                                 <i
                                     class="fa-regular fa-magnifying-glass"style="font-family: Font Awesome 5 Free; font-weight: 900"></i>

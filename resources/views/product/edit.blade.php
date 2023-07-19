@@ -85,4 +85,6 @@
  $('.category').append(option).trigger('change');
  });
     </script>
+  <script src="{{ asset('assets/js/iziToast.js') }}"></script>
+    
     @endpush

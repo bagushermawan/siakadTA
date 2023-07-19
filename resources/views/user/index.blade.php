@@ -32,7 +32,7 @@
                                                 <th class="sorting"style="width: 20%;">Alamat</th>
                                                 {{-- <th class="sorting"style="width: 13%;">Tanggal Lahir</th> --}}
                                                 <th class="sorting"style="width: 10%;">Role</th>
-                                                <th class="sorting"style="width: 10%;">password</th>
+                                                {{-- <th class="sorting"style="width: 10%;">password</th> --}}
                                                 <th style="width: 15%;">
                                                     <center>Created at</center>
                                                 </th>
@@ -53,12 +53,12 @@
                                                     <a href="{{ route('user.destroy', ['id'=>$user->id])}}" class="text-danger">Delete</a>
                                                   </div>
                                                 </td>
-                                                <td>{{$user->username}}</td>
+                                                <td>{{$user->email}}</td>
                                                 {{-- <td>{{$user->password}}</td> --}}
                                                 <td>{{$user->alamat}}</td>
                                                 {{-- <td>{{$user->tgl_lahir}}</td> --}}
                                                 <td>{{$user->role}}</td>
-                                                <td>{{$user->password}}</td>
+                                                {{-- <td>{{$user->password}}</td> --}}
 
                                                 <td class="text-right">
                                                     <center>

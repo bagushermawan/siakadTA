@@ -18,11 +18,21 @@ class ProductTableSeeder extends Seeder
     public function run()
     {
         $faker = Faker::create();
-        $r1 = new Product();
-        $r1->nama = ucfirst($faker->word());
-        $r1->stock = mt_rand(1, 50);
-        $r1->price = mt_rand(5000, 100000);
-        // $r1->category_id = Category::all()->random()->id;
-        $r1->save();
+
+        // Membuat 6 produk palsu
+        for ($i = 0; $i < 6; $i++) {
+            $product = new Product();
+            $product->nama = ucfirst($faker->word());
+            $product->stock = mt_rand(1, 50);
+            $product->price = mt_rand(5000, 100000);
+            $product->save();
+
+            // Menentukan jumlah kategori untuk produk ini secara acak (0 hingga 3)
+            $numCategory = mt_rand(1, 4);
+
+            // Memilih kategori secara acak dan menghubungkannya dengan produk
+            $category = Category::inRandomOrder()->limit($numCategory)->get();
+            $product->category()->attach($category);
+        }
     }
 }

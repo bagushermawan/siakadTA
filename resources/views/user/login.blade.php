@@ -24,7 +24,7 @@
                                 <form action="{{ route('actionlogin') }}" method="POST">
                                     @csrf
                                     <div class="form-group">
-                                        <label for="email">Email</label>
+                                        <label>Email</label>
                                         {{-- <input id="email" type="email" class="form-control" name="email" tabindex="1" required autofocus> --}}
                                         <input type="email" name="email" value="{{ old('email') }}"
                                             class="form-control" placeholder="Emailmuu" required="">
@@ -32,7 +32,7 @@
 
                                     <div class="form-group">
                                         <div class="d-block">
-                                            <label for="password" class="control-label">Password</label>
+                                            <label class="control-label">Password</label>
                                         </div>
                                         {{-- <input id="password" type="password" class="form-control" name="password" tabindex="2" required> --}}
                                         <input type="password" name="password" class="form-control" placeholder="Password"

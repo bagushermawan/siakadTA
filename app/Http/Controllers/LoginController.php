@@ -14,7 +14,7 @@ class LoginController extends Controller
     public function login()
     {
         if (Auth::check()) {
-            return redirect('/a');
+            return redirect('/home');
         } else {
             return view('user.login');
         }
@@ -32,7 +32,7 @@ class LoginController extends Controller
             return redirect('home');
             // dd($data);
         } else {
-            Session::flash('error', 'Email/password ada yang salah nih');
+            Session::flash('error', 'email/password ada yang salah nih');
             return redirect('login')->withInput($request->except('password'));
             // dd('gagal');
         }

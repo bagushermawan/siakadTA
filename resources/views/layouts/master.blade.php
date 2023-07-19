@@ -21,6 +21,7 @@
   <!-- Template CSS -->
   <link rel="stylesheet" href="/assets/css/style.css">
   <link rel="stylesheet" href="/assets/css/components.css">
+  @stack('page-css')
 </head>
 
 <body>
@@ -54,7 +55,6 @@
     @endforeach
             </div>
           </div>
-
           @yield('content')
         </section>
       </div>
@@ -86,7 +86,7 @@
   <script src="https://demo.getstisla.com/assets/modules/datatables/Select-1.2.4/js/dataTables.select.min.js"></script>
   <script src="https://demo.getstisla.com/assets/modules/jquery-ui/jquery-ui.min.js"></script>
   <script src="https://demo.getstisla.com/assets/modules/select2/dist/js/select2.full.min.js"></script>
-  <script src="/assets/js/iziToast.js"></script>
+  <script src="{{ asset('assets/js/iziToast.js') }}"></script>
 
 
 

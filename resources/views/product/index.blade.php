@@ -49,7 +49,7 @@
                                                   </div>
                                                 </td>
                                                 <td>{{$product->stock}}</td>
-                                                <td>Rp {{$product->price}}</td>
+                                                <td>Rp {{ number_format($product->price, 0, ',', '.') }}</td>
                                                 <td>
                                                     @foreach($product->category as $c)
                                                     <div class="badge badge-primary">{{ $c->nama }}</div>

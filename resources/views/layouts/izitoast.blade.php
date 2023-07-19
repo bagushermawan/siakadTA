@@ -35,11 +35,11 @@
 
             // Login
         @elseif ($message = Session::get('login'))
-            iziToast.info({
+            iziToast.success({
                 title: 'Haloo <b>{{ Auth::user()->nama }}</b>!!',
                 message: '{{ $message }}',
                 timeout: 5000,
-                position: 'topRight',
+                position: 'topCenter',
                 closeOnClick: true,
             });
         @elseif ($message = Session::get('error'))
@@ -50,7 +50,7 @@
                 messageLineHeight: '30',
                 image: '/assets/waduh.jpg',
                 imageWidth: 70,
-                title: 'Waduh <b>!!',
+                title: 'waduuu, ',
                 message: '{{$message}}',
                 timeout: 5000,
                 position: 'topCenter',

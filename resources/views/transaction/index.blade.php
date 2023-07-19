@@ -55,7 +55,7 @@
                                                 <td>{{$transaction->nama}}</td>
                                                 <td>{{$transaction->merek}}</td>
                                                 <td>{{$transaction->platnomer}}</td>
-                                                <td>@if($transaction->status=='proses')<div class="badge badge-secondary">Proses</div> @else <div class="badge badge-success">Selesai</div> @endif</td>
+                                                <td>@if($transaction->status=='Proses')<div class="badge badge-secondary">Proses</div> @else <div class="badge badge-success">Selesai</div> @endif</td>
 
                                                 <td class="text-right">
                                                     <center>
