@@ -14,7 +14,7 @@ class LoginController extends Controller
     public function login()
     {
         if (Auth::check()) {
-            return redirect('/home');
+            return redirect()->back();
         } else {
             return view('user.login');
         }
@@ -29,7 +29,7 @@ class LoginController extends Controller
 
         if (Auth::Attempt($data)) {
             Session::flash('login', ' Kamu berhasil login');
-            return redirect('home');
+            return redirect()->intended('home');
             // dd($data);
         } else {
             Session::flash('error', 'email/password ada yang salah nih');

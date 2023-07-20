@@ -1,5 +1,5 @@
 @extends('layouts.master-login')
-@section('title', 'Login Page')
+@section('title', 'Login')
 @section('content')
     <div id="app">
         <section class="section">
