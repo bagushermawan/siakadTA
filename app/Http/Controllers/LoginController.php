@@ -4,8 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-// use Session;
-// use Symfony\Component\HttpFoundation\Session\Session;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Session;
 
 
@@ -28,6 +27,9 @@ class LoginController extends Controller
         ];
 
         if (Auth::Attempt($data)) {
+            $user = Auth::user();
+            $user->login_time = Carbon::now();
+            $user->save();
             Session::flash('login', ' Kamu berhasil login');
             return redirect()->intended('home');
             // dd($data);

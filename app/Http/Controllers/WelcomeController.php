@@ -14,6 +14,7 @@ class WelcomeController extends Controller
 {
     public function index()
     {
+        $userLoginTime = auth()->user()->login_time;
 
         // Itung semua model ke view
         $totalUsers = User::count();

@@ -27,7 +27,7 @@
                                         <label>Email</label>
                                         {{-- <input id="email" type="email" class="form-control" name="email" tabindex="1" required autofocus> --}}
                                         <input type="email" name="email" value="{{ old('email') }}"
-                                            class="form-control" placeholder="Emailmuu" required="">
+                                            class="form-control" placeholder="Emailmuu" required="" autofocus>
                                     </div>
 
                                     <div class="form-group">
