@@ -74,6 +74,17 @@
             <div class="progress-history" style="color:rgb(173, 169, 169);">Coming soon ..</div>
         </div>
     </section>
+    <div id="user-name" data-nama="{{ Auth::user()->nama }}"></div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Mengambil elemen dengan id "user-name" dan mendapatkan nilai atribut data-nama
+            var userNameElement = document.getElementById("user-name");
+            var namauser = userNameElement.dataset.nama;
+
+            // Menampilkan nama pengguna di console
+            console.log("User yang login: " + "%c" + namauser, "font-weight: bold;color:gold;font-size:30px;");
+        });
+    </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     {{-- Script Menu bar --}}
     <script>
@@ -186,7 +197,7 @@
                     var platnomer = response['data'][i].platnomer;
                     var status = response['data'][i].status;
                     var capitalizedStatus = status.charAt(0).toUpperCase() + status.slice(
-                    1); // Merubah status menjadi huruf kapitalized
+                        1); // Merubah status menjadi huruf kapitalized
 
                     var statusClass = getStatusClass(status); //Add kelas CSS berdasarkan kondisi status
 

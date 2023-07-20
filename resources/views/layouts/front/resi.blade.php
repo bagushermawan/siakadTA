@@ -303,6 +303,17 @@
     </script>
 
     {{-- <script src="assets/js/mainresi.js"></script> --}}
+    <div id="user-name" data-nama="{{ Auth::user()->nama }}"></div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Mengambil elemen dengan id "user-name" dan mendapatkan nilai atribut data-nama
+            var userNameElement = document.getElementById("user-name");
+            var namauser = userNameElement.dataset.nama;
+
+            // Menampilkan nama pengguna di console
+            console.log("User yang login: " + "%c" + namauser, "font-weight: bold;color:gold;font-size:30px;");
+        });
+    </script>
 </body>
 
 </html>
