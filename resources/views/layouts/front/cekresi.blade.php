@@ -71,7 +71,7 @@
         </div>
         <div id="container-fill" class="display-true">
             <h3 class="title-section"><span>Lihat</span> Detail Servis</h3>
-            <div class="progress-history" style="color:rgb(173, 169, 169);">Coming soon ..</div>
+            <div class="progress-history" style="color:rgb(173, 169, 169);">Maybe, coming soon ..</div>
         </div>
     </section>
     <div id="user-name" data-nama="{{ Auth::check() ? 'Hi, ' . Auth::user()->nama : 'Hwaloo guest!' }}"></div>
@@ -93,7 +93,7 @@
         });
     </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    {{-- Script Menu bar --}}
+    {{-- Script Menu bar rspnsv--}}
     <script>
         const mobileMenu = document.querySelector(".mobile-menu"),
             listMenu = document.querySelector(".list-menu");
@@ -134,13 +134,13 @@
                         type: 'get',
                         dataType: 'json',
                         success: function(response) {
-                            createRows(response);
+                            createRows(response, true); // Set isFetchAll menjadi true saat fetch all record
                         }
                     });
                 }, 500); // Timeout 2 detik (2000 ms)
             });
 
-            // Search by userid
+            // Search by kode/nama
             $('#but_search').click(function() {
                 var transactionKode = $('#search').val().trim();
                 isLoading = true; // Set status loading menjadi true
@@ -163,7 +163,7 @@
                             },
                             dataType: 'json',
                             success: function(response) {
-                                createRows(response);
+                                createRows(response, false); // Set isFetchAll menjadi false saat melakukan search
                             }
                         });
                     }, 500); // Timeout 2 detik (2000 ms)
@@ -188,48 +188,55 @@
         }
 
         // Create table rows
-        function createRows(response) {
-            var len = 0;
-            $('#empTable tbody').empty(); // Empty <tbody>
-            if (response['data'] != null) {
-                len = response['data'].length;
+        function createRows(response, isFetchAll) {
+    var len = 0;
+    $('#empTable tbody').empty(); // Empty <tbody>
+    if (response['data'] != null) {
+        len = response['data'].length;
+    }
+
+    if (len > 0) {
+        for (var i = 0; i < len; i++) {
+            var tr_str = "";
+
+            if (isFetchAll) {
+                // Tambahkan <th>No</th> jika melakukan fetch all record
+                tr_str += "<tr><th>No</th><td></td><td>" + (i + 1) + "</td></tr>";
             }
 
-            if (len > 0) {
-                for (var i = 0; i < len; i++) {
-                    var id = response['data'][i].id;
-                    var kode = response['data'][i].kode;
-                    var nama = response['data'][i].nama;
-                    var merek = response['data'][i].merek;
-                    var platnomer = response['data'][i].platnomer;
-                    var status = response['data'][i].status;
-                    var capitalizedStatus = status.charAt(0).toUpperCase() + status.slice(
-                        1); // Merubah status menjadi huruf kapitalized
+            var id = response['data'][i].id;
+            var kode = response['data'][i].kode;
+            var nama = response['data'][i].nama;
+            var merek = response['data'][i].merek;
+            var platnomer = response['data'][i].platnomer;
+            var status = response['data'][i].status;
+            var capitalizedStatus = status.charAt(0).toUpperCase() + status.slice(1); // Merubah status menjadi huruf kapitalized
 
-                    var statusClass = getStatusClass(status); //Add kelas CSS berdasarkan kondisi status
+            var statusClass = getStatusClass(status); //Add kelas CSS berdasarkan kondisi status
 
-                    var tr_str = "<tr>" +
-                        "<th>No</th><th></th><td>" + (i + 1) + "</td>" + "</tr>" +
-                        "<tr><th>Kode</th><th>:</th><td style='color:#301A4B;font-weight:bold;'>" + kode + "</td></tr>" +
-                        "<tr><th>Nama</th><th>:</th><td style='color:#6DB1BF;font-weight:bold;'>" + nama + "</td></tr>" +
-                        "<tr><th>Merek</th><th>:</th><td>" + merek + "</td></tr>" +
-                        "<tr><th>Plat Nomor</th><th>:</th><td>" + platnomer + "</td></tr>" +
-                        "<tr><th>Status</th><th>:</th><td><a class='baten " + statusClass + "'>" + capitalizedStatus +
-                        "</i></a></td></tr>";
+            // Tambahkan data lain ke dalam baris tabel
+            tr_str += "<tr><th>Kode</th><th>:</th><td style='color:#301A4B;font-weight:bold;'>" + kode + "</td></tr>" +
+                "<tr><th>Nama</th><th>:</th><td style='color:#6DB1BF;font-weight:bold;'>" + nama + "</td></tr>" +
+                "<tr><th>Merek</th><th>:</th><td>" + merek + "</td></tr>" +
+                "<tr><th>Plat Nomor</th><th>:</th><td>" + platnomer + "</td></tr>" +
+                "<tr><th>Status</th><th>:</th><td><a class='baten " + statusClass + "'>" + capitalizedStatus +
+                "</i></a></td></tr>";
 
-                    //Nambah tag <br> setiap data
-                    tr_str += "<tr><td colspan='3'><br><hr class='haer'></td></tr>";
-
-                    $("#empTable tbody").append(tr_str);
-                }
-            } else {
-                var tr_str = "<tr>" +
-                    "<td align='center' colspan='4' class='tede'><b>No record found.</b></td>" +
-                    "</tr>";
-
-                $("#empTable tbody").append(tr_str);
+            if (isFetchAll) {
+                //Nambah tag <br> setiap data hanya saat fetch all
+                tr_str += "<tr><td colspan='3'><br><hr class='haer'></td></tr>";
             }
+
+            $("#empTable tbody").append(tr_str);
         }
+    } else {
+        var tr_str = "<tr>" +
+            "<td align='center' colspan='4' class='tede'><b>No record found.</b></td>" +
+            "</tr>";
+
+        $("#empTable tbody").append(tr_str);
+    }
+}
         // Mendapatkan kelas CSS berdasarkan kondisi status
         function getStatusClass(status) {
             var statusClass = '';
