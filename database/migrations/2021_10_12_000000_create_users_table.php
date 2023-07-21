@@ -23,6 +23,7 @@ class CreateUsersTable extends Migration
             // $table->date('tgl_lahir');
             // $table->unsignedBigInteger('role_id');
             $table->rememberToken();
+            $table->string('reset_token')->nullable();
             $table->timestamps();
             $table->datetime('login_time')->nullable();
             $table->string('role');

@@ -56,6 +56,23 @@
                 position: 'topCenter',
                 closeOnClick: true,
             });
+            @elseif ($message = Session::get('forgot'))
+            iziToast.success({
+                title: '<b>Sukses!!</b>',
+                message: '{{ $message }}',
+                timeout: 10000,
+                position: 'topRight',
+                closeOnClick: true,
+            });
+            @elseif ($message = Session::get('reset'))
+            iziToast.info({
+                title: '<b>Sukses!!</b>',
+                message: '{{ $message }}',
+                timeout: 10000, //false kalau tidak mau hilang
+                position: 'topRight',
+                closeOnClick: true,
+                layout: 2,
+            });
         @endif
     });
 </script>

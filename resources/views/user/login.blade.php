@@ -33,6 +33,11 @@
                                     <div class="form-group">
                                         <div class="d-block">
                                             <label class="control-label">Password</label>
+                                            <div class="float-right">
+                                                <a href="{{ route('forgot.password') }}" class="text-small">
+                                                    Forgot Password?
+                                                </a>
+                                            </div>
                                         </div>
                                         {{-- <input id="password" type="password" class="form-control" name="password" tabindex="2" required> --}}
                                         <input type="password" name="password" class="form-control" placeholder="Password"

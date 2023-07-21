@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\WelcomeController;
+use App\Http\Controllers\ForgotPasswordController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,6 +29,16 @@ Route::get('/login', 'LoginController@login')->name('login');
 Route::post('/actionlogin', 'LoginController@actionlogin')->name('actionlogin');
 Route::get('/logout', 'LoginController@logout')->name('logout')->middleware('auth');
 Route::get('/home', 'WelcomeController@index')->name('home')->middleware('auth');
+
+// Rute untuk menampilkan form lupa password
+Route::get('forgot-password', 'ForgotPasswordController@showLinkRequestForm')->name('forgot.password');
+// Rute untuk mengirim email tautan reset password
+Route::post('forgot-password', 'ForgotPasswordController@sendResetLinkEmail')->name('forgot.password.email');
+// Rute untuk menampilkan form reset password
+Route::get('forgot-password/{token}', 'ResetPasswordController@showResetForm')->name('password.reset');
+// Rute untuk mengatur password baru
+Route::post('reset-password', 'ResetPasswordController@reset')->name('password.update');
+
 
 Route::middleware('auth')->group(function () {
     //User

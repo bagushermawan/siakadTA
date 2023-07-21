@@ -81,7 +81,9 @@ class UserController extends Controller
         $user = User::find($id);
         $user->nama = $request->get('nama');
         $user->email = $request->get('email');
-        $user->password = $request->get('password');
+        if ($request->has('password')) {
+            $user->password = Hash::make($request->get('password'));
+        }
         $user->alamat = $request->get('alamat');
         // $user->tgl_lahir = $request->get('tgl_lahir');
         // Get the role name based on the selected role ID

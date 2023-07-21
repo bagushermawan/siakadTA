@@ -19,13 +19,14 @@
             </a>
             <div class="dropdown-menu dropdown-menu-right">
                 <div class="dropdown-title">{!! $messageLoginTime !!}</div>
-                <a href="#" class="dropdown-item has-icon">
+                <div class="dropdown-divider"></div>
+                {{-- <a href="{{ route('user.edit', ['id'=>$user->id])}}" class="dropdown-item has-icon">
                     <i class="far fa-user"></i> Profile
                 </a>
-                {{-- <a href="features-activities.html" class="dropdown-item has-icon">
+                <a href="features-activities.html" class="dropdown-item has-icon">
                     <i class="fas fa-bolt"></i> Activities
                 </a> --}}
-                <a href="#" class="dropdown-item has-icon">
+                <a href="{{ route('user.edit', ['id'=>$user->id])}}" class="dropdown-item has-icon">
                     <i class="fas fa-cog"></i> Settings
                 </a>
                 <div class="dropdown-divider"></div>
