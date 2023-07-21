@@ -6,6 +6,12 @@
     <a href="{{route('user.create')}}" class="btn btn-primary">Add New</a>
   </div>
 @endsection
+@push('page-css')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.10.4/dayjs.min.js"></script>
+@endpush
+@php
+    $helper = new \App\Helpers\Helper;
+@endphp
 @section('content')
     <div class="section-body">
         <p class="section-title">
@@ -36,6 +42,9 @@
                                                 <th style="width: 15%;">
                                                     <center>Created at</center>
                                                 </th>
+                                                <th style="width: 15%;">
+                                                    <center>Last Logged in</center>
+                                                </th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -65,6 +74,11 @@
                                                         {{$user->created_at->format('d M Y, H:i')}}
                                                     </center>
                                                 </td>
+                                                <td class="text-right">
+                                                    <center>
+                                                        {{ $helper->formatLastLogin($user->login_time) }}
+                                                    </center>
+                                                </td>
                                             </tr>
                                             @endforeach
                                         </tbody>
@@ -80,3 +94,25 @@
     </div>
     </div>
 @endsection
+@push('page-script')
+<script>
+function formatLastLogin(loginTime) {
+    const now = dayjs();
+    const login = dayjs(loginTime);
+    const diffInMinutes = now.diff(login, 'minute');
+    const diffInHours = now.diff(login, 'hour');
+    const diffInDays = now.diff(login, 'day');
+
+    if (diffInMinutes < 1) {
+        return 'Baru saja';
+    } else if (diffInMinutes < 60) {
+        return `${diffInMinutes} menit yang lalu`;
+    } else if (diffInHours < 24) {
+        return `${diffInHours} jam yang lalu`;
+    } else {
+        return `${diffInDays} hari yang lalu`;
+    }
+}
+</script>
+    
+@endpush
