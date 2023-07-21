@@ -26,12 +26,8 @@ Route::get('crud', function () {
 //Login
 Route::get('/login', 'LoginController@login')->name('login');
 Route::post('/actionlogin', 'LoginController@actionlogin')->name('actionlogin');
-Route::get('/logout', 'LoginController@logout')
-    ->name('logout')
-    ->middleware('auth');
-Route::get('/home', 'WelcomeController@index')
-    ->name('home')
-    ->middleware('auth');
+Route::get('/logout', 'LoginController@logout')->name('logout')->middleware('auth');
+Route::get('/home', 'WelcomeController@index')->name('home')->middleware('auth');
 
 Route::middleware('auth')->group(function () {
     //User

@@ -1,8 +1,7 @@
 @extends('layouts.master')
 @section('title', 'Welcome')
 @section('header')
-    Welcome <b>{{ Auth::user()->nama }}</b><i>({{ Auth::user()->role }})</i>
-@endsection
+    Welcome <b>{{ Auth::user()->nama }}</b><i>({{ Auth::user()->role }})</i>@endsection
 @section('button-header')
     {{-- <div class="section-header-button">
     <a href="{{route('user.create')}}" class="btn btn-primary">Add New</a>

@@ -152,7 +152,25 @@
             document.getElementById("myForm").reset();
         }
     </script>
+    <div id="user-name" data-nama="{{ Auth::check() ? 'Hi, ' . Auth::user()->nama : 'Hwaloo guest!' }}"></div>
 
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Mengambil elemen dengan id "user-name" dan mendapatkan nilai atribut data-nama
+            var userNameElement = document.getElementById("user-name");
+            var namauser = userNameElement.dataset.nama;
+
+            // Mengecek apakah namauser adalah "Hwaloo guest!"
+            if (namauser === 'Hwaloo guest!') {
+                // Menampilkan namauser dengan warna merah
+                console.log("Tidak ada user yang login, " + "%c" + namauser,
+                    "font-weight: bold;color: red;font-size:30px;");
+            } else {
+                // Menampilkan namauser dengan warna gold
+                console.log("User yang login: " + "%c" + namauser, "font-weight: bold;color: gold;font-size:30px;");
+            }
+        });
+    </script>
     @stack('page-script')
 
     <!-- Page Specific JS File -->
