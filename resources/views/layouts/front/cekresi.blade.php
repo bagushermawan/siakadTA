@@ -74,15 +74,22 @@
             <div class="progress-history" style="color:rgb(173, 169, 169);">Coming soon ..</div>
         </div>
     </section>
-    <div id="user-name" data-nama="{{ Auth::user()->nama }}"></div>
+    <div id="user-name" data-nama="{{ Auth::check() ? 'Hi, ' . Auth::user()->nama : 'Hwaloo guest!' }}"></div>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             // Mengambil elemen dengan id "user-name" dan mendapatkan nilai atribut data-nama
             var userNameElement = document.getElementById("user-name");
             var namauser = userNameElement.dataset.nama;
 
-            // Menampilkan nama pengguna di console
-            console.log("User yang login: " + "%c" + namauser, "font-weight: bold;color:gold;font-size:30px;");
+            // Mengecek apakah namauser adalah "Hwaloo guest!"
+            if (namauser === 'Hwaloo guest!') {
+                // Menampilkan namauser dengan warna merah
+                console.log("Tidak ada user yang login, " + "%c" + namauser,
+                    "font-weight: bold;color: red;font-size:30px;");
+            } else {
+                // Menampilkan namauser dengan warna gold
+                console.log("User yang login: " + "%c" + namauser, "font-weight: bold;color: gold;font-size:30px;");
+            }
         });
     </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -228,9 +235,9 @@
             var statusClass = '';
 
             //Buat nentuin kelas CSS berdasarkan kondisi status
-            if (status === 'proses') {
+            if (status === 'Proses') {
                 statusClass = 'baten-proses';
-            } else if (status === 'selesai') {
+            } else if (status === 'Selesai') {
                 statusClass = 'baten-selesai';
             }
 

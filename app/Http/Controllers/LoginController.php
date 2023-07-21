@@ -13,6 +13,8 @@ class LoginController extends Controller
     public function login()
     {
         if (Auth::check()) {
+            // Pengguna sudah login, Anda dapat mengakses properti login_time
+            $loginTime = auth()->user()->login_time;
             return redirect()->back();
         } else {
             return view('user.login');

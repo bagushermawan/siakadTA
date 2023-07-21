@@ -64,13 +64,10 @@
                 <ul class="flex">
                     <li>
                         <input type="text" id="resi" name="resi" maxlength="17"
-                            placeholder="Masukkan nomor status/id" pattern="[A-Za-z0-9]+" />
+                            placeholder="Masukkan nomor kode/nama" pattern="[A-Za-z0-9]+" />
                     </li>
-                    {{-- <li>
-              <select name="expedisi" id="expedisi"></select>
-            </li> --}}
                 </ul>
-                <button type="submit" class="btn track" disabled>LACAK</button>
+                <button type="submit" class="btn track">LACAK</button>
             </form>
         </div>
     </section>
@@ -84,7 +81,7 @@
                         <div class="autor"><i class="fa-solid fa-user"></i>Admin</div>
                         <div class="date"><i class="fa-solid fa-calendar-days"></i>2022 Desember 3</div>
                     </div>
-                    <h5 class="card-title">Cara megetahui nomor resi kurus shopee expres mudah & praktis</h5>
+                    <h5 class="card-title">Lorem ipsum dolor sit amet consectetur, adipisicing elit Vel magni.</h5>
                     <p class="card-text">
                         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vel magni numquam dolorum inventore
                         excepturi ex
@@ -101,7 +98,7 @@
                         <div class="autor"><i class="fa-solid fa-user"></i>Admin</div>
                         <div class="date"><i class="fa-solid fa-calendar-days"></i>2022 Desember 3</div>
                     </div>
-                    <h5 class="card-title">Cara megetahui nomor resi kurus shopee expres mudah & praktis</h5>
+                    <h5 class="card-title">Lorem ipsum dolor sit amet consectetur, adipisicing elit Vel magni.</h5>
                     <p class="card-text">
                         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vel magni numquam dolorum inventore
                         excepturi ex
@@ -118,7 +115,7 @@
                         <div class="autor"><i class="fa-solid fa-user"></i>Admin</div>
                         <div class="date"><i class="fa-solid fa-calendar-days"></i>2022 Desember 3</div>
                     </div>
-                    <h5 class="card-title">Cara megetahui nomor resi kurus shopee expres mudah & praktis</h5>
+                    <h5 class="card-title">Lorem ipsum dolor sit amet consectetur, adipisicing elit Vel magni.</h5>
                     <p class="card-text">
                         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vel magni numquam dolorum inventore
                         excepturi ex
@@ -135,7 +132,7 @@
                         <div class="autor"><i class="fa-solid fa-user"></i>Admin</div>
                         <div class="date"><i class="fa-solid fa-calendar-days"></i>2022 Desember 3</div>
                     </div>
-                    <h5 class="card-title">Cara megetahui nomor resi kurus shopee expres mudah & praktis</h5>
+                    <h5 class="card-title">Lorem ipsum dolor sit amet consectetur, adipisicing elit Vel magni.</h5>
                     <p class="card-text">
                         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vel magni numquam dolorum inventore
                         excepturi ex
@@ -152,7 +149,7 @@
                         <div class="autor"><i class="fa-solid fa-user"></i>Admin</div>
                         <div class="date"><i class="fa-solid fa-calendar-days"></i>2022 Desember 3</div>
                     </div>
-                    <h5 class="card-title">Cara megetahui nomor resi kurus shopee expres mudah & praktis</h5>
+                    <h5 class="card-title">Lorem ipsum dolor sit amet consectetur, adipisicing elit Vel magni.</h5>
                     <p class="card-text">
                         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vel magni numquam dolorum inventore
                         excepturi ex
@@ -166,34 +163,34 @@
         <button class="btn btn-more">Lihat Lebih Lanjut</button>
     </section>
     <section class="pertanyaan">
-        <h3 class="title-section">Tanya Paket</h3>
+        <h3 class="title-section">Tanya Bengkelq</h3>
         <div class="container">
             <div class="q-card flex">
                 <img src="/assets/pic.png" alt="pic" class="q-img" />
                 <div class="q-body">
-                    <div class="q-title">Expedisi : <span>Lion Parcel</span></div>
-                    <p>Kenapa paket saya tidak bergerak, sejak 1 minggu yang lalu</p>
+                    <div class="q-title">Lorem Ipsum : <span>es simplemente</span></div>
+                    <p>el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha</p>
                 </div>
             </div>
             <div class="q-card flex">
                 <img src="/assets/pic.png" alt="pic" class="q-img" />
                 <div class="q-body">
-                    <div class="q-title">Expedisi : <span>Lion Parcel</span></div>
-                    <p>Kenapa paket saya tidak bergerak, sejak 1 minggu yang lalu</p>
+                    <div class="q-title">Lorem Ipsum : <span>es simplemente</span></div>
+                    <p>el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha</p>
                 </div>
             </div>
             <div class="q-card flex">
                 <img src="/assets/pic.png" alt="pic" class="q-img" />
                 <div class="q-body">
-                    <div class="q-title">Expedisi : <span>Lion Parcel</span></div>
-                    <p>Kenapa paket saya tidak bergerak, sejak 1 minggu yang lalu</p>
+                    <div class="q-title">Lorem Ipsum : <span>es simplemente</span></div>
+                    <p>el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha</p>
                 </div>
             </div>
             <div class="q-card flex">
                 <img src="/assets/pic.png" alt="pic" class="q-img" />
                 <div class="q-body">
-                    <div class="q-title">Expedisi : <span>Lion Parcel</span></div>
-                    <p>Kenapa paket saya tidak bergerak, sejak 1 minggu yang lalu</p>
+                    <div class="q-title">Lorem Ipsum : <span>es simplemente</span></div>
+                    <p>el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha</p>
                 </div>
             </div>
         </div>
@@ -238,8 +235,8 @@
     </section>
     <section class="up">
         <p>
-            Terjemahan: Bisakah anda membantu menerjemahkan situs ini dalam bahasa asing? Email kami jika anda bisa
-            membantu.
+            Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el
+            estándar de las desde el año.
         </p>
     </section>
     <footer class="main-footer" id="footer">
@@ -279,7 +276,7 @@
                 <p>
                     mengalami kesulitan <br />
                     Hubungi kami : <br />
-                    <a href="#">awikwok@wik.wok</a>
+                    <a href="##">awikwok@wik.wok</a>
                 </p>
             </div>
             {{-- <div class="div-icon flex">
@@ -296,22 +293,29 @@
     <script>
         const mobileMenu = document.querySelector(".mobile-menu"),
             listMenu = document.querySelector(".list-menu");
-            mobileMenu.addEventListener("click", () => {
+        mobileMenu.addEventListener("click", () => {
             mobileMenu.classList.toggle("active");
             listMenu.classList.toggle("active");
         });
     </script>
 
     {{-- <script src="assets/js/mainresi.js"></script> --}}
-    <div id="user-name" data-nama="{{ Auth::user()->nama }}"></div>
+    <div id="user-name" data-nama="{{ Auth::check() ? 'Hi, ' . Auth::user()->nama : 'Hwaloo guest!' }}"></div>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             // Mengambil elemen dengan id "user-name" dan mendapatkan nilai atribut data-nama
             var userNameElement = document.getElementById("user-name");
             var namauser = userNameElement.dataset.nama;
 
-            // Menampilkan nama pengguna di console
-            console.log("User yang login: " + "%c" + namauser, "font-weight: bold;color:gold;font-size:30px;");
+            // Mengecek apakah namauser adalah "Hwaloo guest!"
+            if (namauser === 'Hwaloo guest!') {
+                // Menampilkan namauser dengan warna merah
+                console.log("Tidak ada user yang login, " + "%c" + namauser,
+                    "font-weight: bold;color: red;font-size:30px;");
+            } else {
+                // Menampilkan namauser dengan warna gold
+                console.log("User yang login: " + "%c" + namauser, "font-weight: bold;color: gold;font-size:30px;");
+            }
         });
     </script>
 </body>
