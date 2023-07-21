@@ -68,10 +68,11 @@ class UserController extends Controller
     public function edit($id)
     {
         $user = User::find($id);
+        $roles = Role::all();
         if(!$user){
             return abort(404);
         }
-        return view('user.edit')->with('user', $user)->with('user', $user);
+        return view('user.edit')->with('user', $user)->with('roles', $roles);
     }
 
 
@@ -83,21 +84,24 @@ class UserController extends Controller
         $user->password = $request->get('password');
         $user->alamat = $request->get('alamat');
         // $user->tgl_lahir = $request->get('tgl_lahir');
-        $user->role = $request->get('role');
+        // Get the role name based on the selected role ID
+        $role = Role::find($request->get('role'));
+        if ($role) {
+            $user->role = $role->nama;
+        } else {
+            $user->role = null;
+        }
 
         $user->save();
-        // $user->categories()->sync($request->get('category_id'));
         Session::flash('update','User berhasil di update!');
         return redirect()->route('user');
-
-
     }
 
     public function destroy($id)
     {
         $user = User::find($id);
             $user->delete();
-            Session::flash('delete','Category berhasil dihapus!');
+            Session::flash('delete','User berhasil dihapus!');
             return redirect()->route('user');
     }
 

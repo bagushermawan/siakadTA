@@ -18,7 +18,7 @@
                     {{-- <div class="alert alert-info">
                             <b>Note!</b> Not all browsers support HTML5 type input.
                           </div> --}}
-                    <form action="{{route('product.store')}}" method="POST">
+                    <form id="myForm" action="{{route('product.store')}}" method="POST">
                         @csrf
                         <div class="form-group">
                             <label>Nama:</label>
@@ -46,7 +46,7 @@
                         </div>
                         <div class="card-footer text-right">
                             <button class="btn btn-primary mr-1" type="submit">Submit</button>
-                            <button class="btn btn-secondary" type="reset">Reset</button>
+                            <button class="btn btn-secondary" type="reset" value="Reset" onclick="resetForm()">Reset</button>
                         </div>
                     </form>
                 </div>
@@ -59,25 +59,40 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/cleave.js/1.6.0/cleave.min.js"></script>
 
     <script type="text/javascript">
-        $(function () {
-            $('.categories').select2({
-                placeholder: 'Select Category',
-                ajax: {
-                    url: "{{route('category.ajaxsearch')}}",
-                    dataType: 'json',
-                    processResults: function (data) {
-                        return {
-                            results: $.map(data, function (item) {
-                                return {
-                                    text: item.nama,
-                                    id: item.id
-                                }
-                            })
-                        };
-                    },
-                    cache: true
-                }
-            });
-        })
+     $(function () {
+        $('.categories').select2({
+            placeholder: 'Select Category',
+            ajax: {
+                url: "{{ route('category.ajaxsearch') }}",
+                dataType: 'json',
+                processResults: function (data) {
+                    return {
+                        results: $.map(data, function (item) {
+                            return {
+                                text: item.nama,
+                                id: item.id
+                            }
+                        })
+                    };
+                },
+                cache: true
+            }
+        });
+    });
+
+    function resetForm() {
+        // Reset form using native JavaScript
+        document.getElementById('myForm').reset();
+
+        // Close Select2 dropdown if it's open
+        $('.categories').each(function () {
+            if ($(this).data('select2')) {
+                $(this).select2('close');
+            }
+        });
+
+        // Reset Select2 value
+        $('.categories').val(null).trigger('change');
+    }
     </script>
     @endpush

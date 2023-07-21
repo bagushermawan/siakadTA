@@ -30,5 +30,9 @@ class CategoryTableSeeder extends Seeder
         $c4->nama="Kawasaki";
         $c4->save();
 
+        $c5 = new Category;
+        $c5->nama = "Toyota";
+        $c5->save();
+
     }
 }

@@ -18,7 +18,7 @@
                     {{-- <div class="alert alert-info">
                             <b>Note!</b> Not all browsers support HTML5 type input.
                           </div> --}}
-                    <form action="{{ route('product.update', ['id' => $product->id]) }}" method="POST">
+                    <form id="myForm" action="{{ route('product.update', ['id' => $product->id]) }}" method="POST">
                         @csrf
                         {{ method_field('put') }}
                         <div class="form-group">
@@ -43,12 +43,14 @@
                         <div class="form-group">
                             <label>Edit Category:</label>
                             <select name="category_id[]" multiple class="category" class="form-control">
-                              {{-- <select class="form-control roles"> --}}
+                                @foreach($product->category as $category)
+                                        <option value="{{ $category->id }}" selected>{{ $category->nama }}</option>
+                                    @endforeach
                             </select>
                         </div>
                         <div class="card-footer text-right">
                             <button class="btn btn-primary mr-1" type="submit">Update</button>
-                            <button class="btn btn-secondary" type="reset">Reset</button>
+                            <button class="btn btn-secondary" type="reset" onclick="resetForm()">Reset</button>
                         </div>
                     </form>
                 </div>
@@ -59,31 +61,34 @@
 
     @push('page-script')
     <script type="text/javascript">
-      $(function(){
-      $('.category').select2({
-        placeholder: 'Select Category',
-        ajax: {
-          url: "{{route('category.ajaxsearch')}}",
-          dataType: 'json',
-          processResults: function (data) {
-            return {
-              results:  $.map(data, function (item) {
-                return {
-                  text: item.nama,
-                  id: item.id
+       // Simpan pilihan kategori awal pada saat halaman dimuat
+        var initialCategories = {!! json_encode($product->category->pluck('id')) !!};
+
+        $(function() {
+            $('.category').select2({
+                placeholder: 'Select Category',
+                ajax: {
+                    url: "{{route('category.ajaxsearch')}}",
+                    dataType: 'json',
+                    processResults: function (data) {
+                        return {
+                            results:  $.map(data, function (item) {
+                                return {
+                                    text: item.nama,
+                                    id: item.id
+                                }
+                            })
+                        };
+                    },
+                    cache: true
                 }
-              })
-            };
-          },
-          cache: true
+            });
+        });
+
+        function resetForm() {
+            // Atur ulang nilai Select2 ke kondisi semula (pilihan kategori awal)
+            $('.category').val(initialCategories).trigger('change');
         }
-      });
-    });
-    var category = {!! $product->category !!}
- category.forEach(function(category){
- var option = new Option(category.nama, category.id, true, true);
- $('.category').append(option).trigger('change');
- });
     </script>
   <script src="{{ asset('assets/js/iziToast.js') }}"></script>
     

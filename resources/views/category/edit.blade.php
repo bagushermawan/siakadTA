@@ -1,6 +1,6 @@
 @extends('layouts.master')
-@section('title', 'Role')
-@section('header', 'Role')
+@section('title', 'Category')
+@section('header', 'Category')
 @section('button-header')
 {{-- <div class="section-header-button">
     <a href="features-post-create.html" class="btn btn-primary">Add New</a>
@@ -18,7 +18,7 @@
                     {{-- <div class="alert alert-info">
                             <b>Note!</b> Not all browsers support HTML5 type input.
                           </div> --}}
-                    <form action="{{ route('category.update', ['id' => $category->id]) }}" method="POST">
+                    <form id="myForm" action="{{ route('category.update', ['id' => $category->id]) }}" method="POST">
                         @csrf
                         {{ method_field('put') }}
                         <div class="form-group">
@@ -27,7 +27,7 @@
                         </div>
                         <div class="card-footer text-right">
                             <button class="btn btn-primary mr-1" type="submit">Update</button>
-                            <button class="btn btn-secondary" type="reset">Reset</button>
+                            <button class="btn btn-secondary" type="reset" value="Reset" onclick="resetForm()">Reset</button>
                         </div>
                     </form>
                 </div>

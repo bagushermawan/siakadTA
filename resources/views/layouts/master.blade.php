@@ -125,7 +125,7 @@
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.7.6/jquery.nicescroll.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-    <script src="../assets/js/stisla.js"></script>
+    <script src="/assets/js/stisla.js"></script>
 
     <!-- JS Libraies -->
     <script src="https://demo.getstisla.com/assets/modules/datatables/datatables.min.js"></script>
@@ -146,6 +146,12 @@
     <script src="/assets/js/scripts.js"></script>
     <script src="/assets/js/custom.js"></script>
     <script src="/assets/js/stislacolorchanger.js"></script>
+    <script>
+        // Fungsi untuk mereset formulir
+        function resetForm() {
+            document.getElementById("myForm").reset();
+        }
+    </script>
 
     @stack('page-script')
 

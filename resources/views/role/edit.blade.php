@@ -18,7 +18,7 @@
                     {{-- <div class="alert alert-info">
                             <b>Note!</b> Not all browsers support HTML5 type input.
                           </div> --}}
-                    <form action="{{ route('role.update', ['id' => $role->id]) }}" method="POST">
+                    <form id="myForm" action="{{ route('role.update', ['id' => $role->id]) }}" method="POST">
                         @csrf
                         {{ method_field('put') }}
                         <div class="form-group">
@@ -27,7 +27,7 @@
                         </div>
                         <div class="card-footer text-right">
                             <button class="btn btn-primary mr-1" type="submit">Update</button>
-                            <button class="btn btn-secondary" type="reset">Reset</button>
+                            <button class="btn btn-secondary" type="reset" value="Reset" onclick="resetForm()">Reset</button>
                         </div>
                     </form>
                 </div>
