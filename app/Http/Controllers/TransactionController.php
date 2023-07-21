@@ -12,7 +12,7 @@ class TransactionController extends Controller
 {
     public function index()
     {
-        $daftar_transaction = Transaction::paginate();
+        $daftar_transaction = Transaction::get();
         return view("transaction.index", ["daftar_transaction" => $daftar_transaction]);
 
     }
