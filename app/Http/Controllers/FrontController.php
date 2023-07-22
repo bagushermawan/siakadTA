@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Transaction;
+use Illuminate\Support\Facades\Auth;
 
 class FrontController extends Controller
 {
@@ -17,7 +18,8 @@ class FrontController extends Controller
         // $resi = Transaction::all();
         // $transactions = Transaction::paginate(10);
         // return view('layouts.front.cekresi', compact('resi'));
-        return view('layouts.front.cekresi');
+        $currentUserRole = Auth::check() ? Auth::user()->role : 'guest';
+        return view('layouts.front.cekresi')->with('currentUserRole', $currentUserRole);
     }
 
     public function getTransaction()

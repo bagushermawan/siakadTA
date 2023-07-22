@@ -31,7 +31,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Edit Password:</label>
-                                <input type="password" name="password" class="form-control">
+                                <input type="password" name="password" class="form-control" placeholder="leave blank if you don't want to change it">
                             </div>
                             <div class="form-group">
                                 <label>Edit Alamat:</label>

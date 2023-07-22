@@ -12,6 +12,16 @@
 
     <link rel="stylesheet" href="assets/css/rootresi.css">
     <link rel="stylesheet" href="assets/css/cekresi.css">
+    <link rel="stylesheet" href="/assets/css/iziToast.min.css">
+    <style>
+        #search-error-toast {
+            position: relative;
+            top: 0;
+            right: 0;
+            z-index: 9999;
+            /* Atur z-index lebih tinggi dari kotak pencarian */
+        }
+    </style>
 
     <title>Cek Status</title>
 </head>
@@ -21,6 +31,9 @@
         <div class="logo"><a href="{{ route('/') }}"><img src="assets/logo.png" alt="logo" /></a></div>
         <div class="mobile-menu"><span></span></div>
         <ul class="list-menu flex">
+            @if ($currentUserRole === 'Admin')
+                <li class="btn btn-primary"><a href="{{ route('home') }}">Admin Page</a></li>
+            @endif
             <li><a href="{{ route('/') }}#blog" target="_blank">Blog</a></li>
             <li><a href="{{ route('/') }}#tentang" target="_blank">Tentang kami</a></li>
         </ul>
@@ -38,15 +51,18 @@
                     <ul>
                         <li>
                             <label class="teks">Kode Transaksi :</label>
+                            <div id="search-error-toast"></div>
                             <input class="teks" type='text' id='search' name='search'
-                                placeholder='Masukkan kode/nama transaksi ..'>
-                            <a class="btn btn-more track" value='Search' id='but_search'>
+                                placeholder='Masukkan kode/nama transaksi ..' required autofocus>
+                            <a type="button" class="btn btn-more track" value='Search' id='but_search'>
                                 <i
                                     class="fa-regular fa-magnifying-glass"style="font-family: Font Awesome 5 Free; font-weight: 900"></i>
                                 Cek Status
                             </a>
-                            <input class="btn btn-more track" type='button' value='Fetch all records'
-                                id='but_fetchall'>
+                            @if ($currentUserRole === 'Admin')
+                                <input class="btn btn-more track" type='button' value='Fetch all records'
+                                    id='but_fetchall'>
+                            @endif
                         </li>
                     </ul>
                 </form>
@@ -74,7 +90,16 @@
             <div class="progress-history" style="color:rgb(173, 169, 169);">Maybe, coming soon ..</div>
         </div>
     </section>
-    <div id="user-name" data-nama="{{ Auth::check() ? 'Hi, ' . Auth::user()->nama : 'Hwaloo guest!' }}"></div>
+    <div id="user-name"
+        data-nama="{{ Auth::check() ? 'Hi, ' . Auth::user()->nama . ' → ' . Auth::user()->role : 'Hwaloo guest!' }}">
+    </div>
+    {{-- Script Console --}}
+    @if ($currentUserRole !== 'guest')
+        <script>
+            var currentUserRole = @json($currentUserRole);
+            console.log("Role yang login: ", currentUserRole);
+        </script>
+    @endif
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             // Mengambil elemen dengan id "user-name" dan mendapatkan nilai atribut data-nama
@@ -92,8 +117,21 @@
             }
         });
     </script>
+    {{-- Ambil Inputan --}}
+    <script>
+        // Cek apakah ada parameter 'search' pada URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const searchValue = urlParams.get('search');
+
+        // Jika parameter 'search' ada, isi nilai ke dalam input 'search'
+        if (searchValue) {
+            document.getElementById('search').value = searchValue;
+            document.getElementById('but_search').click(); // Klik tombol "Cek Status" secara otomatis
+        }
+    </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    {{-- Script Menu bar rspnsv--}}
+    <script src="{{ asset('assets/js/iziToast.js') }}"></script>
+    {{-- Menu bar rspnsv --}}
     <script>
         const mobileMenu = document.querySelector(".mobile-menu"),
             listMenu = document.querySelector(".list-menu");
@@ -102,6 +140,7 @@
             listMenu.classList.toggle("active");
         });
     </script>
+    {{-- Ajax Search --}}
     <script type='text/javascript'>
         var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
         $(document).ready(function() {
@@ -126,7 +165,7 @@
                 // Tampilkan efek loading-overlay
                 showElem();
 
-                // Tambahkan jeda 2 detik sebelum permintaan AJAX dimulai
+                // Tambahkan jeda detik sebelum permintaan AJAX dimulai
                 setTimeout(function() {
                     // AJAX GET request
                     $.ajax({
@@ -134,15 +173,44 @@
                         type: 'get',
                         dataType: 'json',
                         success: function(response) {
-                            createRows(response, true); // Set isFetchAll menjadi true saat fetch all record
+                            createRows(response,
+                                true
+                            ); // Set isFetchAll menjadi true saat fetch all record
                         }
                     });
-                }, 500); // Timeout 2 detik (2000 ms)
+                }, 500); // Timeout ms
             });
 
             // Search by kode/nama
-            $('#but_search').click(function() {
+            $('#but_search').on('click', function(event) {
+                event.preventDefault(); // Mencegah aksi default tombol submit
                 var transactionKode = $('#search').val().trim();
+                if (transactionKode === '') {
+                    iziToast.error({
+                        title: 'Kode/nama',
+                        message: ' tidak boleh kosong ygy ..',
+                        position: 'topRight',
+                        timeout: 2000,
+                        target: '#search-error-toast',
+                        closeOnClick: true,
+                        displayMode: 2,
+                    });
+                    return; // Jika inputan kosong, hentikan eksekusi fungsi
+                }
+
+                if (transactionKode.length < 2) {
+                    iziToast.error({
+                        title: 'Minimal',
+                        message: 'masukkan 2-3 karakter ..',
+                        position: 'topRight',
+                        timeout: 2000,
+                        target: '#search-error-toast',
+                        closeOnClick: true,
+                        displayMode: 2,
+                    });
+                    return; // Jika inputan kurang dari 2 karakter, hentikan eksekusi fungsi
+                }
+
                 isLoading = true; // Set status loading menjadi true
 
                 if (transactionKode !== '') {
@@ -163,7 +231,9 @@
                             },
                             dataType: 'json',
                             success: function(response) {
-                                createRows(response, false); // Set isFetchAll menjadi false saat melakukan search
+                                createRows(response,
+                                    false
+                                ); // Set isFetchAll menjadi false saat melakukan search
                             }
                         });
                     }, 500); // Timeout 2 detik (2000 ms)
@@ -189,54 +259,56 @@
 
         // Create table rows
         function createRows(response, isFetchAll) {
-    var len = 0;
-    $('#empTable tbody').empty(); // Empty <tbody>
-    if (response['data'] != null) {
-        len = response['data'].length;
-    }
-
-    if (len > 0) {
-        for (var i = 0; i < len; i++) {
-            var tr_str = "";
-
-            if (isFetchAll) {
-                // Tambahkan <th>No</th> jika melakukan fetch all record
-                tr_str += "<tr><th>No</th><td></td><td>" + (i + 1) + "</td></tr>";
+            var len = 0;
+            $('#empTable tbody').empty(); // Empty <tbody>
+            if (response['data'] != null) {
+                len = response['data'].length;
             }
 
-            var id = response['data'][i].id;
-            var kode = response['data'][i].kode;
-            var nama = response['data'][i].nama;
-            var merek = response['data'][i].merek;
-            var platnomer = response['data'][i].platnomer;
-            var status = response['data'][i].status;
-            var capitalizedStatus = status.charAt(0).toUpperCase() + status.slice(1); // Merubah status menjadi huruf kapitalized
+            if (len > 0) {
+                for (var i = 0; i < len; i++) {
+                    var tr_str = "";
 
-            var statusClass = getStatusClass(status); //Add kelas CSS berdasarkan kondisi status
+                    if (isFetchAll) {
+                        // Tambahkan <th>No</th> jika melakukan fetch all record
+                        tr_str += "<tr><th>No</th><td></td><td>" + (i + 1) + "</td></tr>";
+                    }
 
-            // Tambahkan data lain ke dalam baris tabel
-            tr_str += "<tr><th>Kode</th><th>:</th><td style='color:#301A4B;font-weight:bold;'>" + kode + "</td></tr>" +
-                "<tr><th>Nama</th><th>:</th><td style='color:#6DB1BF;font-weight:bold;'>" + nama + "</td></tr>" +
-                "<tr><th>Merek</th><th>:</th><td>" + merek + "</td></tr>" +
-                "<tr><th>Plat Nomor</th><th>:</th><td>" + platnomer + "</td></tr>" +
-                "<tr><th>Status</th><th>:</th><td><a class='baten " + statusClass + "'>" + capitalizedStatus +
-                "</i></a></td></tr>";
+                    var id = response['data'][i].id;
+                    var kode = response['data'][i].kode;
+                    var nama = response['data'][i].nama;
+                    var merek = response['data'][i].merek;
+                    var platnomer = response['data'][i].platnomer;
+                    var status = response['data'][i].status;
+                    var capitalizedStatus = status.charAt(0).toUpperCase() + status.slice(
+                        1); // Merubah status menjadi huruf kapitalized
 
-            if (isFetchAll) {
-                //Nambah tag <br> setiap data hanya saat fetch all
-                tr_str += "<tr><td colspan='3'><br><hr class='haer'></td></tr>";
+                    var statusClass = getStatusClass(status); //Add kelas CSS berdasarkan kondisi status
+
+                    // Tambahkan data lain ke dalam baris tabel
+                    tr_str += "<tr><th>Kode</th><th>:</th><td style='color:#301A4B;font-weight:bold;'>" + kode +
+                        "</td></tr>" +
+                        "<tr><th>Nama</th><th>:</th><td style='color:#6DB1BF;font-weight:bold;'>" + nama + "</td></tr>" +
+                        "<tr><th>Merek</th><th>:</th><td>" + merek + "</td></tr>" +
+                        "<tr><th>Plat Nomor</th><th>:</th><td>" + platnomer + "</td></tr>" +
+                        "<tr><th>Status</th><th>:</th><td><a class='baten " + statusClass + "'>" + capitalizedStatus +
+                        "</i></a></td></tr>";
+
+                    if (isFetchAll) {
+                        //Nambah tag <br> setiap data hanya saat fetch all
+                        tr_str += "<tr><td colspan='3'><br><hr class='haer'></td></tr>";
+                    }
+
+                    $("#empTable tbody").append(tr_str);
+                }
+            } else {
+                var tr_str = "<tr>" +
+                    "<td align='center' colspan='4' class='tede'><b>No record found.</b></td>" +
+                    "</tr>";
+
+                $("#empTable tbody").append(tr_str);
             }
-
-            $("#empTable tbody").append(tr_str);
         }
-    } else {
-        var tr_str = "<tr>" +
-            "<td align='center' colspan='4' class='tede'><b>No record found.</b></td>" +
-            "</tr>";
-
-        $("#empTable tbody").append(tr_str);
-    }
-}
         // Mendapatkan kelas CSS berdasarkan kondisi status
         function getStatusClass(status) {
             var statusClass = '';
@@ -247,7 +319,6 @@
             } else if (status === 'Selesai') {
                 statusClass = 'baten-selesai';
             }
-
             return statusClass;
         }
     </script>

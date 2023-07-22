@@ -20,7 +20,7 @@ class UserTableSeeder extends Seeder
         $a1 = new User;
         $a1->nama = "baher";
         $a1->email = "baher@her.com";
-        $a1->password = Hash::make("123");
+        $a1->password = bcrypt("123");
         $a1->alamat = "baher";
         $a1->role = "Admin";
         $a1->save();
@@ -28,7 +28,7 @@ class UserTableSeeder extends Seeder
         $a2 = new User;
         $a2->nama = "her";
         $a2->email = "her@her.com";
-        $a2->password = Hash::make("123");
+        $a2->password = bcrypt("123");
         $a2->alamat = "baher";
         $a2->role = "Admin";
         $a2->save();
@@ -44,7 +44,7 @@ class UserTableSeeder extends Seeder
             $fkr = new User();
             $fkr->nama = $faker->name();
             $fkr->email = $faker->unique()->email();
-            $fkr->password = Hash::make("321"); // Ganti "password" dengan password yang diinginkan
+            $fkr->password = bcrypt("321"); // Ganti "password" dengan password yang diinginkan
             $fkr->alamat = $faker->address();
             // $fkr->role = $faker->randomElement(['Admin', 'member']); // Ganti 'admin' dan 'member' dengan role yang diinginkan
 

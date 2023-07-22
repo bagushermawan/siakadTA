@@ -49,7 +49,7 @@ class UserController extends Controller
         $user = new User();
         $user->nama = $request->nama;
         $user->email = $request->email;
-        $user->password = Hash::make($request->password);
+        $user->password = bcrypt($request->password);
         $user->alamat = $request->alamat;
         // $user->tgl_lahir = $request->tgl_lahir;
         $user->role = $request->role;
@@ -83,7 +83,7 @@ class UserController extends Controller
         $user->nama = $request->get('nama');
         $user->email = $request->get('email');
         if ($request->has('password')) {
-            $user->password = Hash::make($request->get('password'));
+            $user->password = bcrypt($request->get('password'));
         }
         $user->alamat = $request->get('alamat');
         // $user->tgl_lahir = $request->get('tgl_lahir');

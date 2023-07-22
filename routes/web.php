@@ -91,7 +91,7 @@ Route::middleware('auth')->group(function () {
 
 //Front
 Route::get('/', 'FrontController@index')->name('/');
-Route::get('/resi', 'FrontController@resi')->name('/resi');
+Route::get('/resi', 'FrontController@resi')->name('resi');
 Route::get('/getTransaction', 'FrontController@getTransaction')->name('/getTransaction');
 Route::post('/getTransactionbyid', 'FrontController@getTransactionbyKode')->name('/getTransactionbyid');
 

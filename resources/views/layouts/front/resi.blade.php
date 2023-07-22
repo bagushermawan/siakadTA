@@ -21,6 +21,9 @@
         <div class="logo"><a href="{{ route('/') }}"><img src="assets/logo.png" alt="logo" /></a></div>
         <div class="mobile-menu"><span></span></div>
         <ul class="list-menu flex">
+            @if ($currentUserRole === 'Admin')
+            <li class="btn btn-primary"><a href="{{ route('home') }}">Admin Page</a></li>
+            @endif
             <li><a href="#blog">Blog</a></li>
             <li><a href="#tentang">Tentang kami</a></li>
             {{-- <li class="dropdown">
@@ -53,17 +56,18 @@
                 yang menggunakan kalimat-kalimat dari Lorem Ipsum, dan seiring munculnya perangkat lunak Desktop
                 Publishing seperti Aldus PageMaker juga memiliki versi Lorem Ipsum.
             </p>
-            <button class="cta"><a href="{{ route('/resi') }}">Cek Status</a></button>
+            <button class="cta"><a href="{{ route('resi') }}">Cek Status</a></button>
         </div>
         <img src="assets/home-drone.png" alt="" class="image" />
     </section>
     <section class="cekResi">
         <div class="container">
             <h3>Cek Status <span>Motormu</span></h3>
-            <form action="#" method="#">
+            <form id="cekResiForm" action="{{ route('resi') }}" method="get">
+                
                 <ul class="flex">
                     <li>
-                        <input type="text" id="resi" name="resi" maxlength="17"
+                        <input type="text" id="search" name="search" maxlength="17"
                             placeholder="Masukkan nomor kode/nama" pattern="[A-Za-z0-9]+" />
                     </li>
                 </ul>
