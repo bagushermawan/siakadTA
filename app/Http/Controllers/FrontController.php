@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Transaction;
+use App\Models\Blog;
 use Illuminate\Support\Facades\Auth;
 
 class FrontController extends Controller
@@ -11,7 +12,8 @@ class FrontController extends Controller
     public function index()
     {
         $currentUserRole = Auth::check() ? Auth::user()->role : 'guest';
-        return view('layouts.front.resi')->with('currentUserRole', $currentUserRole);
+        $blogs = Blog::all();
+        return view('layouts.front.resi', compact('currentUserRole', 'blogs',));
     }
 
     public function resi()

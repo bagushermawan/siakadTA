@@ -8,7 +8,6 @@ use Illuminate\Support\Facades\Password;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
-
 class ResetPasswordController extends Controller
 {
     // Method untuk menampilkan form reset password
@@ -27,9 +26,11 @@ class ResetPasswordController extends Controller
         ]);
 
         $status = Password::reset($request->only('email', 'password', 'password_confirmation', 'token'), function ($user, $password) {
-            $user->forceFill([
-                'password' => bcrypt($password)
-            ])->setRememberToken(\Illuminate\Support\Str::random(60));
+            $user
+                ->forceFill([
+                    'password' => bcrypt($password),
+                ])
+                ->setRememberToken(\Illuminate\Support\Str::random(60));
 
             $user->save();
 
@@ -39,7 +40,9 @@ class ResetPasswordController extends Controller
         });
 
         return $status === Password::PASSWORD_RESET
-            ? redirect()->route('login')->with('status', __($status))
+            ? redirect()
+                ->route('login')
+                ->with('status', __($status))
             : back()->withErrors(['email' => [__($status)]]);
     }
 }

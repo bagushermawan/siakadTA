@@ -14,6 +14,13 @@
 
 
     <title>Bengkelq</title>
+    <style>
+        .hidden-blog {
+            display: none;
+        }
+
+        .btn-no-more {}
+    </style>
 </head>
 
 <body>
@@ -22,7 +29,7 @@
         <div class="mobile-menu"><span></span></div>
         <ul class="list-menu flex">
             @if ($currentUserRole === 'Admin')
-            <li class="btn btn-primary"><a href="{{ route('home') }}">Admin Page</a></li>
+                <li class="btn btn-primary"><a href="{{ route('home') }}">Admin Page</a></li>
             @endif
             <li><a href="#blog">Blog</a></li>
             <li><a href="#tentang">Tentang kami</a></li>
@@ -77,94 +84,33 @@
     </section>
     <section class="blog" id="blog">
         <h3 class="title-section">Blog Terbaru</h3>
-        <div class="container">
-            <div class="card">
-                <img src="https://dummyimage.com/16:9x540/" alt="gambar" class="card-img-top" />
-                <div class="card-body">
-                    <div class="card-info flex">
-                        <div class="autor"><i class="fa-solid fa-user"></i>Admin</div>
-                        <div class="date"><i class="fa-solid fa-calendar-days"></i>2022 Desember 3</div>
+        <div class="container" id="blog-container">
+            @foreach ($blogs as $key => $b)
+                <div class="card blog-item @if ($key >= 3) hidden-blog @endif">
+                    @if (isset($b->gambar) && filter_var($b->gambar, FILTER_VALIDATE_URL))
+                        <img src="{{ $b->gambar }}" alt="Gambar Blog" class="card-img-top"
+                            style="width:400px;height:300px;object-fit:cover;">
+                    @else
+                        <img src="{{ Storage::url($b->gambar) }}" alt="Gambar Default" class="card-img-top"
+                            style="width:400px;height:300px;object-fit:cover;">
+                    @endif
+                    {{-- <img src="https://dummyimage.com/16:9x540/" alt="gambar" class="card-img-top" /> --}}
+                    <div class="card-body">
+                        <div class="card-info flex">
+                            <div class="autor"><i class="fa-solid fa-user"></i>{{ $b->nama_user }}</div>
+                            <div class="date"><i class="fa-solid fa-calendar-days"></i>{{ $b->tanggal_post }}</div>
+                        </div>
+                        <h5 class="card-title">{{ $b->judul }}</h5>
+                        <p class="card-text">
+                            {{ $b->isi }}
+                        </p>
                     </div>
-                    <h5 class="card-title">Lorem ipsum dolor sit amet consectetur, adipisicing elit Vel magni.</h5>
-                    <p class="card-text">
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vel magni numquam dolorum inventore
-                        excepturi ex
-                        necessitatibus quos nemo atque incidunt, ratione obcaecati accusantium aperiam dolore nesciunt
-                        molestias
-                        mollitia consectetur nihil ad architecto quia.....
-                    </p>
                 </div>
-            </div>
-            <div class="card">
-                <img src="https://dummyimage.com/16:9x540/" alt="gambar" class="card-img-top" />
-                <div class="card-body">
-                    <div class="card-info flex">
-                        <div class="autor"><i class="fa-solid fa-user"></i>Admin</div>
-                        <div class="date"><i class="fa-solid fa-calendar-days"></i>2022 Desember 3</div>
-                    </div>
-                    <h5 class="card-title">Lorem ipsum dolor sit amet consectetur, adipisicing elit Vel magni.</h5>
-                    <p class="card-text">
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vel magni numquam dolorum inventore
-                        excepturi ex
-                        necessitatibus quos nemo atque incidunt, ratione obcaecati accusantium aperiam dolore nesciunt
-                        molestias
-                        mollitia consectetur nihil ad architecto quia.....
-                    </p>
-                </div>
-            </div>
-            <div class="card">
-                <img src="https://dummyimage.com/16:9x540/" alt="gambar" class="card-img-top" />
-                <div class="card-body">
-                    <div class="card-info flex">
-                        <div class="autor"><i class="fa-solid fa-user"></i>Admin</div>
-                        <div class="date"><i class="fa-solid fa-calendar-days"></i>2022 Desember 3</div>
-                    </div>
-                    <h5 class="card-title">Lorem ipsum dolor sit amet consectetur, adipisicing elit Vel magni.</h5>
-                    <p class="card-text">
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vel magni numquam dolorum inventore
-                        excepturi ex
-                        necessitatibus quos nemo atque incidunt, ratione obcaecati accusantium aperiam dolore nesciunt
-                        molestias
-                        mollitia consectetur nihil ad architecto quia.....
-                    </p>
-                </div>
-            </div>
-            <div class="card">
-                <img src="https://dummyimage.com/16:9x540/" alt="gambar" class="card-img-top" />
-                <div class="card-body">
-                    <div class="card-info flex">
-                        <div class="autor"><i class="fa-solid fa-user"></i>Admin</div>
-                        <div class="date"><i class="fa-solid fa-calendar-days"></i>2022 Desember 3</div>
-                    </div>
-                    <h5 class="card-title">Lorem ipsum dolor sit amet consectetur, adipisicing elit Vel magni.</h5>
-                    <p class="card-text">
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vel magni numquam dolorum inventore
-                        excepturi ex
-                        necessitatibus quos nemo atque incidunt, ratione obcaecati accusantium aperiam dolore nesciunt
-                        molestias
-                        mollitia consectetur nihil ad architecto quia.....
-                    </p>
-                </div>
-            </div>
-            <div class="card">
-                <img src="https://dummyimage.com/16:9x540/" alt="gambar" class="card-img-top" />
-                <div class="card-body">
-                    <div class="card-info flex">
-                        <div class="autor"><i class="fa-solid fa-user"></i>Admin</div>
-                        <div class="date"><i class="fa-solid fa-calendar-days"></i>2022 Desember 3</div>
-                    </div>
-                    <h5 class="card-title">Lorem ipsum dolor sit amet consectetur, adipisicing elit Vel magni.</h5>
-                    <p class="card-text">
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vel magni numquam dolorum inventore
-                        excepturi ex
-                        necessitatibus quos nemo atque incidunt, ratione obcaecati accusantium aperiam dolore nesciunt
-                        molestias
-                        mollitia consectetur nihil ad architecto quia.....
-                    </p>
-                </div>
-            </div>
+            @endforeach
         </div>
-        <button class="btn btn-more">Lihat Lebih Lanjut</button>
+        <button class="btn btn-more" id="btn-more">Load more</button>
+        <button class="btn btn-more" id="btn-no-more" style="display: none;pointer-events: none;box-shadow: rgb(172, 181, 246) 0px 2px 6px;background-color: rgb(131 132 141);}">End
+            of Blogs</button>
     </section>
     <section class="pertanyaan">
         <h3 class="title-section">Tanya Bengkelq</h3>
@@ -302,8 +248,6 @@
             listMenu.classList.toggle("active");
         });
     </script>
-
-    {{-- <script src="assets/js/mainresi.js"></script> --}}
     @if ($currentUserRole !== 'guest')
         <script>
             var currentUserRole = @json($currentUserRole);
@@ -326,6 +270,39 @@
                 // Menampilkan namauser dengan warna gold
                 console.log("User yang login: " + "%c" + namauser, "font-weight: bold;color: gold;font-size:30px;");
             }
+        });
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const blogContainer = document.getElementById("blog-container");
+            const btnMore = document.getElementById("btn-more");
+            const btnNoMore = document.getElementById("btn-no-more");
+            const blogs = document.querySelectorAll(".blog-item");
+
+            const batchSize = 3; //angka keluar load more
+
+            let currentBatch = 0;
+
+            function showNextBatch() {
+                const startIndex = currentBatch * batchSize;
+                const endIndex = startIndex + batchSize;
+
+                for (let i = startIndex; i < endIndex; i++) {
+                    if (blogs[i]) {
+                        blogs[i].classList.remove("hidden-blog");
+                    }
+                }
+
+                currentBatch++;
+
+                // Jika semua blog telah ditampilkan, sembunyikan tombol "Lihat Lebih Lanjut"
+                if (currentBatch * batchSize >= blogs.length) {
+                    btnMore.style.display = "none";
+                    btnNoMore.style.display = "block";
+                }
+            }
+
+            btnMore.addEventListener("click", showNextBatch);
         });
     </script>
 </body>
