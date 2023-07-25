@@ -87,6 +87,14 @@ Route::middleware('auth')->group(function () {
     Route::put('/transaction/update/{id}', 'TransactionController@update')->name('transaction.update');
     Route::get('/transaction/destroy/{id}', 'TransactionController@destroy')->name('transaction.destroy');
     Route::get('/transaction/search', 'TransactionController@ajaxSearch')->name('transaction.ajaxsearch');
+    //Blog
+    Route::get('/blog', 'BlogController@index')->name('blog');
+    Route::get('/blog/create', 'BlogController@create')->name('blog.create');
+    Route::post('/blog/store', 'BlogController@store')->name('blog.store');
+    Route::get('/blog/edit/{id}', 'BlogController@edit')->name('blog.edit');
+    Route::put('/blog/update/{id}', 'BlogController@update')->name('blog.update');
+    Route::get('/blog/destroy/{id}', 'BlogController@destroy')->name('blog.destroy');
+    Route::get('/blog/search', 'BlogController@ajaxSearch')->name('blog.ajaxsearch');
 });
 
 //Front

@@ -56,15 +56,15 @@
                 yang menggunakan kalimat-kalimat dari Lorem Ipsum, dan seiring munculnya perangkat lunak Desktop
                 Publishing seperti Aldus PageMaker juga memiliki versi Lorem Ipsum.
             </p>
-            <button class="cta"><a href="{{ route('resi') }}">Cek Status</a></button>
+            <button class="cta"><a href="#cekstatus">Cek Status</a></button>
         </div>
         <img src="assets/home-drone.png" alt="" class="image" />
     </section>
-    <section class="cekResi">
+    <section class="cekResi" id="cekstatus">
         <div class="container">
             <h3>Cek Status <span>Motormu</span></h3>
             <form id="cekResiForm" action="{{ route('resi') }}" method="get">
-                
+
                 <ul class="flex">
                     <li>
                         <input type="text" id="search" name="search" maxlength="17"
@@ -304,6 +304,12 @@
     </script>
 
     {{-- <script src="assets/js/mainresi.js"></script> --}}
+    @if ($currentUserRole !== 'guest')
+        <script>
+            var currentUserRole = @json($currentUserRole);
+            console.log("Role yang login: ", currentUserRole);
+        </script>
+    @endif
     <div id="user-name" data-nama="{{ Auth::check() ? 'Hi, ' . Auth::user()->nama : 'Hwaloo guest!' }}"></div>
     <script>
         document.addEventListener("DOMContentLoaded", function() {

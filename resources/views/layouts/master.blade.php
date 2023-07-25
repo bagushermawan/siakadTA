@@ -15,12 +15,14 @@
 
 
     <!-- CSS Libraries -->
+    <link rel="stylesheet" href="https://demo.getstisla.com/assets/modules/summernote/summernote-bs4.css">
+    <link rel="stylesheet" href="https://demo.getstisla.com/assets/modules/jquery-selectric/selectric.css">
     <link rel="stylesheet" href="https://demo.getstisla.com/assets/modules/datatables/datatables.min.css">
-    <link rel="stylesheet"
-        href="https://demo.getstisla.com/assets/modules/datatables/DataTables-1.10.16/css/dataTables.bootstrap4.min.css">
-    <link rel="stylesheet"
-        href="https://demo.getstisla.com/assets/modules/datatables/Select-1.2.4/css/select.bootstrap4.min.css">
+    <link rel="stylesheet" href="https://demo.getstisla.com/assets/modules/datatables/DataTables-1.10.16/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="https://demo.getstisla.com/assets/modules/datatables/Select-1.2.4/css/select.bootstrap4.min.css">
     <link rel="stylesheet" href="/assets/css/iziToast.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
 
 
     <!-- Template CSS -->
@@ -128,13 +130,18 @@
     <script src="/assets/js/stisla.js"></script>
 
     <!-- JS Libraies -->
+    <script src="https://demo.getstisla.com/assets/modules/summernote/summernote-bs4.js"></script>
+    <script src="https://demo.getstisla.com/assets/modules/jquery-selectric/jquery.selectric.min.js"></script>
+    <script src="https://demo.getstisla.com/assets/modules/upload-preview/assets/js/jquery.uploadPreview.min.js"></script>
     <script src="https://demo.getstisla.com/assets/modules/datatables/datatables.min.js"></script>
     <script src="https://demo.getstisla.com/assets/modules/datatables/DataTables-1.10.16/js/dataTables.bootstrap4.min.js">
     </script>
     <script src="https://demo.getstisla.com/assets/modules/datatables/Select-1.2.4/js/dataTables.select.min.js"></script>
     <script src="https://demo.getstisla.com/assets/modules/jquery-ui/jquery-ui.min.js"></script>
     <script src="https://demo.getstisla.com/assets/modules/select2/dist/js/select2.full.min.js"></script>
+    <script src="https://demo.getstisla.com/assets/modules/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js"></script>
     <script src="{{ asset('assets/js/iziToast.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 
 
 

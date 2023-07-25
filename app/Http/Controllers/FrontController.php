@@ -10,7 +10,8 @@ class FrontController extends Controller
 {
     public function index()
     {
-        return view('layouts.front.resi');
+        $currentUserRole = Auth::check() ? Auth::user()->role : 'guest';
+        return view('layouts.front.resi')->with('currentUserRole', $currentUserRole);
     }
 
     public function resi()

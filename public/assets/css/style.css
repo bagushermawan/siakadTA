@@ -181,7 +181,8 @@ textarea.form-control {
   height: 64px; }
 
 .custom-control {
-  line-height: 1.6rem; }
+  line-height: 1.6rem;
+  padding: unset;}
 
 .custom-file,
 .custom-file-label,
