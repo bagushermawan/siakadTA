@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 use Session;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Storage;
+use Intervention\Image\Facades\Image;
 
 class BlogController extends Controller
 {
@@ -28,19 +29,34 @@ class BlogController extends Controller
         $this->validate($request, [
             'judul' => 'required',
             'isi' => 'required',
-            'gambar' => 'required',
+            'gambar' => 'required|image|mimes:jpeg,png,jpg,gif',
             'nama_user' => 'required',
             'tanggal_post' => 'required',
         ]);
 
-        $gambar = $request->file('gambar')->store('public/gambar');
+        // Mengambil file gambar dari request
+        $image = $request->file('gambar');
+
+        // Resize gambar menjadi ukuran yang diinginkan, contoh 400x300 pixels
+        $resizedImage = Image::make($image)->fit(400, 300);
+
+        // Mendapatkan ekstensi dari file gambar
+        $extension = $image->getClientOriginalExtension();
+
+        // Menamai gambar baru dengan timestamp dan ekstensi yang sama
+        $imageName = time() . '.' . $extension;
+
+        // Simpan gambar yang sudah diresize ke direktori storage/app/public/gambar
+        Storage::disk('public')->put('gambar/' . $imageName, $resizedImage->stream());
+        // Buat instance dari model Blog
         $blog = new Blog();
         $blog->judul = $request->judul;
         $blog->isi = $request->isi;
-        $blog->gambar = $gambar;
-        $blog->nama_user = $request->nama_user; // Mengisi kolom user_id dengan ID pengguna yang saat ini login
-        $blog->tanggal_post = now(); // Mengisi kolom tanggal_post dengan waktu saat ini
+        $blog->gambar = 'gambar/' . $imageName; // Simpan path gambar ke dalam database
+        $blog->nama_user = $request->nama_user;
+        $blog->tanggal_post = now();
 
+        // Simpan data blog ke database
         if (!$blog->save()) {
             Session::flash('gagal', 'Yamaap, Blog/Post gagal disimpan!!');
             return redirect()->route('blog');
@@ -94,5 +110,13 @@ class BlogController extends Controller
         $blog->delete();
         Session::flash('delete', 'blog berhasil dihapus!');
         return redirect()->route('blog');
+    }
+
+    public function deleteSelectedBlogs(Request $request)
+    {
+        $selectedIds = $request->input('ids');
+        Blog::whereIn('id', $selectedIds)->delete();
+
+        return response()->json(['message' => 'success']);
     }
 }

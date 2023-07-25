@@ -94,6 +94,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/blog/edit/{id}', 'BlogController@edit')->name('blog.edit');
     Route::put('/blog/update/{id}', 'BlogController@update')->name('blog.update');
     Route::get('/blog/destroy/{id}', 'BlogController@destroy')->name('blog.destroy');
+    Route::post('/blog/delete-selected', 'BlogController@deleteSelectedBlogs')->name('deleteSelectedBlogs');
     Route::get('/blog/search', 'BlogController@ajaxSearch')->name('blog.ajaxsearch');
 });
 

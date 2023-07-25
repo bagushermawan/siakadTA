@@ -20,6 +20,10 @@
         }
 
         .btn-no-more {}
+
+        .hidden-blog {
+            display: none;
+        }
     </style>
 </head>
 
@@ -88,17 +92,15 @@
             @foreach ($blogs as $key => $b)
                 <div class="card blog-item @if ($key >= 3) hidden-blog @endif">
                     @if (isset($b->gambar) && filter_var($b->gambar, FILTER_VALIDATE_URL))
-                        <img src="{{ $b->gambar }}" alt="Gambar Blog" class="card-img-top"
-                            style="width:400px;height:300px;object-fit:cover;">
+                        <img src="{{ $b->gambar }}" alt="Gambar Blog" class="card-img-top">  {{-- style="width:400px;height:300px;object-fit:cover;" --}}
                     @else
-                        <img src="{{ Storage::url($b->gambar) }}" alt="Gambar Default" class="card-img-top"
-                            style="width:400px;height:300px;object-fit:cover;">
+                        <img src="{{ Storage::url($b->gambar) }}" alt="Gambar Default" class="card-img-top">
                     @endif
                     {{-- <img src="https://dummyimage.com/16:9x540/" alt="gambar" class="card-img-top" /> --}}
                     <div class="card-body">
                         <div class="card-info flex">
                             <div class="autor"><i class="fa-solid fa-user"></i>{{ $b->nama_user }}</div>
-                            <div class="date"><i class="fa-solid fa-calendar-days"></i>{{ $b->tanggal_post }}</div>
+                            <div class="date"><i class="fa-solid fa-calendar-days"></i>{{ $b->tanggal_post->format('j F Y, h:i A') }}</div>
                         </div>
                         <h5 class="card-title">{{ $b->judul }}</h5>
                         <p class="card-text">
@@ -109,7 +111,8 @@
             @endforeach
         </div>
         <button class="btn btn-more" id="btn-more">Load more</button>
-        <button class="btn btn-more" id="btn-no-more" style="display: none;pointer-events: none;box-shadow: rgb(172, 181, 246) 0px 2px 6px;background-color: rgb(131 132 141);}">End
+        <button class="btn btn-more" id="btn-no-more"
+            style="display: none;pointer-events: none;box-shadow: rgb(172, 181, 246) 0px 2px 6px;background-color: rgb(131 132 141);}">End
             of Blogs</button>
     </section>
     <section class="pertanyaan">
@@ -239,6 +242,9 @@
             <p>Copyrights © 2022 PaketIn by <a target="_blank" href="https://mulyasaputra.github.io">InSketch</a></p>
         </div>
     </footer>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery.easing@1.4.1/jquery.easing.min.js"></script>
     {{-- Script Menu bar --}}
     <script>
         const mobileMenu = document.querySelector(".mobile-menu"),
@@ -273,36 +279,44 @@
         });
     </script>
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const blogContainer = document.getElementById("blog-container");
-            const btnMore = document.getElementById("btn-more");
-            const btnNoMore = document.getElementById("btn-no-more");
-            const blogs = document.querySelectorAll(".blog-item");
+        $(document).ready(function() {
+            const batchSize = 3;
+            let currentBatch = 1;
+            const totalBatches = Math.ceil({{ $blogs->count() }} / batchSize);
 
-            const batchSize = 3; //angka keluar load more
-
-            let currentBatch = 0;
-
-            function showNextBatch() {
-                const startIndex = currentBatch * batchSize;
-                const endIndex = startIndex + batchSize;
-
-                for (let i = startIndex; i < endIndex; i++) {
-                    if (blogs[i]) {
-                        blogs[i].classList.remove("hidden-blog");
-                    }
-                }
-
-                currentBatch++;
-
-                // Jika semua blog telah ditampilkan, sembunyikan tombol "Lihat Lebih Lanjut"
-                if (currentBatch * batchSize >= blogs.length) {
-                    btnMore.style.display = "none";
-                    btnNoMore.style.display = "block";
-                }
+            // Sembunyikan button Load More jika sudah mencapai total batch
+            if (currentBatch >= totalBatches) {
+                $("#btn-more").hide();
+                $("#btn-no-more").show();
             }
 
-            btnMore.addEventListener("click", showNextBatch);
+            $("#btn-more").on("click", function() {
+                // Ambil blog-items yang belum ditampilkan
+                const blogsToShow = $(".blog-item.hidden-blog").slice(0, batchSize);
+
+                // Tampilkan blog-items dengan efek fadeIn dan easing
+                blogsToShow.fadeIn({
+                    duration: 500,
+                    easing: "easeOutQuad" // Ganti dengan efek easing yang diinginkan
+                }).removeClass("hidden-blog");
+
+                // Scroll ke blog terakhir yang baru ditampilkan
+                const lastBlog = blogsToShow.last();
+                const targetOffset = lastBlog.offset().top-100; // Mengurangi 20px dari offset elemen terakhir
+                $("html, body").animate({
+                    scrollTop: targetOffset
+                }, {
+                    duration: 250,
+                    easing: "easeInOutBack" // Ganti dengan efek easing yang diinginkan
+                });
+
+                // Sematikan tombol Load More jika sudah mencapai total batch
+                currentBatch++;
+                if (currentBatch >= totalBatches) {
+                    $("#btn-more").hide();
+                    $("#btn-no-more").show();
+                }
+            });
         });
     </script>
 </body>

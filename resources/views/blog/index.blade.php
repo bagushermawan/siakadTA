@@ -43,10 +43,12 @@
                                                     </th>
                                                     <th class="sorting">Creator</th>
                                                     <th class="sorting">Judul</th>
-                                                    <th>Isi</th>
+                                                    <th style="width:50%;">Isi</th>
                                                     <th>Gambar</th>
                                                     <th>Created at</th>
-                                                    <th style="width:7%;"><center>Action</center></th>
+                                                    <th style="width:7%;">
+                                                        <center>Action</center>
+                                                    </th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -88,13 +90,16 @@
                                                                     alt="Gambar Default" style="width: 100px;">
                                                             @endif
                                                         </td>
-                                                        <td>{{ $a->created_at->format('j F Y, h:i A') }}</td>
-                                                        <td ><center>
-                                                            <a href="{{ route('blog.edit', ['id' => $a->id]) }}"
-                                                                class="btn btn-info"><i class="fas fa-edit" style="width: 10px;"></i></a>
-                                                            <a href="{{ route('blog.destroy', ['id' => $a->id]) }}"
-                                                                class="btn btn-danger"><i class="fas fa-times" style="width: 10px;"></i></a>
-                                                                </center>
+                                                        <td>{{ $a->tanggal_post->format('j F Y, h:i A') }}</td>
+                                                        <td>
+                                                            <center>
+                                                                <a href="{{ route('blog.edit', ['id' => $a->id]) }}"
+                                                                    class="btn btn-info"><i class="fas fa-edit"
+                                                                        style="width: 10px;"></i></a>
+                                                                <a href="{{ route('blog.destroy', ['id' => $a->id]) }}"
+                                                                    class="btn btn-danger"><i class="fas fa-times"
+                                                                        style="width: 10px;"></i></a>
+                                                            </center>
                                                         </td>
                                                     </tr>
                                                 @endforeach
