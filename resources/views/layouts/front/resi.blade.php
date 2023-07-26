@@ -30,45 +30,47 @@
         .hidden-ask {
             display: none;
         }
+
         .btn-scroll-top {
-  display: none;
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  z-index: 99;
-  font-size: 16px;
-  padding: 10px 15px;
-  border: none;
-  outline: none;
-  background-color: #F5365C;
-  color: white;
-  cursor: pointer;
-  border-radius: 4px;
-  transition: opacity 0.3s ease;
-}
-.btn-scroll-top:hover{
-    opacity: 0.8;
-}
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 99;
+            font-size: 16px;
+            padding: 10px 15px;
+            border: none;
+            outline: none;
+            background-color: #F5365C;
+            color: white;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: opacity 0.3s ease;
+        }
 
-/* Gaya tombol scroll to top saat tampilan layar kurang dari 768px */
-@media screen and (max-width: 767px) {
-  .btn-scroll-top {
-    bottom: 10px;
-    right: 10px;
-    font-size: 14px;
-  }
-}
+        .btn-scroll-top:hover {
+            opacity: 0.8;
+        }
 
-/* Tampilkan tombol scroll to top saat posisi scroll telah mencapai 25% dari tinggi halaman */
-@media screen and (min-height: 768px) {
-  .btn-scroll-top {
-    display: none;
-  }
+        /* Gaya tombol scroll to top saat tampilan layar kurang dari 768px */
+        @media screen and (max-width: 767px) {
+            .btn-scroll-top {
+                bottom: 10px;
+                right: 10px;
+                font-size: 14px;
+            }
+        }
 
-  .btn-scroll-top.active {
-    display: block;
-  }
-}
+        /* Tampilkan tombol scroll to top saat posisi scroll telah mencapai 25% dari tinggi halaman */
+        @media screen and (min-height: 768px) {
+            .btn-scroll-top {
+                display: none;
+            }
+
+            .btn-scroll-top.active {
+                display: block;
+            }
+        }
     </style>
 </head>
 
@@ -386,24 +388,26 @@
     <button class="btn-scroll-top" onclick="scrollToTop()">&#8679; Scroll to Top</button>
     <script>
         function scrollToTop() {
-  $("html, body").animate({ scrollTop: 0 }, 500, "easeInOutBack");
-}
+            $("html, body").animate({
+                scrollTop: 0
+            }, 500, "easeInOutBack");
+        }
 
-$(document).ready(function() {
-  // Cek posisi scroll saat halaman dimuat
-  if ($(window).scrollTop() > $(window).height() / 4) {
-    $(".btn-scroll-top").addClass("active");
-  }
+        $(document).ready(function() {
+            // Cek posisi scroll saat halaman dimuat
+            if ($(window).scrollTop() > $(window).height() / 4) {
+                $(".btn-scroll-top").addClass("active");
+            }
 
-  // Tampilkan/menyembunyikan tombol saat posisi scroll berubah
-  $(window).scroll(function() {
-    if ($(this).scrollTop() > $(this).height() / 4) {
-      $(".btn-scroll-top").addClass("active");
-    } else {
-      $(".btn-scroll-top").removeClass("active");
-    }
-  });
-});
+            // Tampilkan/menyembunyikan tombol saat posisi scroll berubah
+            $(window).scroll(function() {
+                if ($(this).scrollTop() > $(this).height() / 4) {
+                    $(".btn-scroll-top").addClass("active");
+                } else {
+                    $(".btn-scroll-top").removeClass("active");
+                }
+            });
+        });
     </script>
 </body>
 
