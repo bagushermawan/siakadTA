@@ -14,7 +14,7 @@
             <li class="menu-header">Pages</li>
             {{-- <li class="nav-item dropdown"> --}}
             <li
-                class="nav-item dropdown{{ request()->is('user*', 'role*', 'category*', 'product*', 'complaint*', 'transaction*', 'blog*') ? ' active' : '' }}">
+                class="nav-item dropdown{{ request()->is('user*', 'role*', 'category*', 'product*', 'complaint*', 'transaction*', 'blog*', 'ask*') ? ' active' : '' }}">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i>
                     <span>Menu</span></a>
                 <ul class="dropdown-menu">
@@ -39,6 +39,9 @@
                     <li class="{{ request()->is('blog*') ? 'active' : '' }}"><a
                             class="nav-link{{ request()->is('blog*') ? ' beep beep-sidebar' : '' }}"
                             href="{{ route('blog') }}">Blogs</a></li>
+                    <li class="{{ request()->is('ask*') ? 'active' : '' }}"><a
+                            class="nav-link{{ request()->is('ask*') ? ' beep beep-sidebar' : '' }}"
+                            href="{{ route('ask') }}">Tanya</a></li>
                 </ul>
             </li>
             {{-- <li><a class="nav-link" href="/crud"><i class="far fa-square"></i> <span>C R U D</span></a></li> --}}

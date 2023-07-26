@@ -94,8 +94,15 @@ Route::middleware('auth')->group(function () {
     Route::get('/blog/edit/{id}', 'BlogController@edit')->name('blog.edit');
     Route::put('/blog/update/{id}', 'BlogController@update')->name('blog.update');
     Route::get('/blog/destroy/{id}', 'BlogController@destroy')->name('blog.destroy');
-    Route::post('/blog/delete-selected', 'BlogController@deleteSelectedBlogs')->name('deleteSelectedBlogs');
     Route::get('/blog/search', 'BlogController@ajaxSearch')->name('blog.ajaxsearch');
+    //Ask
+    Route::get('/ask', 'AskController@index')->name('ask');
+    Route::get('/ask/create', 'AskController@create')->name('ask.create');
+    Route::post('/ask/store', 'AskController@store')->name('ask.store');
+    Route::get('/ask/edit/{id}', 'AskController@edit')->name('ask.edit');
+    Route::put('/ask/update/{id}', 'AskController@update')->name('ask.update');
+    Route::get('/ask/destroy/{id}', 'AskController@destroy')->name('ask.destroy');
+    Route::get('/ask/search', 'AskController@ajaxSearch')->name('ask.ajaxsearch');
 });
 
 //Front

@@ -24,6 +24,14 @@
         .hidden-blog {
             display: none;
         }
+
+
+        .btn-no-more {}
+
+        .hidden-ask {
+            display: none;
+        }
+
     </style>
 </head>
 
@@ -37,20 +45,6 @@
             @endif
             <li><a href="#blog">Blog</a></li>
             <li><a href="#tentang">Tentang kami</a></li>
-            {{-- <li class="dropdown">
-          Pusat bantuan
-          <div class="dropdown-content">
-            <a href="#" class="link">Solusi Bisnis</a>
-            <a href="#" class="link">Tanya Paket</a>
-            <a href="#" class="link">Kontak Kami</a>
-          </div>
-        </li> --}}
-            {{-- <li><a href="#footer">Download</a></li> --}}
-            {{-- <li class="flex">
-          <button class="id">ID</button>
-          <span></span>
-          <button class="en">EN</button>
-        </li> --}}
         </ul>
     </nav>
     <section class="herosection">
@@ -110,44 +104,28 @@
                 </div>
             @endforeach
         </div>
-        <button class="btn btn-more" id="btn-more">Load more</button>
-        <button class="btn btn-more" id="btn-no-more"
+        <button class="btn btn-more" id="btn-more-blog">Load more</button>
+        <button class="btn btn-more" id="btn-no-more-blog"
             style="display: none;pointer-events: none;box-shadow: rgb(172, 181, 246) 0px 2px 6px;background-color: rgb(131 132 141);}">End
             of Blogs</button>
     </section>
     <section class="pertanyaan">
         <h3 class="title-section">Tanya Bengkelq</h3>
-        <div class="container">
-            <div class="q-card flex">
+        <div class="container" id="ask-container">
+            @foreach ($asks as $key => $a)
+            <div class="q-card flex @if ($key >= 3) hidden-ask @endif">
                 <img src="/assets/pic.png" alt="pic" class="q-img" />
                 <div class="q-body">
-                    <div class="q-title">Lorem Ipsum : <span>es simplemente</span></div>
-                    <p>el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha</p>
+                    <div class="q-title"><span>{{ $a->judul }}</span></div>
+                    <p>{{ $a->isi }}</p>
                 </div>
             </div>
-            <div class="q-card flex">
-                <img src="/assets/pic.png" alt="pic" class="q-img" />
-                <div class="q-body">
-                    <div class="q-title">Lorem Ipsum : <span>es simplemente</span></div>
-                    <p>el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha</p>
-                </div>
-            </div>
-            <div class="q-card flex">
-                <img src="/assets/pic.png" alt="pic" class="q-img" />
-                <div class="q-body">
-                    <div class="q-title">Lorem Ipsum : <span>es simplemente</span></div>
-                    <p>el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha</p>
-                </div>
-            </div>
-            <div class="q-card flex">
-                <img src="/assets/pic.png" alt="pic" class="q-img" />
-                <div class="q-body">
-                    <div class="q-title">Lorem Ipsum : <span>es simplemente</span></div>
-                    <p>el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha</p>
-                </div>
-            </div>
+            @endforeach
         </div>
-        <button class="btn btn-more">Lihat Lebih Lanjut</button>
+        <button class="btn btn-more" id="btn-more-tanya">Lihat Lebih Lanjut</button>
+        <button class="btn btn-more" id="btn-no-more-tanya"
+            style="display: none;pointer-events: none;box-shadow: rgb(172, 181, 246) 0px 2px 6px;background-color: rgb(131 132 141);}">End
+            of Tanya</button>
     </section>
     <section class="tentang" id="tentang">
         <h3 class="title-section">Tentang Kami</h3>
@@ -194,36 +172,6 @@
     </section>
     <footer class="main-footer" id="footer">
         <div class="footer-top flex">
-            {{-- <div class="content flex" id="content-footer">
-          <div class="about">
-            <h2>Tentang Kami</h2>
-            <ul>
-              <li>Hubungi kami</li>
-              <li>Kebijakan privasi</li>
-              <li>Kebijakan refund</li>
-              <li>Disclaimer</li>
-            </ul>
-          </div>
-          <div class="wordpress">
-            <h2>Wordpress</h2>
-            <ul>
-              <li>Affiliate program</li>
-              <li>Plugin and thames</li>
-              <li>Docs</li>
-              <li>Tutorial</li>
-              <li>Licenses & support agreement</li>
-            </ul>
-          </div>
-          <div class="apps">
-            <h2>Get Apps</h2>
-            <ul>
-              <li>GetApps Store</li>
-              <li>Play Store</li>
-              <li>App Store</li>
-              <li>Huawei AppGallery</li>
-            </ul>
-          </div>
-        </div> --}}
             <div class="footer-logo">
                 <img style="height:50px;" src="assets/logo.png" alt="logo" />
                 <p>
@@ -232,11 +180,6 @@
                     <a href="##">awikwok@wik.wok</a>
                 </p>
             </div>
-            {{-- <div class="div-icon flex">
-          <a href="#"><i class="fa-brands fa-youtube"></i></a>
-          <a href="#"><i class="fa-brands fa-instagram"></i></a>
-          <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
-        </div> --}}
         </div>
         <div class="footer-cc">
             <p>Copyrights © 2022 PaketIn by <a target="_blank" href="https://mulyasaputra.github.io">InSketch</a></p>
@@ -279,46 +222,129 @@
         });
     </script>
     <script>
-        $(document).ready(function() {
-            const batchSize = 3;
-            let currentBatch = 1;
-            const totalBatches = Math.ceil({{ $blogs->count() }} / batchSize);
+  $(document).ready(function() {
+    const batchSizeBlog = 3;
+    let currentBatchBlog = 1;
+    const totalBatchesBlog = Math.ceil({{ $blogs->count() }} / batchSizeBlog);
 
-            // Sembunyikan button Load More jika sudah mencapai total batch
-            if (currentBatch >= totalBatches) {
-                $("#btn-more").hide();
-                $("#btn-no-more").show();
-            }
+    // Sembunyikan button "End of Blogs" jika sudah mencapai total batch
+    if (currentBatchBlog >= totalBatchesBlog) {
+      $("#btn-no-more-blog").show();
+    }
 
-            $("#btn-more").on("click", function() {
-                // Ambil blog-items yang belum ditampilkan
-                const blogsToShow = $(".blog-item.hidden-blog").slice(0, batchSize);
+    // Fungsi untuk menampilkan batch blog
+    function showBatchBlog(startIndex, endIndex) {
+      $(".blog-item").slice(startIndex, endIndex).fadeIn({
+        duration: 1500,
+        easing: "easeOutQuad"
+      });
+    }
 
-                // Tampilkan blog-items dengan efek fadeIn dan easing
-                blogsToShow.fadeIn({
-                    duration: 500,
-                    easing: "easeOutQuad" // Ganti dengan efek easing yang diinginkan
-                }).removeClass("hidden-blog");
+    // Tampilkan batch pertama blog saat halaman dimuat
+    showBatchBlog(0, batchSizeBlog);
 
-                // Scroll ke blog terakhir yang baru ditampilkan
-                const lastBlog = blogsToShow.last();
-                const targetOffset = lastBlog.offset().top-100; // Mengurangi 20px dari offset elemen terakhir
-                $("html, body").animate({
-                    scrollTop: targetOffset
-                }, {
-                    duration: 250,
-                    easing: "easeInOutBack" // Ganti dengan efek easing yang diinginkan
-                });
+    // Event listener untuk button "Load More" blog
+    $("#btn-more-blog").on("click", function() {
+      // Hitung indeks awal dan akhir untuk batch blog selanjutnya
+      const startIndex = currentBatchBlog * batchSizeBlog;
+      const endIndex = startIndex + batchSizeBlog;
 
-                // Sematikan tombol Load More jika sudah mencapai total batch
-                currentBatch++;
-                if (currentBatch >= totalBatches) {
-                    $("#btn-more").hide();
-                    $("#btn-no-more").show();
-                }
-            });
-        });
-    </script>
+      // Tampilkan batch blog selanjutnya
+      showBatchBlog(startIndex, endIndex);
+
+      // Sematikan tombol "Load More" blog jika sudah mencapai total batch
+      currentBatchBlog++;
+      if (currentBatchBlog >= totalBatchesBlog) {
+        $("#btn-more-blog").hide();
+        $("#btn-no-more-blog").show();
+      }
+    });
+  });
+</script>
+
+{{-- Tanya --}}
+<script>
+  $(document).ready(function() {
+    const batchSizeTanya = 3;
+    let currentBatchTanya = 1;
+    const totalBatchesTanya = Math.ceil({{ $asks->count() }} / batchSizeTanya);
+
+    // Sembunyikan button "End of Tanya" jika sudah mencapai total batch
+    if (currentBatchTanya >= totalBatchesTanya) {
+      $("#btn-no-more-tanya").show();
+    }
+
+    // Fungsi untuk menampilkan batch pertanyaan
+    function showBatchTanya(startIndex, endIndex) {
+      $(".q-card").slice(startIndex, endIndex).fadeIn({
+        duration: 1500,
+        easing: "easeOutQuad"
+      });
+    }
+
+    // Tampilkan batch pertama pertanyaan saat halaman dimuat
+    showBatchTanya(0, batchSizeTanya);
+
+    // Event listener untuk button "Load More" pertanyaan
+    $("#btn-more-tanya").on("click", function() {
+      // Hitung indeks awal dan akhir untuk batch pertanyaan selanjutnya
+      const startIndex = currentBatchTanya * batchSizeTanya;
+      const endIndex = startIndex + batchSizeTanya;
+
+      // Tampilkan batch pertanyaan selanjutnya
+      showBatchTanya(startIndex, endIndex);
+
+      // Sematikan tombol "Load More" pertanyaan jika sudah mencapai total batch
+      currentBatchTanya++;
+      if (currentBatchTanya >= totalBatchesTanya) {
+        $("#btn-more-tanya").hide();
+        $("#btn-no-more-tanya").show();
+      }
+    });
+  });
+</script>
+{{-- Scroll Blog/Tanya --}}
+<script>
+  $(document).ready(function() {
+    // Fungsi untuk menambahkan efek scroll saat tombol di klik
+    function addSmoothScrollToButton(buttonId, targetElementClass) {
+      $(buttonId).on("click", function() {
+        // Ambil element blog atau pertanyaan terakhir yang ditampilkan
+        const $visibleElements = $(targetElementClass + ":visible");
+
+        // Cek apakah ada element yang ditampilkan sebelum melakukan scroll
+        if ($visibleElements.length > 0) {
+          const lastElementIndex = $visibleElements.length - 1;
+          const $lastElement = $visibleElements.eq(lastElementIndex);
+
+          $("html, body").animate(
+            {
+              scrollTop: $lastElement.offset().top-100
+            },
+            250, // Waktu animasi dalam milidetik (misalnya, 1000ms = 1 detik)
+            "easeInOutBack" // Efek easing yang digunakan (ganti dengan efek yang diinginkan)
+          );
+        }
+
+        // Sematikan tombol "Load more" jika sudah mencapai akhir konten
+        if ($(targetElementClass + ":hidden").length === 0) {
+          $(buttonId).hide();
+          if (buttonId === "#btn-more-blog") {
+            $("#btn-no-more-blog").show();
+          } else {
+            $("#btn-no-more-tanya").show();
+          }
+        }
+      });
+    }
+
+    // Panggil fungsi untuk tombol Blog
+    addSmoothScrollToButton("#btn-more-blog", ".blog-item");
+
+    // Panggil fungsi untuk tombol Tanya
+    addSmoothScrollToButton("#btn-more-tanya", ".q-card");
+  });
+</script>
 </body>
 
 </html>

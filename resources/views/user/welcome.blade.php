@@ -177,9 +177,9 @@
             </div>
         </div>
         </div>
-        <div class="col-6">
+        <div class="col-4">
         <div class="card card-statistic-1">
-            <div class="card-icon bg-warning">
+            <div class="card-icon bg-info">
                 <i class="fas fa-tags"></i>
             </div>
             <div class="card-wrap">
@@ -193,14 +193,30 @@
             </div>
         </div>
         </div>
-        <div class="col-6">
+        <div class="col-4">
         <div class="card card-statistic-1">
-            <div class="card-icon bg-info">
+            <div class="card-icon bg-warning">
                 <i class="fab fa-product-hunt"></i>
             </div>
             <div class="card-wrap">
                 <div class="card-header">
                     <h4>Product</h4>
+                </div>
+                <div class="card-body">
+                    {{ $totalProducts }}
+                    <div class="text-muted text-small"><a href="{{ route('product') }}">View all</a></div>
+                </div>
+            </div>
+        </div>
+        </div>
+        <div class="col-4">
+        <div class="card card-statistic-1">
+            <div class="card-icon bg-primary">
+                <i class="fab fa-product-hunt"></i>
+            </div>
+            <div class="card-wrap">
+                <div class="card-header">
+                    <h4>Tanya</h4>
                 </div>
                 <div class="card-body">
                     {{ $totalProducts }}

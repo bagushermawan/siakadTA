@@ -111,12 +111,4 @@ class BlogController extends Controller
         Session::flash('delete', 'blog berhasil dihapus!');
         return redirect()->route('blog');
     }
-
-    public function deleteSelectedBlogs(Request $request)
-    {
-        $selectedIds = $request->input('ids');
-        Blog::whereIn('id', $selectedIds)->delete();
-
-        return response()->json(['message' => 'success']);
-    }
 }
