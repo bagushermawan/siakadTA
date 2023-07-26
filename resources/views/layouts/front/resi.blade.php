@@ -25,13 +25,50 @@
             display: none;
         }
 
-
         .btn-no-more {}
 
         .hidden-ask {
             display: none;
         }
+        .btn-scroll-top {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 99;
+  font-size: 16px;
+  padding: 10px 15px;
+  border: none;
+  outline: none;
+  background-color: #F5365C;
+  color: white;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: opacity 0.3s ease;
+}
+.btn-scroll-top:hover{
+    opacity: 0.8;
+}
 
+/* Gaya tombol scroll to top saat tampilan layar kurang dari 768px */
+@media screen and (max-width: 767px) {
+  .btn-scroll-top {
+    bottom: 10px;
+    right: 10px;
+    font-size: 14px;
+  }
+}
+
+/* Tampilkan tombol scroll to top saat posisi scroll telah mencapai 25% dari tinggi halaman */
+@media screen and (min-height: 768px) {
+  .btn-scroll-top {
+    display: none;
+  }
+
+  .btn-scroll-top.active {
+    display: block;
+  }
+}
     </style>
 </head>
 
@@ -86,7 +123,7 @@
             @foreach ($blogs as $key => $b)
                 <div class="card blog-item @if ($key >= 3) hidden-blog @endif">
                     @if (isset($b->gambar) && filter_var($b->gambar, FILTER_VALIDATE_URL))
-                        <img src="{{ $b->gambar }}" alt="Gambar Blog" class="card-img-top">  {{-- style="width:400px;height:300px;object-fit:cover;" --}}
+                        <img src="{{ $b->gambar }}" alt="Gambar Blog" class="card-img-top"> {{-- style="width:400px;height:300px;object-fit:cover;" --}}
                     @else
                         <img src="{{ Storage::url($b->gambar) }}" alt="Gambar Default" class="card-img-top">
                     @endif
@@ -94,7 +131,9 @@
                     <div class="card-body">
                         <div class="card-info flex">
                             <div class="autor"><i class="fa-solid fa-user"></i>{{ $b->nama_user }}</div>
-                            <div class="date"><i class="fa-solid fa-calendar-days"></i>{{ $b->tanggal_post->format('j F Y, h:i A') }}</div>
+                            <div class="date"><i
+                                    class="fa-solid fa-calendar-days"></i>{{ $b->tanggal_post->format('j F Y, h:i A') }}
+                            </div>
                         </div>
                         <h5 class="card-title">{{ $b->judul }}</h5>
                         <p class="card-text">
@@ -113,19 +152,19 @@
         <h3 class="title-section">Tanya Bengkelq</h3>
         <div class="container" id="ask-container">
             @foreach ($asks as $key => $a)
-            <div class="q-card flex @if ($key >= 3) hidden-ask @endif">
-                <img src="/assets/pic.png" alt="pic" class="q-img" />
-                <div class="q-body">
-                    <div class="q-title"><span>{{ $a->judul }}</span></div>
-                    <p>{{ $a->isi }}</p>
+                <div class="q-card flex @if ($key >= 3) hidden-ask @endif">
+                    <img src="/assets/pic.png" alt="pic" class="q-img" />
+                    <div class="q-body">
+                        <div class="q-title"><span>{{ $a->judul }}</span></div>
+                        <p>{{ $a->isi }}</p>
+                    </div>
                 </div>
-            </div>
             @endforeach
         </div>
         <button class="btn btn-more" id="btn-more-tanya">Lihat Lebih Lanjut</button>
         <button class="btn btn-more" id="btn-no-more-tanya"
             style="display: none;pointer-events: none;box-shadow: rgb(172, 181, 246) 0px 2px 6px;background-color: rgb(131 132 141);}">End
-            of Tanya</button>
+            of Questions</button>
     </section>
     <section class="tentang" id="tentang">
         <h3 class="title-section">Tentang Kami</h3>
@@ -222,129 +261,150 @@
         });
     </script>
     <script>
-  $(document).ready(function() {
-    const batchSizeBlog = 3;
-    let currentBatchBlog = 1;
-    const totalBatchesBlog = Math.ceil({{ $blogs->count() }} / batchSizeBlog);
+        $(document).ready(function() {
+            const batchSizeBlog = 3;
+            let currentBatchBlog = 1;
+            const totalBatchesBlog = Math.ceil({{ $blogs->count() }} / batchSizeBlog);
 
-    // Sembunyikan button "End of Blogs" jika sudah mencapai total batch
-    if (currentBatchBlog >= totalBatchesBlog) {
-      $("#btn-no-more-blog").show();
+            // Sembunyikan button "End of Blogs" jika sudah mencapai total batch
+            if (currentBatchBlog >= totalBatchesBlog) {
+                $("#btn-no-more-blog").show();
+            }
+
+            // Fungsi untuk menampilkan batch blog
+            function showBatchBlog(startIndex, endIndex) {
+                $(".blog-item").slice(startIndex, endIndex).fadeIn({
+                    duration: 1500,
+                    easing: "easeOutQuad"
+                });
+            }
+
+            // Tampilkan batch pertama blog saat halaman dimuat
+            showBatchBlog(0, batchSizeBlog);
+
+            // Event listener untuk button "Load More" blog
+            $("#btn-more-blog").on("click", function() {
+                // Hitung indeks awal dan akhir untuk batch blog selanjutnya
+                const startIndex = currentBatchBlog * batchSizeBlog;
+                const endIndex = startIndex + batchSizeBlog;
+
+                // Tampilkan batch blog selanjutnya
+                showBatchBlog(startIndex, endIndex);
+
+                // Sematikan tombol "Load More" blog jika sudah mencapai total batch
+                currentBatchBlog++;
+                if (currentBatchBlog >= totalBatchesBlog) {
+                    $("#btn-more-blog").hide();
+                    $("#btn-no-more-blog").show();
+                }
+            });
+        });
+    </script>
+
+    {{-- Tanya --}}
+    <script>
+        $(document).ready(function() {
+            const batchSizeTanya = 3;
+            let currentBatchTanya = 1;
+            const totalBatchesTanya = Math.ceil({{ $asks->count() }} / batchSizeTanya);
+
+            // Sembunyikan button "End of Tanya" jika sudah mencapai total batch
+            if (currentBatchTanya >= totalBatchesTanya) {
+                $("#btn-no-more-tanya").show();
+            }
+
+            // Fungsi untuk menampilkan batch pertanyaan
+            function showBatchTanya(startIndex, endIndex) {
+                $(".q-card").slice(startIndex, endIndex).fadeIn({
+                    duration: 1500,
+                    easing: "easeOutQuad"
+                });
+            }
+
+            // Tampilkan batch pertama pertanyaan saat halaman dimuat
+            showBatchTanya(0, batchSizeTanya);
+
+            // Event listener untuk button "Load More" pertanyaan
+            $("#btn-more-tanya").on("click", function() {
+                // Hitung indeks awal dan akhir untuk batch pertanyaan selanjutnya
+                const startIndex = currentBatchTanya * batchSizeTanya;
+                const endIndex = startIndex + batchSizeTanya;
+
+                // Tampilkan batch pertanyaan selanjutnya
+                showBatchTanya(startIndex, endIndex);
+
+                // Sematikan tombol "Load More" pertanyaan jika sudah mencapai total batch
+                currentBatchTanya++;
+                if (currentBatchTanya >= totalBatchesTanya) {
+                    $("#btn-more-tanya").hide();
+                    $("#btn-no-more-tanya").show();
+                }
+            });
+        });
+    </script>
+    {{-- Scroll Blog/Tanya --}}
+    <script>
+        $(document).ready(function() {
+            // Fungsi untuk menambahkan efek scroll saat tombol di klik
+            function addSmoothScrollToButton(buttonId, targetElementClass) {
+                $(buttonId).on("click", function() {
+                    // Ambil element blog atau pertanyaan terakhir yang ditampilkan
+                    const $visibleElements = $(targetElementClass + ":visible");
+
+                    // Cek apakah ada element yang ditampilkan sebelum melakukan scroll
+                    if ($visibleElements.length > 0) {
+                        const lastElementIndex = $visibleElements.length - 1;
+                        const $lastElement = $visibleElements.eq(lastElementIndex);
+
+                        $("html, body").animate({
+                                scrollTop: $lastElement.offset().top - 100
+                            },
+                            250, // Waktu animasi dalam milidetik (misalnya, 1000ms = 1 detik)
+                            "easeInOutBack" // Efek easing yang digunakan (ganti dengan efek yang diinginkan)
+                        );
+                    }
+
+                    // Sematikan tombol "Load more" jika sudah mencapai akhir konten
+                    if ($(targetElementClass + ":hidden").length === 0) {
+                        $(buttonId).hide();
+                        if (buttonId === "#btn-more-blog") {
+                            $("#btn-no-more-blog").show();
+                        } else {
+                            $("#btn-no-more-tanya").show();
+                        }
+                    }
+                });
+            }
+
+            // Panggil fungsi untuk tombol Blog
+            addSmoothScrollToButton("#btn-more-blog", ".blog-item");
+
+            // Panggil fungsi untuk tombol Tanya
+            addSmoothScrollToButton("#btn-more-tanya", ".q-card");
+        });
+    </script>
+    <button class="btn-scroll-top" onclick="scrollToTop()">&#8679; Scroll to Top</button>
+    <script>
+        function scrollToTop() {
+  $("html, body").animate({ scrollTop: 0 }, 500, "easeInOutBack");
+}
+
+$(document).ready(function() {
+  // Cek posisi scroll saat halaman dimuat
+  if ($(window).scrollTop() > $(window).height() / 4) {
+    $(".btn-scroll-top").addClass("active");
+  }
+
+  // Tampilkan/menyembunyikan tombol saat posisi scroll berubah
+  $(window).scroll(function() {
+    if ($(this).scrollTop() > $(this).height() / 4) {
+      $(".btn-scroll-top").addClass("active");
+    } else {
+      $(".btn-scroll-top").removeClass("active");
     }
-
-    // Fungsi untuk menampilkan batch blog
-    function showBatchBlog(startIndex, endIndex) {
-      $(".blog-item").slice(startIndex, endIndex).fadeIn({
-        duration: 1500,
-        easing: "easeOutQuad"
-      });
-    }
-
-    // Tampilkan batch pertama blog saat halaman dimuat
-    showBatchBlog(0, batchSizeBlog);
-
-    // Event listener untuk button "Load More" blog
-    $("#btn-more-blog").on("click", function() {
-      // Hitung indeks awal dan akhir untuk batch blog selanjutnya
-      const startIndex = currentBatchBlog * batchSizeBlog;
-      const endIndex = startIndex + batchSizeBlog;
-
-      // Tampilkan batch blog selanjutnya
-      showBatchBlog(startIndex, endIndex);
-
-      // Sematikan tombol "Load More" blog jika sudah mencapai total batch
-      currentBatchBlog++;
-      if (currentBatchBlog >= totalBatchesBlog) {
-        $("#btn-more-blog").hide();
-        $("#btn-no-more-blog").show();
-      }
-    });
   });
-</script>
-
-{{-- Tanya --}}
-<script>
-  $(document).ready(function() {
-    const batchSizeTanya = 3;
-    let currentBatchTanya = 1;
-    const totalBatchesTanya = Math.ceil({{ $asks->count() }} / batchSizeTanya);
-
-    // Sembunyikan button "End of Tanya" jika sudah mencapai total batch
-    if (currentBatchTanya >= totalBatchesTanya) {
-      $("#btn-no-more-tanya").show();
-    }
-
-    // Fungsi untuk menampilkan batch pertanyaan
-    function showBatchTanya(startIndex, endIndex) {
-      $(".q-card").slice(startIndex, endIndex).fadeIn({
-        duration: 1500,
-        easing: "easeOutQuad"
-      });
-    }
-
-    // Tampilkan batch pertama pertanyaan saat halaman dimuat
-    showBatchTanya(0, batchSizeTanya);
-
-    // Event listener untuk button "Load More" pertanyaan
-    $("#btn-more-tanya").on("click", function() {
-      // Hitung indeks awal dan akhir untuk batch pertanyaan selanjutnya
-      const startIndex = currentBatchTanya * batchSizeTanya;
-      const endIndex = startIndex + batchSizeTanya;
-
-      // Tampilkan batch pertanyaan selanjutnya
-      showBatchTanya(startIndex, endIndex);
-
-      // Sematikan tombol "Load More" pertanyaan jika sudah mencapai total batch
-      currentBatchTanya++;
-      if (currentBatchTanya >= totalBatchesTanya) {
-        $("#btn-more-tanya").hide();
-        $("#btn-no-more-tanya").show();
-      }
-    });
-  });
-</script>
-{{-- Scroll Blog/Tanya --}}
-<script>
-  $(document).ready(function() {
-    // Fungsi untuk menambahkan efek scroll saat tombol di klik
-    function addSmoothScrollToButton(buttonId, targetElementClass) {
-      $(buttonId).on("click", function() {
-        // Ambil element blog atau pertanyaan terakhir yang ditampilkan
-        const $visibleElements = $(targetElementClass + ":visible");
-
-        // Cek apakah ada element yang ditampilkan sebelum melakukan scroll
-        if ($visibleElements.length > 0) {
-          const lastElementIndex = $visibleElements.length - 1;
-          const $lastElement = $visibleElements.eq(lastElementIndex);
-
-          $("html, body").animate(
-            {
-              scrollTop: $lastElement.offset().top-100
-            },
-            250, // Waktu animasi dalam milidetik (misalnya, 1000ms = 1 detik)
-            "easeInOutBack" // Efek easing yang digunakan (ganti dengan efek yang diinginkan)
-          );
-        }
-
-        // Sematikan tombol "Load more" jika sudah mencapai akhir konten
-        if ($(targetElementClass + ":hidden").length === 0) {
-          $(buttonId).hide();
-          if (buttonId === "#btn-more-blog") {
-            $("#btn-no-more-blog").show();
-          } else {
-            $("#btn-no-more-tanya").show();
-          }
-        }
-      });
-    }
-
-    // Panggil fungsi untuk tombol Blog
-    addSmoothScrollToButton("#btn-more-blog", ".blog-item");
-
-    // Panggil fungsi untuk tombol Tanya
-    addSmoothScrollToButton("#btn-more-tanya", ".q-card");
-  });
-</script>
+});
+    </script>
 </body>
 
 </html>
