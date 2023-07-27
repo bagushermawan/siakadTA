@@ -108,6 +108,10 @@
   padding-bottom: 5rem;
   border-radius: 12px;
 }
+.night-mode #main{
+    color: #dfdfdf;
+    background: linear-gradient(148.67deg, #221f7c 4.53%, #4065d5 109.74%);
+}
 #main > h2 {
   width: 89%;
   margin-top: 20px;

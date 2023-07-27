@@ -148,7 +148,7 @@ justify-content: space-between;
 width: 100%;
 padding: 10px 40px;
 font-size: 12px;
-background-color: rgb(249 169 169 / 20%);
+background-color: rgb(255 255 255 / 20%);
 backdrop-filter: blur(100px);
 border-radius: 12px;
 color: var(--color-text);
@@ -202,6 +202,12 @@ height: 3rem;
 }
 .navbarr ul {
 gap: 13px;
+}
+.night-mode .navbarr ul li a{
+    color:#dfdfdf;
+}
+.night-mode .navbarr ul li a:hover{
+    color:var(--color-red);
 }
 .navbarr ul .flex {
 gap: 4px;
@@ -352,11 +358,41 @@ align-items: flex-start;
 flex-direction: column;
 background-color: #fafafa;
 padding: 0 20px;
+border-radius: 0 0 12px 12px;
+}
+
+.night-mode .navbar ul{
+    background-color: #403e3e;
+}
+.night-mode .navbarr ul{
+    background-color: #403e3e;
 }
 .navbar .list-menu.active {
-padding: 40px 20px;
+padding: 20px 20px;
 height: fit-content;
 box-shadow: 0 14px 16px -16px rgba(0, 0, 0, 30%);
+}
+.navbar .list-menu.active li{
+    border-radius: 12px;
+    background-color: #f0f0f0;
+    padding: 10px 0 10px 15px;
+}
+.night-mode .navbar .list-menu.active li{
+    background-color: #726e6e;
+}
+.navbarr .list-menu.active li{
+    border-radius: 12px;
+    background-color: #f0f0f0;
+    padding: 10px 0 10px 15px;
+}
+.night-mode .navbarr .list-menu.active li{
+    background-color: #726e6e;
+}
+.night-mode .navbarr .list-menu.active li{
+    background-color: #726e6e;
+}
+.night-mode .navbar .list-menu.active a{
+    color:#d9d9d9;
 }
 .navbar .list-menu li,
 .dropdown-content {

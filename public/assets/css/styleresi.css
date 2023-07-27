@@ -11,7 +11,7 @@
 .herosection::before {
     content: "";
     position: absolute;
-    background-color: #fef9f9;
+    background-color: #fddede;
     width: 40rem;
     height: 30rem;
     border-radius: 50px;
@@ -45,6 +45,7 @@
 
 /* CekResi Section */
 .cekResi {
+    border-radius: 12px;
     background-color: #fef9f9;
 }
 .cekResi .container {
@@ -85,6 +86,8 @@ button.track[disabled] {
 
 /* Blog Section */
 .blog {
+    border-radius: 12px;
+    background-color: #fef9f9;
     width: 100%;
     margin: 50px 0;
 }
@@ -127,6 +130,7 @@ button.track[disabled] {
 
 /* Pertanyaan Section */
 .pertanyaan {
+    border-radius: 12px;
     background-color: #fef9f9;
     padding-bottom: 70px;
 }
@@ -181,6 +185,7 @@ button.track[disabled] {
 
 /* Up Section */
 .up {
+    border-radius: 12px 12px 0 0;
     background-color: var(--color-orange);
     text-align: center;
     padding: 30px 20px;
