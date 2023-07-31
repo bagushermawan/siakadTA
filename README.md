@@ -14,14 +14,14 @@
   <a href="#how-to-use">How To Use</a>
 </p>
 
-<h1>Front Pages</h1>
+<h2>Front Pages</h2>
 
 
 https://github.com/bagushermawan/bengkelq/assets/54248013/22845612-a046-4b92-b7d6-fa0b9bb2c453
 
 
 
-<h1>Admin Pages</h1>
+<h2>Admin Pages</h2>
 
 
 https://github.com/bagushermawan/bengkelq/assets/54248013/7340e5dc-c3dc-496f-a1f8-0f162dd5ee7c
