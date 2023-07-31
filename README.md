@@ -10,26 +10,28 @@
 <h4 align="center">Aplikasi Bengkel opojare, fiturnya kaya cek resi sih, ada template admin + user.</h4>
 
 <p align="center">
-  <a href="#key-features">Features</a> •
+  <a href="#features">Features</a> •
   <a href="#how-to-use">How To Use</a>
 </p>
 
 <h1>Front Pages</h1>
 
 
-https://github.com/bagushermawan/bengkelq/assets/54248013/46bc73c9-a111-4211-8a2b-49a5abf516c5
+https://github.com/bagushermawan/bengkelq/assets/54248013/22845612-a046-4b92-b7d6-fa0b9bb2c453
+
+
 
 <h1>Admin Pages</h1>
 
 
-https://github.com/bagushermawan/bengkelq/assets/54248013/992cba35-528b-43a5-8c13-dafafb0ebf0b
+https://github.com/bagushermawan/bengkelq/assets/54248013/7340e5dc-c3dc-496f-a1f8-0f162dd5ee7c
 
 
 
 
 
 
-## Key Features
+## Features
 
 * CRUD
 * Datatables
