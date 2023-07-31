@@ -1,9 +1,9 @@
 
 <h1 align="center">
   <br>
-  <a href="#"><img src="https://github.com/bagushermawan/bengkelq/blob/master/public/assets/logo.png" alt="Markdownify" width="200"></a>
+  <a href="#"><img src="https://github.com/bagushermawan/bengkelq/blob/master/public/assets/logo.png" alt="Markdownify" width="500"></a>
   <br>
-  Bengkelq
+  <h6>Bengkelq</h6>
   <br>
 </h1>
 
