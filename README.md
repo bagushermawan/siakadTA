@@ -41,7 +41,7 @@ https://github.com/bagushermawan/bengkelq/assets/54248013/7340e5dc-c3dc-496f-a1f
 
 ## How To Use
 
-To clone and run this application, you'll need [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which comes with [npm](http://npmjs.com)) installed on your computer. From your command line:
+To clone and run this application, you'll need [Git](https://git-scm.com), [Composer](https://getcomposer.org/download/), and [PHP](https://www.php.net/downloads.php) installed on your computer. From your command line:
 
 ```bash
 # Clone this repository
