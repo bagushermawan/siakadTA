@@ -172,6 +172,28 @@
         .tumbler-wrapper:hover .tooltiptext {
             visibility: visible;
         }
+        /* custom scrollbar */
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #F5365C;
+  border-radius: 20px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #bd0b2e;
+}
+::-webkit-scrollbar-thumb:active {
+  background-color: #F5365C;
+}
     </style>
 </head>
 

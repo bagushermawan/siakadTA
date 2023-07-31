@@ -35,9 +35,18 @@
                                     <div class="text-muted form-text">
                                         biarkan kosong jika tidak ingin mengganti gambar.
                                     </div>
-                                    @if ($blog->gambar)
+                                    {{-- @if ($blog->gambar)
                                         <div class="form-text">Gambar sebelumnya:</div>
                                         <img src="{{ Storage::url($blog->gambar) }}" alt="Gambar Sebelumnya"
+                                            style="max-width: 250px; margin-top: 10px;border-radius:10px;">
+                                    @endif --}}
+                                    @if (isset($blog->gambar) && filter_var($blog->gambar, FILTER_VALIDATE_URL))
+                                        <!-- Tampilkan gambar jika URL gambar valid -->
+                                        <img src="{{ $blog->gambar }}" alt="Gambar Blog"
+                                            style="max-width: 250px; margin-top: 10px;border-radius:10px;">
+                                    @else
+                                        <!-- Tampilkan gambar default jika URL gambar tidak valid atau kosong -->
+                                        <img src="{{ Storage::url($blog->gambar) }}" alt="Gambar Default"
                                             style="max-width: 250px; margin-top: 10px;border-radius:10px;">
                                     @endif
                                 </div>
