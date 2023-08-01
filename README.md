@@ -34,6 +34,8 @@ https://github.com/bagushermawan/bengkelq/assets/54248013/7340e5dc-c3dc-496f-a1f
 ## Features
 
 * CRUD
+* Ajax search
+* Responsive(?)
 * Datatables
 * Izitoast
 * ...
