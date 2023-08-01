@@ -61,5 +61,5 @@ $ php artisan generate:key
 ```
 
 > **Note**
-> if you get an error, feel free to contact me [Telegram](https://t.me/bagusherma) or [Whatsapp](http://wa.me/6281547223631).
+> if you get an error, feel free to contact me [Telegram](https://t.me/bagusherma).
 
