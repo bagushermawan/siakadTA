@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#)
 <h1 align="center">
   <br>
@@ -69,3 +70,7 @@ $ php artisan generate:key
 > **Note**
 > if you get an error, feel free to contact me [Telegram](https://t.me/bagusherma).
 
+=======
+# siakadTA
+project siakad ta q
+>>>>>>> da7c62dfbda7ef32819b90f3994baae55ec396ce
