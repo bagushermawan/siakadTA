@@ -16,9 +16,12 @@ class Role
      */
     public function handle(Request $request, Closure $next)
     {
-        if (auth()->user()->role == 'Admin') {
+        $allowedRoles = ['superadmin', 'Guru']; // Daftar peran yang diizinkan
+
+        if (auth()->check() && in_array(auth()->user()->role, $allowedRoles)) {
             return $next($request);
         }
+
         return redirect('/')->with('error', 'Permission Denied!!! You do not have administrative access.');
     }
 }

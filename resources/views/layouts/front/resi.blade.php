@@ -207,6 +207,12 @@
             @endif
             <li><a href="#blog">Blog</a></li>
             <li><a href="#tentang">Tentang kami</a></li>
+            <li><a href="/logout">@if (Auth::check())
+                    <!-- Memeriksa apakah pengguna telah login atau belum -->
+                   Hi, {{ Auth::user()->nama }}
+                @else
+                    
+                @endif</a></li>
             <li>
                 <div class="tumbler-wrapper"><span class="tooltiptext">Dark/Light Theme</span>
                     <div class="tumbler"></div>

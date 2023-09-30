@@ -20,6 +20,7 @@ class CreateUsersTable extends Migration
             // $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string('alamat');
+            $table->string('role');
             // $table->date('tgl_lahir');
             // $table->unsignedBigInteger('role_id');
             $table->rememberToken();
@@ -27,7 +28,6 @@ class CreateUsersTable extends Migration
             $table->timestamps();
             $table->datetime('login_time')->nullable();
             $table->timestamp('last_logged_in')->nullable();
-            $table->string('role');
         });
     }
 

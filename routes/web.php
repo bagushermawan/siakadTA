@@ -28,7 +28,7 @@ Route::get('crud', function () {
 Route::get('/login', 'LoginController@login')->name('login');
 Route::post('/actionlogin', 'LoginController@actionlogin')->name('actionlogin');
 Route::get('/logout', 'LoginController@logout')->name('logout')->middleware('auth');
-Route::get('/home', 'WelcomeController@index')->name('home')->middleware('auth');
+Route::get('/home', 'WelcomeController@index')->name('home')->middleware(['auth', 'role']);
 
 // Rute untuk menampilkan form lupa password
 Route::get('forgot-password', 'ForgotPasswordController@showLinkRequestForm')->name('forgot.password');
@@ -40,7 +40,7 @@ Route::get('forgot-password/{token}', 'ResetPasswordController@showResetForm')->
 Route::post('reset-password', 'ResetPasswordController@reset')->name('password.update');
 
 
-Route::middleware('auth')->group(function () {
+Route::middleware(['auth', 'role'])->group(function () {
     //User
     Route::get('/user', 'UserController@index')->name('user');
     Route::get('/user/create', 'UserController@create')->name('user.create');

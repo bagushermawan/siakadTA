@@ -22,7 +22,7 @@ class UserTableSeeder extends Seeder
         $a1->email = "baher@her.com";
         $a1->password = bcrypt("123");
         $a1->alamat = "baher";
-        $a1->role = "Admin";
+        $a1->role = "superadmin";
         $a1->save();
 
         $a2 = new User;
@@ -30,7 +30,7 @@ class UserTableSeeder extends Seeder
         $a2->email = "her@her.com";
         $a2->password = bcrypt("123");
         $a2->alamat = "baher";
-        $a2->role = "Admin";
+        $a2->role = "superadmin";
         $a2->save();
 
 
@@ -38,7 +38,7 @@ class UserTableSeeder extends Seeder
 
         $defaultRole = Role::where('nama', 'Mekanik')->first();
         // Create 6 user dummy
-        for ($i = 0; $i < 6; $i++) {
+        for ($i = 0; $i < 9; $i++) {
             $faker = Faker::create();
             $roles = Role::all();
             $fkr = new User();
