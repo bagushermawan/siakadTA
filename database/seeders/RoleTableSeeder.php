@@ -22,5 +22,9 @@ class RoleTableSeeder extends Seeder
         $r2=new Role;
         $r2->nama="Santri";
         $r2->save();
+
+        $r3 = new Role;
+        $r3->nama = "superadmin";
+        $r3->save();
     }
 }

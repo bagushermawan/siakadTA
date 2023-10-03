@@ -36,24 +36,24 @@ class UserTableSeeder extends Seeder
 
 
 
-        $defaultRole = Role::where('nama', 'Mekanik')->first();
-        // Create 6 user dummy
+        $defaultRoles = Role::whereIn('nama', ['Guru', 'Santri'])->get();
+
+        // Create 9 user dummy
         for ($i = 0; $i < 9; $i++) {
             $faker = Faker::create();
-            $roles = Role::all();
             $fkr = new User();
             $fkr->nama = $faker->name();
             $fkr->email = $faker->unique()->email();
             $fkr->password = bcrypt("321"); // Ganti "password" dengan password yang diinginkan
             $fkr->alamat = $faker->address();
-            // $fkr->role = $faker->randomElement(['Admin', 'member']); // Ganti 'admin' dan 'member' dengan role yang diinginkan
 
-            //Take data role random dari tabel Role
-            // Mengambil data role secara acak dari tabel roles
-            $randomRole = Role::inRandomOrder()->first();
-            $fkr->role = $randomRole ? $randomRole->nama : $defaultRole->nama;
+            // Mengambil data role secara acak dari defaultRoles
+            $randomRole = $defaultRoles->random();
+
+            $fkr->role = $randomRole->nama;
 
             $fkr->save();
         }
+
     }
 }

@@ -9,8 +9,8 @@ class Complaint extends Model
 {
     use HasFactory;
 
-    public function Service()
-    {
-        return $this->hasMany(Service::class);
-    }
+    // public function Service()
+    // {
+    //     return $this->hasMany(Service::class);
+    // }
 }
