@@ -24,17 +24,17 @@ class TahunAjaranController extends Controller
 
     public function store(Request $request)
     {
-        // dd($request->all());
         $this->validate($request, [
-            'nama' => 'required',
+            'tahun_awal' => 'required|numeric',
+            'tahun_akhir' => 'required|numeric|gt:tahun_awal', // Memastikan tahun akhir lebih besar dari tahun awal
         ]);
 
         $tahunajaran = new TahunAjaran();
-        $tahunajaran->nama = $request->nama;
+        $tahunajaran->nama = $request->tahun_awal . '/' . $request->tahun_akhir;
 
         if (!$tahunajaran->save()) {
             Session::flash('gagal', 'Yamaap, TahunAjaran gagal disimpan!!');
-            return redirect()->route('tahunajaran');
+            return redirect()->route('tahunajaran.create');
         }
 
         Session::flash('sukses', 'Yeahh, TahunAjaran berhasil disimpan!');
@@ -62,8 +62,8 @@ class TahunAjaranController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'tahun_awal' => 'required',
-            'tahun_akhir' => 'required',
+            'tahun_awal' => 'required|numeric',
+            'tahun_akhir' => 'required|numeric|gt:tahun_awal',
         ]);
 
         $tahunajaran = TahunAjaran::find($id);

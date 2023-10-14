@@ -19,13 +19,18 @@
                             <div class="form-group">
                                 <label for="tahun_ajaran">Tahun Ajaran</label>
                                 <div class="input-group">
-                                    <input type="number" name="tahun_awal" class="form-control"
-                                        value="{{ $tahun_awal }}">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text" style="background-color: #fff;border: 0px;color: black;font-size: x-large;">/</span>
+                                    <div class="col-1">
+                                        <input type="number" name="tahun_awal" class="form-control"
+                                            value="{{ $tahun_awal }}">
                                     </div>
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"
+                                            style="background-color: #fff;border: 0px;color: black;font-size: x-large;">/</span>
+                                    </div>
+                                    <div class="col-1">
                                     <input type="number" name="tahun_akhir" class="form-control"
                                         value="{{ $tahun_akhir }}">
+                                    </div>
                                 </div>
                             </div>
                             <div class="card-footer text-right">
