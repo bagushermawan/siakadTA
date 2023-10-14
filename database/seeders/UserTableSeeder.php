@@ -22,7 +22,7 @@ class UserTableSeeder extends Seeder
         $a1->email = "baher@her.com";
         $a1->password = bcrypt("123");
         $a1->alamat = "baher";
-        $a1->role = "superadmin";
+        $a1->role = "walikelas";
         $a1->save();
 
         $a2 = new User;

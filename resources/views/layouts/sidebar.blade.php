@@ -1,48 +1,44 @@
 <div class="main-sidebar">
     <aside id="sidebar-wrapper">
         <div class="sidebar-brand">
-            <a href="{{ route('/') }}">Bengkelq Admin</a>
+            <a href="{{ route('/') }}">{{ config('app.name') }}</a>
         </div>
         <div class="sidebar-brand sidebar-brand-sm">
             <a href="{{ route('/') }}">Bengs</a>
         </div>
         <ul class="sidebar-menu">
             <li class="menu-header">Dashboard</li>
-            <li class="{{ request()->is('home*') ? 'active' : '' }}"><a
-                    class="nav-link{{ request()->is('home*') ? ' beep beep-sidebar' : '' }}" href="/home"><i
-                        class="far fa-user"></i> <span>Welcome</span></a></li>
+            <li class="{{ request()->is('home*') ? 'active' : '' }}">
+                <a class="nav-link{{ request()->is('home*') ? ' beep beep-sidebar' : '' }}" href="/home">
+                    <i class="far fa-user"></i> <span>Welcome</span></a>
+            </li>
             <li class="menu-header">Pages</li>
             {{-- <li class="nav-item dropdown"> --}}
-            <li
-                class="nav-item dropdown{{ request()->is('user*', 'role*', 'category*', 'product*', 'complaint*', 'transaction*', 'blog*', 'ask*') ? ' active' : '' }}">
+            <li class="nav-item dropdown{{ request()->is('user*', 'role*') ? ' active' : '' }}">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i>
-                    <span>Menu</span></a>
+                    <span>User & Permission</span></a>
                 <ul class="dropdown-menu">
-                    <li class="{{ request()->is('user*') ? 'active' : '' }}"><a
-                            class="nav-link{{ request()->is('user*') ? ' beep beep-sidebar' : '' }}"
-                            href="{{ route('user') }}">User</a></li>
-                    <li class="{{ request()->is('role*') ? 'active' : '' }}"><a
-                            class="nav-link{{ request()->is('role*') ? ' beep beep-sidebar' : '' }}"
-                            href="{{ route('role') }}">Role</a></li>
-                    <li class="{{ request()->is('category*') ? 'active' : '' }}"><a
-                            class="nav-link{{ request()->is('category*') ? ' beep beep-sidebar' : '' }}"
-                            href="{{ route('category') }}">Category</a></li>
-                    <li class="{{ request()->is('product*') ? 'active' : '' }}"><a
-                            class="nav-link{{ request()->is('product*') ? ' beep beep-sidebar' : '' }}"
-                            href="{{ route('product') }}">Product</a></li>
-                    <li class="{{ request()->is('complaint*') ? 'active' : '' }}"><a
-                            class="nav-link{{ request()->is('complaint*') ? ' beep beep-sidebar' : '' }}"
-                            href="{{ route('complaint') }}">Complaint</a></li>
-                    <li class="{{ request()->is('transaction*') ? 'active' : '' }}"><a
-                            class="nav-link{{ request()->is('transaction*') ? ' beep beep-sidebar' : '' }}"
-                            href="{{ route('transaction') }}">Transactions</a></li>
-                    <li class="{{ request()->is('blog*') ? 'active' : '' }}"><a
-                            class="nav-link{{ request()->is('blog*') ? ' beep beep-sidebar' : '' }}"
-                            href="{{ route('blog') }}">Blogs</a></li>
-                    <li class="{{ request()->is('ask*') ? 'active' : '' }}"><a
-                            class="nav-link{{ request()->is('ask*') ? ' beep beep-sidebar' : '' }}"
-                            href="{{ route('ask') }}">Tanya</a></li>
+                    <li class="{{ request()->is('user*') ? 'active' : '' }}">
+                        <a class="nav-link{{ request()->is('user*') ? ' beep beep-sidebar' : '' }}"
+                            href="{{ route('user') }}">User</a>
+                    </li>
+                    <li class="{{ request()->is('role*') ? 'active' : '' }}">
+                        <a class="nav-link{{ request()->is('role*') ? ' beep beep-sidebar' : '' }}"
+                            href="{{ route('role') }}">Role</a>
+                    </li>
                 </ul>
+            </li>
+            <li class="{{ request()->is('mapel*') ? 'active' : '' }}">
+                <a class="nav-link{{ request()->is('mapel*') ? ' beep beep-sidebar' : '' }}" href="{{ route('mapel') }}">
+                    <i class="far fa-user"></i> <span>Mata Pelajaran</span></a>
+            </li>
+            <li class="{{ request()->is('ekskul*') ? 'active' : '' }}">
+                <a class="nav-link{{ request()->is('ekskul*') ? ' beep beep-sidebar' : '' }}" href="{{ route('ekskul') }}">
+                    <i class="fas fa-cogs"></i> <span>Ekstrakulikuler</span></a>
+            </li>
+            <li class="{{ request()->is('tahunajaran*') ? 'active' : '' }}">
+                <a class="nav-link{{ request()->is('tahunajaran*') ? ' beep beep-sidebar' : '' }}" href="{{ route('tahunajaran') }}">
+                    <i class="fas fa-cogs"></i> <span>Tahun Ajaran</span></a>
             </li>
             {{-- <li><a class="nav-link" href="/crud"><i class="far fa-square"></i> <span>C R U D</span></a></li> --}}
         </ul>

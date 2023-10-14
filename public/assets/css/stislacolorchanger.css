@@ -922,3 +922,38 @@ body.skin-dark.card.card-header .card .card-body .card .card-footer {
 body.skin-dark .form-group .control-label, .form-group > label {
     color:#6c757d;
 }
+
+
+body.skin-dark .card .card-body{
+    background-color: #191d21;
+}
+
+body.skin-dark .form-control, .input-group-text, .custom-select, .custom-file-label{
+    background-color: #0e1012;
+    border-color: #508fcd;
+    color:#d6d8d9;
+}
+
+
+body.skin-dark .select2-container--default .select2-selection--single .select2-selection__rendered{
+    background-color: #0e1012;
+    border-color: #508fcd;
+    color:#d6d8d9;
+}
+
+body.skin-dark .select2-container--default .select2-selection--single{
+    border: 1px solid #508fcd;
+}
+
+body.skin-dark .select2-container--default .select2-results>.select2-results__options{
+    background-color: #0e1012 ;
+}
+
+body.skin-dark .select2-container--default .select2-search--dropdown .select2-search__field{
+    border: 1px solid #aaa;
+    background-color: #0e1012;
+ }
+
+body.skin-dark .select2-search--dropdown{
+    padding: 0px;
+}

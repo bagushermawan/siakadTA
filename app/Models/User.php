@@ -14,8 +14,10 @@ class User extends Authenticatable
     protected $fillable = [
         'nama',
         'email',
-        'password',
+        'tgl_lahir',
+        'kelamin',
         'alamat',
+        'password',
         'role',
         'login_time',
     ];
@@ -24,7 +26,7 @@ class User extends Authenticatable
         'password',
         'remember_token',
     ];
-    
+
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];

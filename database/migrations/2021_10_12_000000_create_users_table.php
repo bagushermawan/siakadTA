@@ -18,15 +18,17 @@ class CreateUsersTable extends Migration
             $table->string('nama');
             $table->string('email')->unique();
             // $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
+            $table->date('tgl_lahir')->nullable();
+            $table->string('kelamin')->nullable();
             $table->string('alamat');
+            $table->string('password');
             $table->string('role');
             // $table->date('tgl_lahir');
             // $table->unsignedBigInteger('role_id');
+            $table->datetime('login_time')->nullable();
             $table->rememberToken();
             $table->string('reset_token')->nullable();
             $table->timestamps();
-            $table->datetime('login_time')->nullable();
             $table->timestamp('last_logged_in')->nullable();
         });
     }

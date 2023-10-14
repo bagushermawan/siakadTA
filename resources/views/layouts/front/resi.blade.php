@@ -11,7 +11,7 @@
 
     <link rel="stylesheet" href="assets/css/styleresi.css">
     <link rel="stylesheet" href="assets/css/rootresi.css">
-
+    <link rel="stylesheet" href="/assets/css/iziToast.min.css">
 
     <title>Bengkelq</title>
     <style>
@@ -211,7 +211,7 @@
                     <!-- Memeriksa apakah pengguna telah login atau belum -->
                    Hi, {{ Auth::user()->nama }}
                 @else
-                    
+
                 @endif</a></li>
             <li>
                 <div class="tumbler-wrapper"><span class="tooltiptext">Dark/Light Theme</span>
@@ -273,14 +273,14 @@
     <section class="blog" id="blog">
         <h3 class="title-section">Blog Terbaru</h3>
         <div class="container" id="blog-container">
-            @foreach ($blogs as $key => $b)
+            {{-- @foreach ($blogs as $key => $b)
                 <div class="card blog-item @if ($key >= 3) hidden-blog @endif">
                     @if (isset($b->gambar) && filter_var($b->gambar, FILTER_VALIDATE_URL))
-                        <img src="{{ $b->gambar }}" alt="Gambar Blog" class="card-img-top"> {{-- style="width:400px;height:300px;object-fit:cover;" --}}
+                        <img src="{{ $b->gambar }}" alt="Gambar Blog" class="card-img-top">
                     @else
                         <img src="{{ Storage::url($b->gambar) }}" alt="Gambar Default" class="card-img-top">
                     @endif
-                    {{-- <img src="https://dummyimage.com/16:9x540/" alt="gambar" class="card-img-top" /> --}}
+                    <img src="https://dummyimage.com/16:9x540/" alt="gambar" class="card-img-top" />
                     <div class="card-body">
                         <div class="card-info flex">
                             <div class="autor"><i class="fa-solid fa-user"></i>{{ $b->nama_user }}</div>
@@ -294,7 +294,7 @@
                         </p>
                     </div>
                 </div>
-            @endforeach
+            @endforeach --}}
         </div>
         <button class="btn btn-more" id="btn-more-blog">Lebih lanjut</button>
         <button class="btn btn-more" id="btn-no-more-blog"
@@ -304,7 +304,7 @@
     <section class="pertanyaan">
         <h3 class="title-section">Tanya Bengkelq</h3>
         <div class="container" id="ask-container">
-            @foreach ($asks as $key => $a)
+            {{-- @foreach ($asks as $key => $a)
                 <div class="q-card flex @if ($key >= 3) hidden-ask @endif">
                     <img src="/assets/pic.png" alt="pic" class="q-img" />
                     <div class="q-body">
@@ -312,7 +312,7 @@
                         <p>{{ $a->isi }}</p>
                     </div>
                 </div>
-            @endforeach
+            @endforeach --}}
         </div>
         <button class="btn btn-more" id="btn-more-tanya">Lebih lanjut</button>
         <button class="btn btn-more" id="btn-no-more-tanya"
@@ -413,7 +413,7 @@
             }
         });
     </script>
-    <script>
+    {{-- <script>
         $(document).ready(function() {
             const batchSizeBlog = 3;
             let currentBatchBlog = 1;
@@ -452,10 +452,10 @@
                 }
             });
         });
-    </script>
+    </script> --}}
 
     {{-- Tanya --}}
-    <script>
+    {{-- <script>
         $(document).ready(function() {
             const batchSizeTanya = 3;
             let currentBatchTanya = 1;
@@ -494,7 +494,7 @@
                 }
             });
         });
-    </script>
+    </script> --}}
     {{-- Scroll Blog/Tanya --}}
     <script>
         $(document).ready(function() {
@@ -577,6 +577,8 @@
             document.body.classList.add('night-mode');
         }
     </script>
+    <script src="{{ asset('assets/js/iziToast.js') }}"></script>
+    @include('layouts.izitoast')
 </body>
 
 </html>

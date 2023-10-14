@@ -56,29 +56,29 @@ Route::middleware(['auth', 'role'])->group(function () {
     Route::put('/role/update/{id}', 'RoleController@update')->name('role.update');
     Route::get('/role/destroy/{id}', 'RoleController@destroy')->name('role.destroy');
     Route::get('/role/search', 'RoleController@ajaxSearch')->name('role.ajaxsearch');
-    //Category
-    Route::get('/category', 'CategoryController@index')->name('category');
-    Route::get('/category/create', 'CategoryController@create')->name('category.create');
-    Route::post('/category/store', 'CategoryController@store')->name('category.store');
-    Route::get('/category/edit/{id}', 'CategoryController@edit')->name('category.edit');
-    Route::put('/category/update/{id}', 'CategoryController@update')->name('category.update');
-    Route::get('/category/destroy/{id}', 'CategoryController@destroy')->name('category.destroy');
-    Route::get('/category/search', 'CategoryController@ajaxSearch')->name('category.ajaxsearch');
-    //Product
-    Route::get('/product', 'ProductController@index')->name('product');
-    Route::get('/product/create', 'ProductController@create')->name('product.create');
-    Route::post('/product/store', 'ProductController@store')->name('product.store');
-    Route::get('/product/edit/{id}', 'ProductController@edit')->name('product.edit');
-    Route::put('/product/update/{id}', 'ProductController@update')->name('product.update');
-    Route::get('/product/destroy/{id}', 'ProductController@destroy')->name('product.destroy');
+    //Mapel
+    Route::get('/mapel', 'MapelController@index')->name('mapel');
+    Route::get('/mapel/create', 'MapelController@create')->name('mapel.create');
+    Route::post('/mapel/store', 'MapelController@store')->name('mapel.store');
+    Route::get('/mapel/edit/{id}', 'MapelController@edit')->name('mapel.edit');
+    Route::put('/mapel/update/{id}', 'MapelController@update')->name('mapel.update');
+    Route::get('/mapel/destroy/{id}', 'MapelController@destroy')->name('mapel.destroy');
+    Route::get('/mapel/search', 'MapelController@ajaxSearch')->name('mapel.ajaxsearch');
+    //Ekskul
+    Route::get('/ekskul', 'EkskulController@index')->name('ekskul');
+    Route::get('/ekskul/create', 'EkskulController@create')->name('ekskul.create');
+    Route::post('/ekskul/store', 'EkskulController@store')->name('ekskul.store');
+    Route::get('/ekskul/edit/{id}', 'EkskulController@edit')->name('ekskul.edit');
+    Route::put('/ekskul/update/{id}', 'EkskulController@update')->name('ekskul.update');
+    Route::get('/ekskul/destroy/{id}', 'EkskulController@destroy')->name('ekskul.destroy');
     //Role
-    Route::get('/complaint', 'ComplaintController@index')->name('complaint');
-    Route::get('/complaint/create', 'ComplaintController@create')->name('complaint.create');
-    Route::post('/complaint/store', 'ComplaintController@store')->name('complaint.store');
-    Route::get('/complaint/edit/{id}', 'ComplaintController@edit')->name('complaint.edit');
-    Route::put('/complaint/update/{id}', 'ComplaintController@update')->name('complaint.update');
-    Route::get('/complaint/destroy/{id}', 'ComplaintController@destroy')->name('complaint.destroy');
-    Route::get('/complaint/search', 'ComplaintController@ajaxSearch')->name('complaint.ajaxsearch');
+    Route::get('/tahunajaran', 'TahunAjaranController@index')->name('tahunajaran');
+    Route::get('/tahunajaran/create', 'TahunAjaranController@create')->name('tahunajaran.create');
+    Route::post('/tahunajaran/store', 'TahunAjaranController@store')->name('tahunajaran.store');
+    Route::get('/tahunajaran/edit/{id}', 'TahunAjaranController@edit')->name('tahunajaran.edit');
+    Route::put('/tahunajaran/update/{id}', 'TahunAjaranController@update')->name('tahunajaran.update');
+    Route::get('/tahunajaran/destroy/{id}', 'TahunAjaranController@destroy')->name('tahunajaran.destroy');
+    Route::get('/tahunajaran/search', 'TahunAjaranController@ajaxSearch')->name('tahunajaran.ajaxsearch');
     //Transaction
     Route::get('/transaction', 'TransactionController@index')->name('transaction');
     Route::get('/transaction/create', 'TransactionController@create')->name('transaction.create');

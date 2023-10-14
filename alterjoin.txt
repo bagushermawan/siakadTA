@@ -1,0 +1,18 @@
+varchar(191)	utf8mb4_unicode_ci
+null yes
+default null
+
+
+SELECT absen_guru_mapels.*, pegawai.nama AS nama_pegawai
+FROM absen_guru_mapels
+JOIN pegawai ON absen_guru_mapels.pegawai_id = pegawai.id;
+
+
+
+UPDATE absen_guru_mapels
+INNER JOIN pegawais ON absen_guru_mapels.pegawai_id = pegawais.id
+SET absen_guru_mapels.nama_pegawai = pegawais.nama;
+
+UPDATE kelas_ekskuls
+INNER JOIN pegawais ON kelas_ekskuls.pegawai_id = pegawais.id
+SET kelas_ekskuls.pegawai = pegawais.nama

@@ -5,11 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Role;
-use App\Models\Category;
-use App\Models\Product;
-use App\Models\Complaint;
-use App\Models\Transaction;
-use App\Models\Blog;
 
 class WelcomeController extends Controller
 {
@@ -20,24 +15,14 @@ class WelcomeController extends Controller
         // Itung semua model ke view
         $totalUsers = User::count();
         $totalRoles = Role::count();
-        $totalCategories = Category::count();
-        $totalProducts = Product::count();
-        $totalComplaints = Complaint::count();
-        $totalTransactions = Transaction::count();
-        $totalBlogs = Blog::count();
         $users = User::all();
-        $blogs = Blog::all();
+        $roles = Role::all();
 
         return view('user.welcome', [
             'totalUsers' => $totalUsers,
             'totalRoles' => $totalRoles,
-            'totalCategories' => $totalCategories,
-            'totalProducts' => $totalProducts,
-            'totalComplaints' => $totalComplaints,
-            'totalTransactions' => $totalTransactions,
-            'totalBlogs' => $totalBlogs,
             'users' => $users,
-            'blogs' => $blogs,
+            'roles' => $roles,
         ]);
     }
 }

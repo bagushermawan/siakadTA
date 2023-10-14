@@ -80,45 +80,38 @@
                     </div>
                 </div>
             </div>
-            {{-- Owl Blog --}}
+        </div>
+        <div class="row">
+            {{-- Owl Role --}}
             <div class="col-6">
-                <div class="card card-success">
+                <div class="card card-info">
                     <div class="card-header">
-                        <h4>Blog <b>({{ $totalBlogs }})</b></h4>
+                        <h4>Roles <b>({{ $totalRoles }})</b></h4>
                         <div class="card-header-action">
-                            <a href="{{ route('blog') }}" class="btn btn-success btn-icon icon-right">View All <i
+                            <a href="{{ route('user') }}" class="btn btn-info btn-icon icon-right">View All <i
                                     class="fas fa-chevron-right"></i></a>
                         </div>
                     </div>
                     <div class="card-body">
-                        <div id="blog-carousel" class="owl-carousel">
-                            @foreach ($blogs as $key => $blog)
+                        <div id="role-carousel" class="owl-carousel">
+                            @foreach ($roles as $key => $role)
                                 @php
-                                    $isiBlog = substr($blog->isi, 0, 30);
+                                    // Mendapatkan nomor avatar berdasarkan indeks $key
+                                    $avatarNumber = ($key % 5) + 1;
                                 @endphp
 
                                 <div class="item">
-                                    {{-- <img alt="image" src="{{ Storage::url($blog->gambar) }}"class="img-fluid"style="border-radius: 50%;padding-left: 20px;padding-right: 20px;"> --}}
-                                    @if (isset($blog->gambar) && filter_var($blog->gambar, FILTER_VALIDATE_URL))
-                                        <!-- Tampilkan gambar jika URL gambar valid -->
-                                        <img src="{{ $blog->gambar }}"
-                                            alt="Gambar Blog"class="img-fluid"style="border-radius: 40%;padding-left: 20px;padding-right: 20px;">
-                                    @else
-                                        <!-- Tampilkan gambar default jika URL gambar tidak valid atau kosong -->
-                                        <img src="{{ Storage::url($blog->gambar) }}" alt="Gambar Default"
-                                            class="img-fluid"style="border-radius: 40%;padding-left: 20px;padding-right: 20px;">
-                                    @endif
+                                    <img alt="image" src="assets/img/avatar/avatar-{{ $avatarNumber }}.png"
+                                        class="img-fluid"
+                                        style="border-radius: 50%;padding-left: 20px;padding-right: 20px;">
                                     <div class="user-details" style="text-align: center;margin-top:10px;">
                                         <div class="user-name"
                                             style="font-weight: 600;color: #191d21;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">
-                                            <b>{{ $blog->judul }}</b>
+                                            <b>{{ $role->nama }}</b>
                                         </div>
                                         <div class="text-job text-muted"
-                                            style="font-size: 10px;text-transform: none;letter-spacing: 1px;font-weight: 700;color: #34395e;">
-                                            {{ $isiBlog }}@if (strlen($blog->isi) > 30)
-                                                ...
-                                            @endif
-                                        </div>
+                                            style="font-size: 10px;text-transform: uppercase;letter-spacing: 1px;font-weight: 700;color: #34395e;">
+                                            {{ $role->created_at }}</div>
                                     </div>
                                 </div>
                             @endforeach
@@ -127,8 +120,7 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div class="row">
+        {{-- <div class="row">
         <div class="col-4">
         <div class="card card-statistic-1">
             <div class="card-icon bg-secondary">
@@ -225,57 +217,57 @@
             </div>
         </div>
         </div>
-    </div>
-@endsection
-@push('page-script')
-    <script>
-        $(document).ready(function() {
-            $("#user-carousel").owlCarousel({
-                loop: true,
-                items: {{ count($users) }},
-                margin: 20,
-                responsiveClass: true,
-                autoplay: true,
-                autoplayTimeout: 1400,
-                dots: true,
-                autoplayHoverPause: true,
-                responsive: {
-                    0: {
-                        items: 1,
+    </div> --}}
+    @endsection
+    @push('page-script')
+        <script>
+            $(document).ready(function() {
+                $("#user-carousel").owlCarousel({
+                    loop: true,
+                    items: {{ count($users) }},
+                    margin: 20,
+                    responsiveClass: true,
+                    autoplay: true,
+                    autoplayTimeout: 1400,
+                    dots: true,
+                    autoplayHoverPause: true,
+                    responsive: {
+                        0: {
+                            items: 1,
+                        },
+                        600: {
+                            items: 3,
+                        },
+                        1000: {
+                            items: 4,
+                            loop: true,
+                        }
                     },
-                    600: {
-                        items: 3,
-                    },
-                    1000: {
-                        items: 4,
-                        loop: true,
-                    }
-                },
+                });
             });
-        });
-        $(document).ready(function() {
-            $("#blog-carousel").owlCarousel({
-                loop: true,
-                items: {{ count($blogs) }},
-                margin: 20,
-                responsiveClass: true,
-                autoplay: true,
-                autoplayTimeout: 1500,
-                dots: true,
-                autoplayHoverPause: true,
-                responsive: {
-                    0: {
-                        items: 1,
+            $(document).ready(function() {
+                $("#role-carousel").owlCarousel({
+                    loop: true,
+                    items: {{ count($roles) }},
+                    margin: 20,
+                    responsiveClass: true,
+                    autoplay: true,
+                    autoplayTimeout: 1600,
+                    dots: true,
+                    autoplayHoverPause: true,
+                    responsive: {
+                        0: {
+                            items: 1,
+                        },
+                        600: {
+                            items: 2,
+                        },
+                        1000: {
+                            items: 3,
+                            loop: true,
+                        }
                     },
-                    600: {
-                        items: 3,
-                    },
-                    1000: {
-                        items: 4,
-                        loop: true,
-                    }
-                },
+                });
             });
-        });
-    </script>
-@endpush
+        </script>
+    @endpush
