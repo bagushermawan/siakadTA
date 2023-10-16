@@ -79,14 +79,22 @@ Route::middleware(['auth', 'role'])->group(function () {
     Route::put('/tahunajaran/update/{id}', 'TahunAjaranController@update')->name('tahunajaran.update');
     Route::get('/tahunajaran/destroy/{id}', 'TahunAjaranController@destroy')->name('tahunajaran.destroy');
     Route::get('/tahunajaran/search', 'TahunAjaranController@ajaxSearch')->name('tahunajaran.ajaxsearch');
-    //Transaction
-    Route::get('/transaction', 'TransactionController@index')->name('transaction');
-    Route::get('/transaction/create', 'TransactionController@create')->name('transaction.create');
-    Route::post('/transaction/store', 'TransactionController@store')->name('transaction.store');
-    Route::get('/transaction/edit/{id}', 'TransactionController@edit')->name('transaction.edit');
-    Route::put('/transaction/update/{id}', 'TransactionController@update')->name('transaction.update');
-    Route::get('/transaction/destroy/{id}', 'TransactionController@destroy')->name('transaction.destroy');
-    Route::get('/transaction/search', 'TransactionController@ajaxSearch')->name('transaction.ajaxsearch');
+    //Kelas
+    Route::get('/kelas', 'KelasController@index')->name('kelas');
+    Route::get('/kelas/create', 'KelasController@create')->name('kelas.create');
+    Route::post('/kelas/store', 'KelasController@store')->name('kelas.store');
+    Route::get('/kelas/edit/{id}', 'KelasController@edit')->name('kelas.edit');
+    Route::put('/kelas/update/{id}', 'KelasController@update')->name('kelas.update');
+    Route::get('/kelas/destroy/{id}', 'KelasController@destroy')->name('kelas.destroy');
+    Route::get('/kelas/search', 'KelasController@ajaxSearch')->name('kelas.ajaxsearch');
+    //Kelas
+    Route::get('/prestasi', 'PrestasiController@index')->name('prestasi');
+    Route::get('/prestasi/create', 'PrestasiController@create')->name('prestasi.create');
+    Route::post('/prestasi/store', 'PrestasiController@store')->name('prestasi.store');
+    Route::get('/prestasi/edit/{id}', 'PrestasiController@edit')->name('prestasi.edit');
+    Route::put('/prestasi/update/{id}', 'PrestasiController@update')->name('prestasi.update');
+    Route::get('/prestasi/destroy/{id}', 'PrestasiController@destroy')->name('prestasi.destroy');
+    Route::get('/prestasi/search', 'PrestasiController@ajaxSearch')->name('prestasi.ajaxsearch');
     //Blog
     Route::get('/blog', 'BlogController@index')->name('blog');
     Route::get('/blog/create', 'BlogController@create')->name('blog.create');
@@ -108,8 +116,8 @@ Route::middleware(['auth', 'role'])->group(function () {
 //Front
 Route::get('/', 'FrontController@index')->name('/');
 Route::get('/resi', 'FrontController@resi')->name('resi');
-Route::get('/getTransaction', 'FrontController@getTransaction')->name('/getTransaction');
-Route::post('/getTransactionbyid', 'FrontController@getTransactionbyKode')->name('/getTransactionbyid');
+Route::get('/getKelas', 'FrontController@getKelas')->name('/getKelas');
+Route::post('/getKelasbyid', 'FrontController@getKelasbyKode')->name('/getKelasbyid');
 
 //Tes
 // Route::get("/", "TesController@index")->name('/');

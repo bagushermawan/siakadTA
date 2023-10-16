@@ -178,6 +178,7 @@
             }
         });
     </script>
+    
     @stack('page-script')
 
     <!-- Page Specific JS File -->

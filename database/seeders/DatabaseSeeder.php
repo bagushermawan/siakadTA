@@ -26,6 +26,8 @@ class DatabaseSeeder extends Seeder
         $this->call(MapelTableSeeder::class);
         $this->call(EkskulTableSeeder::class);
         $this->call(TahunAjaranTableSeeder::class);
+        $this->call(KelasTableSeeder::class);
+        $this->call(PrestasiTableSeeder::class);
         // $this->call(BlogTableSeeder::class);
         // $this->call(AskTableSeeder::class);
     }

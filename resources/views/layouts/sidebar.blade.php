@@ -4,7 +4,7 @@
             <a href="{{ route('/') }}">{{ config('app.name') }}</a>
         </div>
         <div class="sidebar-brand sidebar-brand-sm">
-            <a href="{{ route('/') }}">Bengs</a>
+            <a href="{{ route('/') }}">Si</a>
         </div>
         <ul class="sidebar-menu">
             <li class="menu-header">Dashboard</li>
@@ -31,6 +31,14 @@
             <li class="{{ request()->is('mapel*') ? 'active' : '' }}">
                 <a class="nav-link{{ request()->is('mapel*') ? ' beep beep-sidebar' : '' }}" href="{{ route('mapel') }}">
                     <i class="far fa-user"></i> <span>Mata Pelajaran</span></a>
+            </li>
+            <li class="{{ request()->is('kelas*') ? 'active' : '' }}">
+                <a class="nav-link{{ request()->is('kelas*') ? ' beep beep-sidebar' : '' }}" href="{{ route('kelas') }}">
+                    <i class="far fa-user"></i> <span>Kelas</span></a>
+            </li>
+            <li class="{{ request()->is('prestasi*') ? 'active' : '' }}">
+                <a class="nav-link{{ request()->is('prestasi*') ? ' beep beep-sidebar' : '' }}" href="{{ route('prestasi') }}">
+                    <i class="far fa-user"></i> <span>Prestasi</span></a>
             </li>
             <li class="{{ request()->is('ekskul*') ? 'active' : '' }}">
                 <a class="nav-link{{ request()->is('ekskul*') ? ' beep beep-sidebar' : '' }}" href="{{ route('ekskul') }}">

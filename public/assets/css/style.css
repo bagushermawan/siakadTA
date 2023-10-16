@@ -1646,7 +1646,7 @@ h6 .badge {
     color: #fff; }
   .navbar .nav-link {
     color: #f2f2f2;
-    padding-left: 15px !important;
+    padding-left: 35px !important;
     padding-right: 15px !important;
     padding-top: 0 !important;
     padding-bottom: 0 !important;
@@ -2493,7 +2493,7 @@ body.sidebar-mini .hide-sidebar-mini {
   display: none !important; }
 
 body.sidebar-mini .main-sidebar {
-  width: 65px;
+  width: 85px;
   overflow: initial !important;
   position: absolute;
   box-shadow: none; }
@@ -2502,7 +2502,7 @@ body.sidebar-mini .main-sidebar {
     content: ' ';
     position: fixed;
     background-color: #fff;
-    width: 65px;
+    width: 85px;
     height: 100%;
     left: 0;
     top: 0;
@@ -2597,7 +2597,7 @@ body.sidebar-mini .navbar {
   left: 65px; }
 
 body.sidebar-mini .main-content, body.sidebar-mini .main-footer {
-  padding-left: 90px; }
+  padding-left: 110px; }
 
 body.layout-2 .navbar-bg {
   z-index: 889;

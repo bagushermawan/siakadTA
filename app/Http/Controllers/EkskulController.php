@@ -50,7 +50,7 @@ class EkskulController extends Controller
         if (!$ekskul) {
             return abort(404);
         }
-        return view('ekskul.edit')->with('ekskul', $ekskul)->with('ekskul', $ekskul);
+        return view('ekskul.edit')->with('ekskul', $ekskul);
     }
 
     public function update(Request $request, $id)

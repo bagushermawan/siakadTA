@@ -1,9 +1,9 @@
 @extends('layouts.master')
-@section('title', 'Transaction')
-@section('header', 'Transaction')
+@section('title', 'Prestasi')
+@section('header', 'Prestasi')
 @section('button-header')
     <div class="section-header-button">
-        <a href="{{ route('transaction.create') }}" class="btn btn-primary">Add New</a>
+        <a href="{{ route('prestasi.create') }}" class="btn btn-primary">Add New</a>
     </div>
 @endsection
 @section('content')
@@ -25,50 +25,43 @@
                                             aria-describedby="table-1_info">
                                             <thead>
                                                 <tr role="row">
-                                                    <th style="width: 10%;">
+                                                    <th style="width: 5%;">
                                                         <center>No</center>
                                                     </th>
-                                                    <th class="sorting"style="width: 20%;">Kode</th>
-                                                    <th class="sorting"style="width: 10%;">Nama</th>
-                                                    <th class="sorting"style="width: 10%;">Merek</th>
-                                                    <th class="sorting"style="width: 10%;">Plat Nomer</th>
-                                                    <th class="sorting"style="width: 10%;">Status</th>
+                                                    <th class="sorting">Nama</th>
                                                     <th style="width: 15%;">
                                                         <center>Created at</center>
+                                                    </th>
+                                                    <th style="width: 15%;">
+                                                        <center>Updated at</center>
                                                     </th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                @if (count($daftar_transaction) > 0)
-                                                    @foreach ($daftar_transaction as $no => $transaction)
+                                                @if (count($daftar_prestasi) > 0)
+                                                    @foreach ($daftar_prestasi as $no => $prestasi)
                                                         <tr role="row" class="even">
                                                             <td>
                                                                 <center>
                                                                     {{ $loop->iteration }}
                                                                 </center>
                                                             </td>
-                                                            <td>{{ $transaction->kode }}<div class="table-links">
+                                                            <td>{{ $prestasi->nama }}<div class="table-links">
                                                                     <a
-                                                                        href="{{ route('transaction.edit', ['id' => $transaction->id]) }}">Edit</a>
+                                                                        href="{{ route('prestasi.edit', ['id' => $prestasi->id]) }}">Edit</a>
                                                                     <div class="bullet"></div>
-                                                                    <a href="{{ route('transaction.destroy', ['id' => $transaction->id]) }}"
+                                                                    <a href="{{ route('prestasi.destroy', ['id' => $prestasi->id]) }}"
                                                                         class="text-danger">Delete</a>
                                                                 </div>
                                                             </td>
-                                                            <td>{{ $transaction->nama }}</td>
-                                                            <td>{{ $transaction->merek }}</td>
-                                                            <td>{{ $transaction->platnomer }}</td>
-                                                            <td>
-                                                                @if ($transaction->status == 'Proses')
-                                                                    <div class="badge badge-secondary">Proses</div>
-                                                                @else
-                                                                    <div class="badge badge-success">Selesai</div>
-                                                                @endif
-                                                            </td>
-
                                                             <td class="text-right">
                                                                 <center>
-                                                                    {{ $transaction->created_at->format('d M Y, H:i') }}
+                                                                    {{ $prestasi->created_at->format('d M Y, H:i') }}
+                                                                </center>
+                                                            </td>
+                                                            <td class="text-right">
+                                                                <center>
+                                                                    {{ $prestasi->updated_at->format('d M Y, H:i') }}
                                                                 </center>
                                                             </td>
                                                         </tr>
@@ -80,7 +73,6 @@
                                                 @endif
                                             </tbody>
                                         </table>
-                                        {{-- {{$daftar_transaction->links()}} --}}
                                     </div>
                                 </div>
                             </div>

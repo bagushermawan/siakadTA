@@ -103,7 +103,7 @@
                                 <div class="item">
                                     <img alt="image" src="assets/img/avatar/avatar-{{ $avatarNumber }}.png"
                                         class="img-fluid"
-                                        style="border-radius: 50%;padding-left: 20px;padding-right: 20px;">
+                                        style="border-radius: 50%;padding-left: 40px;padding-right: 40px;">
                                     <div class="user-details" style="text-align: center;margin-top:10px;">
                                         <div class="user-name"
                                             style="font-weight: 600;color: #191d21;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">
