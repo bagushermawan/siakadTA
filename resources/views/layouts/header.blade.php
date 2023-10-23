@@ -19,7 +19,7 @@
             </a>
             <div class="dropdown-menu dropdown-menu-right">
                 <div class="dropdown-title">{!! $messageLoginTime !!}</div>
-                <div class="dropdown-divider"></div>
+                <div class="dropdown-divider" style="border-top-color:#e9ecef;"></div>
                 {{-- <a href="{{ route('user.edit', ['id'=>$user->id])}}" class="dropdown-item has-icon">
                     <i class="far fa-user"></i> Profile
                 </a>
@@ -29,7 +29,7 @@
                 <a href="{{ route('user.edit', ['id'=>Auth::user()->id])}}" class="dropdown-item has-icon">
                     <i class="fas fa-cog"></i> Settings
                 </a>
-                <div class="dropdown-divider"></div>
+                <div class="dropdown-divider" style="border-top-color:#e9ecef;"></div>
                 <a href="/logout" class="dropdown-item has-icon text-danger">
                     <i class="fas fa-sign-out-alt"></i> Logout
                 </a>
