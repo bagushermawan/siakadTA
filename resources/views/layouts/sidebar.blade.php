@@ -15,7 +15,7 @@
             <li class="menu-header">Pages</li>
             {{-- <li class="nav-item dropdown"> --}}
             <li class="nav-item dropdown{{ request()->is('user*', 'role*') ? ' active' : '' }}">
-                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i>
+                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-users-cog"></i>
                     <span>User & Permission</span></a>
                 <ul class="dropdown-menu">
                     <li class="{{ request()->is('user*') ? 'active' : '' }}">

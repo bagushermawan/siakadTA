@@ -15,13 +15,13 @@ class UserController extends Controller
 {
     public function index()
     {
-        $role=Role::all();
-        $daftar_user = User::paginate();
-        $count = User::count();
-        // dd($daftar_user->role->nama);
+        $allRoles = Role::pluck('nama')->toArray(); //Semua role
+        $role = ['guru', 'santri']; // beberapa role
 
-        // return view("user.index", ["daftar_user" => $daftar_user], compact('count'));
-        return view('user.index', compact('role', 'daftar_user',));
+        $daftar_user = User::whereIn('role', $allRoles)->paginate();
+        $count = $daftar_user->count();
+
+        return view('user.index', compact('role', 'daftar_user', 'count'));
 
     }
 

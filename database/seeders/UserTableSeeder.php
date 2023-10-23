@@ -23,6 +23,7 @@ class UserTableSeeder extends Seeder
         $a1->password = bcrypt("123");
         $a1->alamat = "baher";
         $a1->role = "walikelas";
+        $a1->login_time = "2023-10-16 02:07:24";
         $a1->save();
 
         $a2 = new User;
@@ -31,6 +32,7 @@ class UserTableSeeder extends Seeder
         $a2->password = bcrypt("123");
         $a2->alamat = "baher";
         $a2->role = "superadmin";
+        $a2->login_time = "2023-10-15 02:06:36";
         $a2->save();
 
 
