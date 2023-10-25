@@ -11,7 +11,7 @@ class KelasController extends Controller
 {
     public function index()
     {
-        $daftar_kelas = Kelas::paginate();
+        $daftar_kelas = Kelas::all();
         return view('kelas.index', ['daftar_kelas' => $daftar_kelas]);
     }
 

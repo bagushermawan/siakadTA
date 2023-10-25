@@ -11,7 +11,7 @@ class PrestasiController extends Controller
 {
     public function index()
     {
-        $daftar_prestasi = Prestasi::paginate();
+        $daftar_prestasi = Prestasi::all();
         return view('prestasi.index', ['daftar_prestasi' => $daftar_prestasi]);
     }
 

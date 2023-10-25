@@ -42,7 +42,7 @@
                                             <tr role="row" class="even">
                                                 <td>
                                                     <center>
-                                                        {{++$no + ($daftar_tahunajaran->currentPage()-1) * $daftar_tahunajaran->perPage()}}
+                                                        {{ $loop->iteration }}
                                                     </center>
                                                 </td>
                                                 <td>{{ $tahunajaran->nama }}<div class="table-links">

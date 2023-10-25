@@ -25,6 +25,15 @@ class MapelTableSeeder extends Seeder
             ['nama' => 'Seni Budaya dan Prakarya', 'kelompok' => 'Kelompok B'],
             ['nama' => 'Bahasa Jawa', 'kelompok' => 'Muatan Lokal'],
             ['nama' => 'Bahasa Inggris', 'kelompok' => 'Muatan Lokal'],
+            ['nama' => 'tes1'],
+            ['nama' => 'tes2'],
+            ['nama' => 'tes3'],
+            ['nama' => 'tes4'],
+            ['nama' => 'tes5'],
+            ['nama' => 'tes6'],
+            ['nama' => 'tes7'],
+            ['nama' => 'tes8'],
+            ['nama' => 'tes9'],
         ];
 
         foreach ($mapel as $mapels) {

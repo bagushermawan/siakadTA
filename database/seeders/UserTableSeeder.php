@@ -38,22 +38,49 @@ class UserTableSeeder extends Seeder
 
 
 
-        $defaultRoles = Role::whereIn('nama', ['Guru', 'Santri'])->get();
+        // $defaultRoles = Role::whereIn('nama', ['Guru', 'Santri'])->get();
 
-        // Create 9 user dummy
-        for ($i = 0; $i < 9; $i++) {
+        // for ($i = 0; $i < 9; $i++) {
+        //     $faker = Faker::create();
+        //     $fkr = new User();
+        //     $fkr->nama = $faker->name();
+        //     $fkr->email = $faker->unique()->email();
+        //     $fkr->password = bcrypt("321"); // Ganti "password" dengan password yang diinginkan
+        //     $fkr->alamat = $faker->address();
+        //     $fkr->nisn = $faker->numerify('##########');
+        //     $fkr->nuptk = $faker->numerify('################');
+
+        //     // Mengambil data role secara acak dari defaultRoles
+        //     $randomRole = $defaultRoles->random();
+        //     $fkr->role = $randomRole->nama;
+        //     $fkr->save();
+        // }
+
+        for ($i = 0; $i < 15; $i++) {
             $faker = Faker::create();
             $fkr = new User();
             $fkr->nama = $faker->name();
             $fkr->email = $faker->unique()->email();
             $fkr->password = bcrypt("321"); // Ganti "password" dengan password yang diinginkan
             $fkr->alamat = $faker->address();
+            $fkr->nisn = $faker->numerify('##########');
+            // $fkr->nuptk = $faker->numerify('################');
 
-            // Mengambil data role secara acak dari defaultRoles
-            $randomRole = $defaultRoles->random();
+            $fkr->role = 'Santri';
+            $fkr->save();
+        }
 
-            $fkr->role = $randomRole->nama;
+        for ($j = 0; $j < 15; $j++) {
+            $faker = Faker::create();
+            $fkr = new User();
+            $fkr->nama = $faker->name();
+            $fkr->email = $faker->unique()->email();
+            $fkr->password = bcrypt("321"); // Ganti "password" dengan password yang diinginkan
+            $fkr->alamat = $faker->address();
+            // $fkr->nisn = $faker->numerify('##########');
+            $fkr->nuptk = $faker->numerify('################');
 
+            $fkr->role = 'Guru';
             $fkr->save();
         }
 

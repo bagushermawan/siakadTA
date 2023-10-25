@@ -52,7 +52,7 @@
                                             <tr role="row" class="even">
                                                 <td>
                                                     <center>
-                                                        {{++$no + ($daftar_user->currentPage()-1) * $daftar_user->perPage()}}
+                                                        {{ $loop->iteration }}
                                                     </center>
                                                 </td>
                                                 <td>{{ $user->nama }}
@@ -114,5 +114,5 @@ function formatLastLogin(loginTime) {
     }
 }
 </script>
-    
+
 @endpush

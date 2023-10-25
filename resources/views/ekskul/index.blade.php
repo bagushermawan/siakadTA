@@ -42,7 +42,7 @@
                                             <tr role="row" class="even">
                                                 <td>
                                                     <center>
-                                                        {{++$no + ($daftar_ekskul->currentPage()-1) * $daftar_ekskul->perPage()}}
+                                                       {{ $loop->iteration }}
                                                     </center>
                                                 </td>
                                                 <td>{{ $ekskul->nama }}<div class="table-links">

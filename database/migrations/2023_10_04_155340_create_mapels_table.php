@@ -11,7 +11,7 @@ class CreateMapelsTable extends Migration
         Schema::create('mapels', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nama');
-            $table->string('kelompok');
+            $table->string('kelompok')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

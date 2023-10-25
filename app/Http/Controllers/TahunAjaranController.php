@@ -11,7 +11,7 @@ class TahunAjaranController extends Controller
 {
     public function index()
     {
-        $daftar_tahunajaran = TahunAjaran::paginate();
+        $daftar_tahunajaran = TahunAjaran::all();
         return view("tahunajaran.index", ["daftar_tahunajaran" => $daftar_tahunajaran]);
     }
 

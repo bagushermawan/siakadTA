@@ -43,7 +43,7 @@
                                             <tr role="row" class="even">
                                                 <td>
                                                     <center>
-                                                        {{++$no + ($daftar_mapel->currentPage()-1) * $daftar_mapel->perPage()}}
+                                                        {{ $loop->iteration }}
                                                     </center>
                                                 </td>
                                                 <td>{{ $mapel->nama }}<div class="table-links">

@@ -11,7 +11,7 @@ class EkskulController extends Controller
 {
     public function index()
     {
-        $daftar_ekskul = Ekskul::paginate();
+        $daftar_ekskul = Ekskul::all();
         return view("ekskul.index", ["daftar_ekskul" => $daftar_ekskul]);
     }
 

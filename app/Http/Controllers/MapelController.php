@@ -11,7 +11,7 @@ class MapelController extends Controller
 {
     public function index()
     {
-        $daftar_mapel = Mapel::paginate();
+        $daftar_mapel = Mapel::all();
         return view('mapel.index', ['daftar_mapel' => $daftar_mapel]);
     }
 
