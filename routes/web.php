@@ -98,7 +98,7 @@ Route::middleware(['auth', 'role'])->group(function () {
     Route::get('/prestasi/destroy/{id}', 'PrestasiController@destroy')->name('prestasi.destroy');
     Route::get('/prestasi/search', 'PrestasiController@ajaxSearch')->name('prestasi.ajaxsearch');
     Route::get('export-csv', function () {
-        return Excel::download(new PrestasisExport, 'data prestasi.csv');
+        return Excel::download(new PrestasisExport, 'tes ekspor prestasi.csv');
     });
     //Blog
     Route::get('/blog', 'BlogController@index')->name('blog');
