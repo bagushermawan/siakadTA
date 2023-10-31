@@ -17,6 +17,8 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
+                        <a href="export-csv" target="_blank" class="btn btn-primary" style="margin-bottom: 10px;">Export Data</a>
+                        <a href="{{ route('prestasi.create') }}" class="btn btn-success" style="margin-bottom: 10px;">Add New</a>
                         <div class="table-responsive">
                             <div id="table-1_wrapper" class="dataTables_wrapper container-fluid dt-bootstrap4 no-footer">
                                 <div class="row">

@@ -1,9 +1,11 @@
 <?php
 
+use App\Exports\PrestasisExport;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\ForgotPasswordController;
+use Maatwebsite\Excel\Facades\Excel;
 
 /*
 |--------------------------------------------------------------------------
@@ -87,7 +89,7 @@ Route::middleware(['auth', 'role'])->group(function () {
     Route::put('/kelas/update/{id}', 'KelasController@update')->name('kelas.update');
     Route::get('/kelas/destroy/{id}', 'KelasController@destroy')->name('kelas.destroy');
     Route::get('/kelas/search', 'KelasController@ajaxSearch')->name('kelas.ajaxsearch');
-    //Kelas
+    //Prestasi
     Route::get('/prestasi', 'PrestasiController@index')->name('prestasi');
     Route::get('/prestasi/create', 'PrestasiController@create')->name('prestasi.create');
     Route::post('/prestasi/store', 'PrestasiController@store')->name('prestasi.store');
@@ -95,6 +97,9 @@ Route::middleware(['auth', 'role'])->group(function () {
     Route::put('/prestasi/update/{id}', 'PrestasiController@update')->name('prestasi.update');
     Route::get('/prestasi/destroy/{id}', 'PrestasiController@destroy')->name('prestasi.destroy');
     Route::get('/prestasi/search', 'PrestasiController@ajaxSearch')->name('prestasi.ajaxsearch');
+    Route::get('export-csv', function () {
+        return Excel::download(new PrestasisExport, 'data prestasi.csv');
+    });
     //Blog
     Route::get('/blog', 'BlogController@index')->name('blog');
     Route::get('/blog/create', 'BlogController@create')->name('blog.create');

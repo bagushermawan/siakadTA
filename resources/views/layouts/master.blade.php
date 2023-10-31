@@ -115,7 +115,7 @@
                     data-original-title="Default" data-value="default">
                     <i class="fas fa-check ml-0"></i>
                 </a>
-                <a href="#" class="skin-btn skin-cyan" data-toggle="tooltip" data-placement="left"
+                {{-- <a href="#" class="skin-btn skin-cyan" data-toggle="tooltip" data-placement="left"
                     data-original-title="Layout Cyan" data-value="cyan">
                     <i class="ml-0"></i>
                 </a>
@@ -134,7 +134,7 @@
                 <a href="#" class="skin-btn skin-grey" data-toggle="tooltip" data-placement="left"
                     data-original-title="Layout Grey" data-value="grey">
                     <i class="ml-0"></i>
-                </a>
+                </a> --}}
                 <a href="#" class="skin-btn skin-dark" data-toggle="tooltip" data-placement="left"
                     data-original-title="Layout Dark" data-value="dark">
                     <i class="ml-0"></i>
