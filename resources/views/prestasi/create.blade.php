@@ -17,7 +17,7 @@
                         @csrf
                         <div class="form-group">
                             <label>Nama Prestasi:</label>
-                            <input type="text" name="nama" class="form-control">
+                            <input type="text" name="nama" class="form-control" autofocus>
                         </div>
                         <div class="card-footer text-right">
                             <button class="btn btn-primary mr-1" type="submit">Submit</button>

@@ -15,6 +15,55 @@ class PrestasiController extends Controller
         return view('prestasi.index', ['daftar_prestasi' => $daftar_prestasi]);
     }
 
+    public function trashed()
+    {
+        $daftar_prestasi_trashed = Prestasi::onlyTrashed()->get();
+        return view('prestasi.trashed', ['daftar_prestasi_trashed' => $daftar_prestasi_trashed]);
+    }
+
+    public function restore($id)
+    {
+        $data = Prestasi::withTrashed()->find($id);
+
+        if ($data) {
+            $data->restore();
+            Session::flash('sukses', 'Yeahh, Prestasi berhasil di restore!');
+            return redirect()->route('prestasi');
+        } else {
+            return redirect()->route('prestasi.trashed')->with('error', 'Data tidak ditemukan.');
+        }
+    }
+
+    public function deletePermanent($id)
+    {
+        $data = Prestasi::onlyTrashed()->find($id);
+
+        if ($data) {
+            $data->forceDelete();
+            Session::flash('delete', 'Yeahh, Prestasi berhasil dihapus permanen!');
+            return redirect()->route('prestasi.trashed');
+        } else {
+            return redirect()->route('prestasi.trashed')->with('error', 'Data tidak ditemukan.');
+        }
+    }
+
+    public function restoreAll()
+    {
+
+        $p = Prestasi::onlyTrashed();
+        $p->restore();
+
+        return view('prestasi.index');
+    }
+
+    public function deletePermanentAll()
+    {
+        $p = Prestasi::onlyTrashed();
+        $p->forceDelete();
+
+        return view('prestasi.trashed');
+    }
+
     public function create()
     {
         return view('prestasi.create');
@@ -37,7 +86,7 @@ class PrestasiController extends Controller
         Session::flash('sukses', 'Yeahh, Prestasi berhasil disimpan!');
         return redirect()->route('prestasi');
 
-        return back()->withErrors(['nama.required', 'Namdde is required']);
+        return back()->withErrors(['gagal', 'Nama is required']);
     }
 
     public function edit($id)

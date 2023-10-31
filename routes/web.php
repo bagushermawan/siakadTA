@@ -91,13 +91,18 @@ Route::middleware(['auth', 'role'])->group(function () {
     Route::get('/kelas/search', 'KelasController@ajaxSearch')->name('kelas.ajaxsearch');
     //Prestasi
     Route::get('/prestasi', 'PrestasiController@index')->name('prestasi');
+    Route::get('/prestasi/trashed', 'PrestasiController@trashed')->name('prestasi.trashed');
+    Route::get('/prestasi/restoreAll', 'PrestasiController@restoreAll')->name('prestasi.restoreAll');
+    Route::get('/prestasi/deletePermanentAll', 'PrestasiController@deletePermanentAll')->name('prestasi.deletePermanentAll');
+    Route::get('/prestasi/restore/{id}', 'PrestasiController@restore')->name('prestasi.restore');
+    Route::get('/prestasi/deletePermanent/{id}', 'PrestasiController@deletePermanent')->name('prestasi.deletePermanent');
     Route::get('/prestasi/create', 'PrestasiController@create')->name('prestasi.create');
     Route::post('/prestasi/store', 'PrestasiController@store')->name('prestasi.store');
     Route::get('/prestasi/edit/{id}', 'PrestasiController@edit')->name('prestasi.edit');
     Route::put('/prestasi/update/{id}', 'PrestasiController@update')->name('prestasi.update');
     Route::get('/prestasi/destroy/{id}', 'PrestasiController@destroy')->name('prestasi.destroy');
     Route::get('/prestasi/search', 'PrestasiController@ajaxSearch')->name('prestasi.ajaxsearch');
-    Route::get('export-csv', function () {
+    Route::get('download-prestasi', function () {
         return Excel::download(new PrestasisExport, 'tes ekspor prestasi.csv');
     });
     //Blog
